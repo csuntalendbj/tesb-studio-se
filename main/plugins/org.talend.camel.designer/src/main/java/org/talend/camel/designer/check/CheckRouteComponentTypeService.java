@@ -24,10 +24,6 @@ import org.talend.designer.core.ICheckNodesService;
 import org.talend.designer.core.ui.editor.nodes.Node;
 import org.talend.designer.core.ui.views.problems.Problems;
 
-/**
- * @author xpli
- * 
- */
 public class CheckRouteComponentTypeService implements ICheckNodesService {
 
     @Override

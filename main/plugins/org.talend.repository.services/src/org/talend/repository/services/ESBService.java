@@ -89,9 +89,6 @@ import org.talend.repository.services.utils.PortRepositoryObject;
 import org.talend.repository.services.utils.WSDLPopulationUtil;
 import org.talend.repository.services.utils.WSDLUtils;
 
-/**
- * DOC nrousseau class global comment. Detailled comment
- */
 public class ESBService implements IESBService {
 
     // public AbstractMetadataObject getServicesOperation(Connection connection, String operationName) {

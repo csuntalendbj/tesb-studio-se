@@ -32,9 +32,6 @@ import org.talend.core.services.ISVNProviderService;
 import org.talend.designer.core.ui.AbstractMultiPageTalendEditor;
 import org.talend.designer.core.ui.editor.AbstractTalendEditor;
 
-/**
- * DOC guanglong.du class global comment. Detailled comment
- */
 public class CamelMultiPageTalendEditor extends AbstractMultiPageTalendEditor {
 
     public static final String ID = "org.talend.camel.designer.core.ui.CamelMultiPageTalendEditor"; //$NON-NLS-1$

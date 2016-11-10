@@ -56,10 +56,6 @@ import org.talend.designer.core.ui.editor.properties.controllers.AbstractElement
 import org.talend.designer.core.ui.editor.properties.controllers.creator.SelectAllTextControlCreator;
 import org.talend.designer.runprocess.ProcessorUtilities;
 
-/**
- * @author Xiaopeng Li
- * 
- */
 public class RouteResourceController extends AbstractElementPropertySectionController {
 
     private Text labelText;

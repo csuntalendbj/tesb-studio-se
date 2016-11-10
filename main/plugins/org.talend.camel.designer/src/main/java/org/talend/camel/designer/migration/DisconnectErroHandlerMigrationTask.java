@@ -22,8 +22,6 @@ import org.talend.designer.core.model.utils.emf.talendfile.ProcessType;
  * According to the bug fix of camel https://issues.apache.org/jira/browse/CAMEL-5032
  * now, cErrorHandler is not allow to connect to a From node
  * this migration task used to disconnect them if exist when importing an old item.
- * @author GLIU
- *
  */
 public class DisconnectErroHandlerMigrationTask extends AbstractRouteItemMigrationTask {
 

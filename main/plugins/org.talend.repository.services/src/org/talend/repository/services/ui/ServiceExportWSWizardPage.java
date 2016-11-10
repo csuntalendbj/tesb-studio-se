@@ -38,10 +38,6 @@ import org.talend.repository.services.Messages;
 import org.talend.repository.services.model.services.ServiceItem;
 import org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManager.ExportChoice;
 
-/**
- * DOC x class global comment. Detailled comment <br/>
- * 
- */
 public class ServiceExportWSWizardPage extends WizardPage {
 
     private static final String OUTPUT_FILE_SUFFIX = FileConstants.ZIP_FILE_SUFFIX;

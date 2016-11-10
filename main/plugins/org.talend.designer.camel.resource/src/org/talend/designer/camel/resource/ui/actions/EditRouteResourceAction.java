@@ -28,12 +28,6 @@ import org.talend.repository.ProjectManager;
 import org.talend.repository.model.IRepositoryNode;
 import org.talend.repository.ui.actions.AContextualAction;
 
-/**
- * DOC smallet class global comment. Detailled comment <br/>
- * 
- * $Id: EditProcess.java 52559 2010-12-13 04:14:06Z nrousseau $
- * 
- */
 public class EditRouteResourceAction extends AContextualAction {
 
 	public EditRouteResourceAction() {

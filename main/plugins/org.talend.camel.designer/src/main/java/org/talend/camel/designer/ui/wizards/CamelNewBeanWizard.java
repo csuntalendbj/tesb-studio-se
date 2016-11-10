@@ -38,10 +38,7 @@ import org.talend.core.repository.model.ProxyRepositoryFactory;
 import org.talend.repository.model.IProxyRepositoryFactory;
 
 /**
- * Wizard for the creation of a new project. <br/>
- * 
- * $Id: NewProcessWizard.java 52559 2010-12-13 04:14:06Z nrousseau $
- * 
+ * Wizard for the creation of a new project.
  */
 public class CamelNewBeanWizard extends Wizard {
 

@@ -15,9 +15,6 @@ package org.talend.designer.camel.components.localprovider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-/**
- * DOC guanglong.du class global comment. Detailled comment
- */
 public class CamelComponentPlugin extends AbstractUIPlugin {
 
     private static CamelComponentPlugin plugin;

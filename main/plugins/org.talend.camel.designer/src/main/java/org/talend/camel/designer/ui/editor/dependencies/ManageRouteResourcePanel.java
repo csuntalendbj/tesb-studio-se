@@ -54,10 +54,6 @@ import org.talend.camel.designer.ui.editor.dependencies.controls.SearchCellLabel
 import org.talend.core.model.properties.Item;
 import org.talend.designer.camel.resource.core.model.ResourceDependencyModel;
 
-/**
- * @author xpli
- * 
- */
 public class ManageRouteResourcePanel extends Composite {
 
     private static final int COL_NAME = 0;

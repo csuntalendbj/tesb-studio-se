@@ -31,8 +31,6 @@ import org.talend.camel.designer.ui.editor.dependencies.Messages;
  * 
  * @author GaoZone (modify from
  *         {@link org.eclipse.pde.internal.ui.parts.PluginVersionPart}
- * 
- * 
  */
 public class DependencyVersionPart {
 

@@ -44,9 +44,6 @@ import org.talend.core.model.properties.XmlFileConnectionItem;
 import org.talend.cwm.helper.ConnectionHelper;
 import org.talend.repository.i18n.Messages;
 
-/**
- * DOC talend2 class global comment. Detailled comment
- */
 public class XmlTableForm extends Composite {
 
     private ICompleteListener completeListener;

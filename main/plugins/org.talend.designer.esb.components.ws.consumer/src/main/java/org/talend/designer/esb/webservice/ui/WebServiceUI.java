@@ -34,9 +34,6 @@ import org.talend.designer.esb.webservice.util.RouteResourcesHelper;
 import org.talend.designer.esb.webservice.ws.wsdlinfo.Function;
 import org.talend.repository.model.RepositoryNode;
 
-/**
- * gcui class global comment. Detailled comment
- */
 public class WebServiceUI extends WizardPage implements RouteResourceSelectionListener, ServiceSelectionListener {
 
 	protected int maximumRowsToPreview = CorePlugin.getDefault().getPreferenceStore()

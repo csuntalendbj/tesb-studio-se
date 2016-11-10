@@ -20,9 +20,6 @@ import org.talend.repository.model.RepositoryNode;
 import org.talend.repository.ui.wizards.exportjob.ExportTreeViewer;
 import org.talend.repository.ui.wizards.exportjob.JobScriptsExportWizardPage;
 
-/**
- * DOC achen class global comment. Detailled comment
- */
 public class ExportCamelTreeViewer extends ExportTreeViewer {
 
     // private FilteredCheckboxTree filteredCheckboxTree;

@@ -21,9 +21,6 @@ import org.eclipse.core.runtime.Path;
 import org.talend.commons.exception.ExceptionHandler;
 import org.talend.core.model.components.AbstractComponentsProvider;
 
-/**
- * DOC guanglong.du class global comment. Detailled comment
- */
 public class CamelLocalComponentsProvider extends AbstractComponentsProvider {
 
     protected File getExternalComponentsLocation() {

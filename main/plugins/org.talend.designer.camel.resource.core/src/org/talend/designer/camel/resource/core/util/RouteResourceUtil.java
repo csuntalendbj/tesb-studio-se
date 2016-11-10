@@ -59,9 +59,6 @@ import org.talend.repository.ProjectManager;
 
 /**
  * Route Resource Utility
- * 
- * @author xpli
- * 
  */
 public class RouteResourceUtil {
 

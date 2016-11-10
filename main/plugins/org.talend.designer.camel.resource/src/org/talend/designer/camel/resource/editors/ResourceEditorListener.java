@@ -25,10 +25,6 @@ import org.talend.core.model.properties.Item;
 import org.talend.core.repository.model.ProxyRepositoryFactory;
 import org.talend.designer.camel.resource.editors.input.RouteResourceInput;
 
-/**
- * @author xpli
- * 
- */
 public class ResourceEditorListener implements IPartListener2 {
 
 	private RouteResourceInput editorInput;

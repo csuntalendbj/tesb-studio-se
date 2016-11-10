@@ -14,9 +14,6 @@ package org.talend.repository.services.model.services.util;
 
 import org.talend.commons.ui.runtime.image.IImage;
 
-/**
- * DOC dlin class global comment. Detailled comment
- */
 public enum EServiceCoreImage implements IImage {
     SERVICE_ICON("/icons/services.png"), //$NON-NLS-1$
     SERVICE_WIZ("/icons/services_big.png"),

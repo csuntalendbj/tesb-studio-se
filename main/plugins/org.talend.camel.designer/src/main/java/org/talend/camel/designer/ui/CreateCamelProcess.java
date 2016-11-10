@@ -50,12 +50,6 @@ import org.talend.repository.model.IRepositoryNode.EProperties;
 import org.talend.repository.model.IRepositoryService;
 import org.talend.repository.model.RepositoryConstants;
 
-/**
- * DOC smallet class global comment. Detailled comment <br/>
- * 
- * $Id: CreateProcess.java 52792 2010-12-17 08:20:23Z cli $
- * 
- */
 public class CreateCamelProcess extends CreateProcess implements IIntroAction {
 
     private static final String CREATE_LABEL = Messages.getString("CreateProcess.createRoute"); //$NON-NLS-1$

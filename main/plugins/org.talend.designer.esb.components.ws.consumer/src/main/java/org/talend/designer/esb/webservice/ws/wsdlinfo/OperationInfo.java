@@ -11,10 +11,6 @@ import javax.wsdl.Operation;
 import javax.wsdl.Output;
 import javax.wsdl.Part;
 
-/**
- * 
- * @author gcui
- */
 public class OperationInfo {
 
     /** The URL where the target object is located. */

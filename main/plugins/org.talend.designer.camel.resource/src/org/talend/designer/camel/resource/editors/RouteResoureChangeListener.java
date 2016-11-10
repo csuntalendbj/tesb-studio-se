@@ -27,10 +27,6 @@ import org.talend.core.runtime.CoreRuntimePlugin;
 import org.talend.designer.camel.resource.editors.input.RouteResourceInput;
 import org.talend.repository.RepositoryWorkUnit;
 
-/**
- * @author xpli
- *
- */
 public class RouteResoureChangeListener implements IResourceChangeListener {
 
     private static final String SAVING_RESOURCE = "Saving resource"; //$NON-NLS-1$

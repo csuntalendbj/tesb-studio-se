@@ -24,10 +24,6 @@ import org.talend.core.ui.branding.IBrandingConfiguration;
 import org.talend.rcp.branding.esbstandard.i18n.Messages;
 import org.talend.rcp.branding.esbstandard.starting.EsbStartingBrowser;
 
-/**
- * DOC smallet class global comment. Detailled comment <br/>
- * 
- */
 public class EsbSeBrandingService extends AbstractTalendBrandingService {
 
     protected IBrandingConfiguration brandingConfigure;

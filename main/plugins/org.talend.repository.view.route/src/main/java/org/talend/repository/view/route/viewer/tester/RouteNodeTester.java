@@ -19,9 +19,6 @@ import org.talend.camel.model.CamelRepositoryNodeType;
 import org.talend.core.model.repository.ERepositoryObjectType;
 import org.talend.repository.tester.AbstractNodeTypeTester;
 
-/**
- * DOC ggu class global comment. Detailled comment
- */
 public class RouteNodeTester extends AbstractNodeTypeTester {
 
     @SuppressWarnings("serial")

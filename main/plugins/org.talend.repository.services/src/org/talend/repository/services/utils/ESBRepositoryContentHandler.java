@@ -46,9 +46,6 @@ import org.talend.repository.services.model.services.ServicesPackage;
 import org.talend.repository.services.model.services.util.EServiceCoreImage;
 import org.talend.repository.services.Messages;
 
-/**
- * DOC hwang class global comment. Detailled comment
- */
 public class ESBRepositoryContentHandler extends AbstractRepositoryContentHandler {
 
     private XmiResourceManager xmiResourceManager = new XmiResourceManager();

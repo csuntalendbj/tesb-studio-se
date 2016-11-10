@@ -43,9 +43,6 @@ import org.talend.repository.ui.actions.AContextualAction;
 
 /**
  * Action used to export job scripts. <br/>
- * 
- * $Id: ExportJobScriptAction.java 1 2006-12-13 下午03:12:05 bqian
- * 
  */
 public class ExportServiceAction extends AContextualAction {
 

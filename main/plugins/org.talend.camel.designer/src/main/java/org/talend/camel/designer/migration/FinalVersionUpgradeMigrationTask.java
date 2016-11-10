@@ -7,9 +7,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Properties;
 
-/**
- * DOC GangLiu class global comment. Detailled comment
- */
 public class FinalVersionUpgradeMigrationTask extends
 		CMessgingEndpointSwitchVersionTask {
 

@@ -25,10 +25,6 @@ import org.talend.core.ui.editor.JobEditorInput;
 import org.talend.designer.core.ICamelDesignerCoreService;
 import org.talend.designer.core.ICamelDesignerCoreUIService;
 
-/**
- * created by cmeng on Nov 25, 2015 Detailled comment
- *
- */
 public class CamelDesignerCoreUIService implements ICamelDesignerCoreUIService {
 
     /**

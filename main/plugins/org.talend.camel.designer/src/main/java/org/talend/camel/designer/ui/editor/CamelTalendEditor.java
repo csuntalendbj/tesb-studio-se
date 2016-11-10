@@ -18,9 +18,6 @@ import org.talend.camel.designer.ui.action.RoutePasteAction;
 import org.talend.core.model.components.IComponentsHandler;
 import org.talend.designer.core.ui.editor.AbstractTalendEditor;
 
-/**
- * DOC guanglong.du class global comment. Detailled comment
- */
 public class CamelTalendEditor extends AbstractTalendEditor {
 
     private static CamelComponentsHandler CAMEL_COMPONENTS_HANDLER;

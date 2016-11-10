@@ -33,10 +33,6 @@ import org.talend.core.model.properties.ReferenceFileItem;
 import org.talend.core.repository.model.ProxyRepositoryFactory;
 import org.talend.designer.camel.resource.editors.input.RouteResourceInput;
 
-/**
- * @author xpli
- * 
- */
 public class RouteResourceEditor extends TextEditor {
 
 	public static final String ID = "org.talend.designer.camel.resource.editors.RouteResourceEditor";

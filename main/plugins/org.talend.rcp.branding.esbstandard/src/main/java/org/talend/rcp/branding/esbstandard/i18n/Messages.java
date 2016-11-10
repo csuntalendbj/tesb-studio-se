@@ -23,9 +23,6 @@ import org.talend.commons.i18n.MessagesCore;
  * <ul>
  * <li>the BUNDLE_NAME constant</li>
  * </ul>
- * 
- * $Id: DefaultMessagesImpl.java 2738 2007-03-28 13:12:27Z plegall $
- * 
  */
 public class Messages extends MessagesCore {
 

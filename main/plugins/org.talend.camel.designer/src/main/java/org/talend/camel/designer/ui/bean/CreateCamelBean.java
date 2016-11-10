@@ -48,12 +48,6 @@ import org.talend.repository.model.RepositoryNode;
 import org.talend.repository.model.RepositoryNodeUtilities;
 import org.talend.repository.ui.views.IRepositoryView;
 
-/**
- * DOC smallet class global comment. Detailled comment <br/>
- * 
- * $Id: CreateProcess.java 52792 2010-12-17 08:20:23Z cli $
- * 
- */
 public class CreateCamelBean extends AbstractBeanAction implements IIntroAction {
 
     private static final String CREATE_LABEL = Messages.getString("CreateProcess.createBean"); //$NON-NLS-1$

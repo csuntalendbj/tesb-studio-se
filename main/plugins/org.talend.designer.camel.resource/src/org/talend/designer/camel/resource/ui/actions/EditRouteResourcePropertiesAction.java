@@ -27,12 +27,6 @@ import org.talend.repository.model.IRepositoryNode;
 import org.talend.repository.model.IRepositoryNode.ENodeType;
 import org.talend.repository.ui.actions.EditPropertiesAction;
 
-/**
- * smallet class global comment. Detailled comment <br/>
- * 
- * $Id: talend.epf 1 2006-09-29 17:06:40 +0000 (ven., 29 sept. 2006) nrousseau $
- * 
- */
 public class EditRouteResourcePropertiesAction extends EditPropertiesAction {
 
     public EditRouteResourcePropertiesAction() {

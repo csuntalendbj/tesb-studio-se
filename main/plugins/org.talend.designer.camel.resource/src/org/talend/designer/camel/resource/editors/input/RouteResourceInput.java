@@ -21,10 +21,6 @@ import org.talend.designer.camel.resource.core.util.RouteResourceUtil;
 import org.talend.designer.camel.resource.ui.util.RouteResourceEditorUtil;
 import org.talend.repository.model.IRepositoryNode;
 
-/**
- * @author xpli
- * 
- */
 public class RouteResourceInput extends RepositoryEditorInput {
 
 	private IResourceChangeListener listener;

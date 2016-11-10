@@ -2,11 +2,6 @@ package org.talend.designer.esb.webservice.ws.wsdlinfo;
 
 import javax.xml.namespace.QName;
 
-
-/**
- * 
- * @author gcui
- */
 public class Function {
 
     private static final String ONE_WAY = "one-way"; //$NON-NLS-1$

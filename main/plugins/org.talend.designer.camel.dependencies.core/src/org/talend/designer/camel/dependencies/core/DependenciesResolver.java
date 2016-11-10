@@ -35,8 +35,6 @@ public class DependenciesResolver {
     /**
      * builtIn items will be sorted automatically and can't be re-sorted
      * Non-BuiltIn items no sort and can be re-sorted
-     * @author liugang
-     *
      */
     private static final Comparator<ManifestItem> SORTER = new Comparator<ManifestItem>() {
         @Override

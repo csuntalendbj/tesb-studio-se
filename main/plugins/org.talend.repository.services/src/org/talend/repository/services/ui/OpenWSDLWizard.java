@@ -19,9 +19,6 @@ import org.talend.repository.model.RepositoryNode;
 import org.talend.repository.model.RepositoryNodeUtilities;
 import org.talend.repository.services.model.services.ServiceItem;
 
-/**
- * hwang class global comment. Detailled comment
- */
 public class OpenWSDLWizard extends Wizard {
 
     private OpenWSDLPage wsdlPage;

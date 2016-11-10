@@ -46,9 +46,6 @@ import org.talend.repository.services.utils.ESBRepositoryNodeType;
 import org.talend.repository.ui.actions.AContextualAction;
 import org.talend.repository.ui.views.IRepositoryView;
 
-/**
- * DOC hwang class global comment. Detailled comment
- */
 public class CreateESBAction extends AContextualAction implements IIntroAction {
 
     private static final String CREATE_LABEL = "Create Service";

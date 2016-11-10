@@ -51,8 +51,6 @@ import org.talend.designer.core.ui.editor.notes.NoteEditPart;
 import org.talend.designer.core.ui.editor.subjobcontainer.SubjobContainerPart;
 
 /**
- * DOC yyan class global comment. Detailled comment <br/>
- * 
  * @see org.talend.camel.designer.ui.editor.CamelEditorDropTargetListener
  */
 public class RoutePasteAction extends GEFPasteAction {

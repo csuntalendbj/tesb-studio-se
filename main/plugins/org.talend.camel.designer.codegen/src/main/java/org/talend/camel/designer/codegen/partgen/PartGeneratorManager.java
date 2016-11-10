@@ -21,14 +21,6 @@ public class PartGeneratorManager extends ArgumentBuilderHolder {
 	private PartGenerator<IContext> contextGenerator;
 	private PartGenerator<INode> endpointIdGenerator;
 
-    /**
-     * DOC yyan PartGeneratorManager constructor comment.
-     * Extract IRouteProcess interface
-     * @param process
-     * @param statistics
-     * @param trace
-     * @param options
-     */
     public PartGeneratorManager(IRouteProcess process, boolean statistics, boolean trace, String[] options) {
         super(new CodeGeneratorArgumentBuilder(process, statistics, trace, options));
         templateGenerator = new TemplatePartGenerator(argumentBuilder);

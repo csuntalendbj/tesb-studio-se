@@ -23,9 +23,7 @@ import org.talend.designer.core.model.utils.emf.talendfile.NodeType;
 /**
  * http://jira.talendforge.org/browse/TESB-6440
  * 
- * @author LiXiaopeng
- * Update: Removed common functions to handle NodeType to {@link AbstractRouteItemComponentMigrationTask.UtilTool} - by GaoZone.
- * {@link }
+ * Update: Removed common functions to handle NodeType to {@link AbstractRouteItemComponentMigrationTask.UtilTool}
  */
 public class UpdatecJMSMigrationTask extends AbstractRouteItemComponentMigrationTask {
 

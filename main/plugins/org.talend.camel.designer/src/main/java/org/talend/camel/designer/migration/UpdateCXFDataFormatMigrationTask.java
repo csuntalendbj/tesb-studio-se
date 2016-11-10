@@ -9,9 +9,6 @@ import org.talend.commons.exception.PersistenceException;
 import org.talend.designer.core.model.utils.emf.talendfile.ElementParameterType;
 import org.talend.designer.core.model.utils.emf.talendfile.NodeType;
 
-/**
- * DOC GangLiu class global comment. Detailled comment
- */
 public class UpdateCXFDataFormatMigrationTask extends AbstractRouteItemComponentMigrationTask {
 
 	@Override

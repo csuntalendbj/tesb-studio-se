@@ -32,10 +32,6 @@ import org.talend.repository.model.IRepositoryNode;
 import org.talend.repository.viewer.ui.provider.RepositoryViewerProvider;
 import org.talend.repository.viewer.ui.viewer.RepositoryTreeViewer;
 
-/**
- * @author xpli
- * 
- */
 public class RouteResourceSelectionDialog extends Dialog {
 
     private RepositoryTreeViewer repositoryTreeViewer;

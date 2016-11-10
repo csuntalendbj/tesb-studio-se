@@ -28,8 +28,6 @@ import org.talend.core.model.process.INode;
  * prefix/suffix.
  * </br>
  * Extend use: add {@link #TagGenerator} to {@link #generators} map in constructor method.
- * 
- * @author GaoZone
  */
 public class CamelConnectionTagGenerator {
 

@@ -26,10 +26,7 @@ import org.talend.repository.model.RepositoryNode;
 import org.talend.repository.ui.actions.AContextualAction;
 
 /**
- * bqian A action to run the selected process without opening it's editor. <br/>
- * 
- * $Id: RunProcess.java 0 2007-12-28 11:09:48Z bqian $
- * 
+ * bqian A action to run the selected process without opening it's editor.
  */
 public class RunCamelProcess extends AContextualAction {
 

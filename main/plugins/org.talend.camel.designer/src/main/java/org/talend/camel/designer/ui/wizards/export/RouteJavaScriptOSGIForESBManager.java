@@ -46,9 +46,6 @@ import org.talend.repository.ui.wizards.exportjob.scriptsmanager.esb.JobJavaScri
 import org.talend.repository.utils.EmfModelUtils;
 import org.talend.repository.utils.TemplateProcessor;
 
-/**
- * DOC ycbai class global comment. Detailled comment
- */
 public class RouteJavaScriptOSGIForESBManager extends JobJavaScriptOSGIForESBManager {
 
     private final Collection<String> routelets;

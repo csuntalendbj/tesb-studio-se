@@ -20,9 +20,6 @@ import org.talend.designer.codegen.config.TemplateUtil;
 /**
  * Internal Templates for Code Generator, must be always available to
  * encapsulate rela parts of code.
- * 
- * $Id$
- * 
  */
 public enum ECamelTemplate {
 	FOOTER_ROUTE("footer_route"), //$NON-NLS-1$ 

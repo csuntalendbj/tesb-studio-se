@@ -39,10 +39,6 @@ import org.talend.repository.model.RepositoryConstants;
 import org.talend.repository.model.RepositoryNode;
 import org.talend.repository.ui.actions.AContextualAction;
 
-/**
- * @author xpli
- * 
- */
 public class CreateRouteResourceAction extends AContextualAction implements ITreeContextualAction {
 
     public CreateRouteResourceAction() {

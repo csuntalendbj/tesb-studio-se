@@ -26,9 +26,6 @@ import org.talend.core.repository.seeker.RepositorySeekerManager;
 import org.talend.core.ui.editor.JobEditorInput;
 import org.talend.repository.model.IRepositoryNode;
 
-/**
- * DOC xtan class global comment. <br/>
- */
 public class SaveAsRoutesAction extends Action {
 
     private final EditorPart editorPart;

@@ -23,9 +23,6 @@ import org.talend.repository.model.IRepositoryNode.ENodeType;
 import org.talend.repository.services.utils.ESBRepositoryNodeType;
 import org.talend.repository.ui.actions.EditPropertiesAction;
 
-/**
- * hwang class global comment. Detailled comment
- */
 public class ServiceEditPropertiesAction extends EditPropertiesAction {
 
     public ServiceEditPropertiesAction() {

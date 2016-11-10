@@ -48,9 +48,6 @@ import org.talend.repository.services.model.services.ServiceItem;
 import org.talend.repository.services.model.services.ServiceOperation;
 import org.talend.repository.services.model.services.ServicePort;
 
-/**
- * DOC ycbai class global comment. Detailled comment
- */
 public class WSDLUtils {
 
     public static final String SERVICE_NAME = "SERVICE_NAME"; //$NON-NLS-1$

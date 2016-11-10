@@ -6,10 +6,6 @@ import java.util.List;
 
 import javax.xml.namespace.QName;
 
-/**
- * 
- * @author gcui
- */
 public class ServiceInfo {
 
     /** server name */

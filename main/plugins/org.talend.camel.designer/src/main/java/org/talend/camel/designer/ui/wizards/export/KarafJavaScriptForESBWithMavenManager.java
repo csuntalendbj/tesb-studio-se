@@ -69,9 +69,6 @@ import org.talend.repository.ui.wizards.exportjob.scriptsmanager.esb.OSGIJavaScr
 import org.talend.resources.util.EMavenBuildScriptProperties;
 import org.talend.utils.io.FilesUtils;
 
-/**
- * DOC ycbai class global comment. Detailled comment
- */
 public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithMavenManager {
 
     private String destinationKar;

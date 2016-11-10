@@ -31,12 +31,6 @@ import org.talend.designer.core.ui.action.AbstractProcessAction;
 import org.talend.repository.model.IRepositoryNode;
 import org.talend.repository.model.IRepositoryNode.ENodeType;
 
-/**
- * DOC smallet class global comment. Detailled comment <br/>
- * 
- * $Id: EditProcess.java 1495 2007-01-18 04:31:30Z nrousseau $
- * 
- */
 public class ReadCamelProcess extends AbstractProcessAction {
 
     private static final String LABEL = Messages.getString("ReadProcess.label"); //$NON-NLS-1$

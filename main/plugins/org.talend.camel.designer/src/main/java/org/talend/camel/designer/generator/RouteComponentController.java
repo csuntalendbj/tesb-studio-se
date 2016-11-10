@@ -22,10 +22,6 @@ import org.talend.core.ui.properties.tab.IDynamicProperty;
 import org.talend.designer.core.model.components.Expression;
 import org.talend.designer.core.ui.editor.properties.controllers.ComponentListController;
 
-/**
- * @author Xiaopeng Li
- * 
- */
 public class RouteComponentController extends ComponentListController {
 
     public RouteComponentController(IDynamicProperty dp) {

@@ -41,9 +41,6 @@ import org.talend.repository.utils.EmfModelUtils;
  * Camel component feature
  * 
  * http://jira.talendforge.org/browse/TESB-5375
- * 
- * @author LiXiaopeng
- * 
  */
 public final class CamelFeatureUtil {
 

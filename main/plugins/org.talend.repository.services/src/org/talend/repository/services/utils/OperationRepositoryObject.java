@@ -23,9 +23,6 @@ import org.talend.core.model.repository.IRepositoryViewObject;
 import org.talend.repository.model.IRepositoryNode;
 import org.talend.repository.services.model.services.ServiceOperation;
 
-/**
- * DOC Administrator class global comment. Detailled comment
- */
 public class OperationRepositoryObject implements IRepositoryViewObject {
 
     protected final IRepositoryViewObject viewObject;

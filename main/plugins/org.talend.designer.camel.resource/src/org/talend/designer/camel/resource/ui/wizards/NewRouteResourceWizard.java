@@ -43,9 +43,6 @@ import org.talend.repository.model.IProxyRepositoryFactory;
 
 /**
  * Wizard for the creation of a new Route Resource. <br/>
- * 
- * @author xpli
- * 
  */
 public class NewRouteResourceWizard extends Wizard {
 

@@ -25,11 +25,6 @@ import javax.wsdl.xml.WSDLReader;
 import org.talend.utils.wsdl.WSDLLoader;
 import org.xml.sax.InputSource;
 
-/**
- * class WSDLHelper
- * 
- * @author amarkevich
- */
 public class WSDLHelper {
 
     private WSDLHelper() {

@@ -4,8 +4,7 @@ import org.eclipse.gef.commands.Command;
 import org.talend.camel.model.IRouteProcess;
 
 /**
- * this command used to change the spring configuration
- * of RouteBuilder
+ * this command used to change the spring configuration of RouteBuilder
  */
 public class ChangeSpringConfigurationCommand extends Command {
 

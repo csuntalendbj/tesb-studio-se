@@ -45,9 +45,6 @@ import org.talend.repository.ui.wizards.exportjob.scriptsmanager.esb.JavaScriptF
 import org.talend.resources.util.EMavenBuildScriptProperties;
 import org.talend.utils.io.FilesUtils;
 
-/**
- * DOC ycbai class global comment. Detailled comment
- */
 public class ServiceExportWithMavenManager extends JavaScriptForESBWithMavenManager {
 
     public static final String OPERATIONS_PATH = "operations/"; //$NON-NLS-1$
@@ -59,20 +56,10 @@ public class ServiceExportWithMavenManager extends JavaScriptForESBWithMavenMana
         super(exportChoiceMap, contextName, launcher, statisticPort, tracePort);
     }
 
-    /**
-     * Getter for mavenGroupId.
-     * 
-     * @return the mavenGroupId
-     */
     public String getMavenGroupId() {
         return this.mavenGroupId;
     }
 
-    /**
-     * Sets the mavenGroupId.
-     * 
-     * @param mavenGroupId the mavenGroupId to set
-     */
     public void setMavenGroupId(String mavenGroupId) {
         this.mavenGroupId = mavenGroupId;
     }

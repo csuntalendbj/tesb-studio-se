@@ -33,9 +33,6 @@ import org.talend.repository.services.model.services.ServiceItem;
 import org.talend.repository.services.model.services.ServicesFactory;
 import org.talend.repository.services.utils.ESBRepositoryNodeType;
 
-/**
- * hwang class global comment. Detailled comment
- */
 public class ESBWizard extends CheckLastVersionRepositoryWizard {
 
     /** Main page. */

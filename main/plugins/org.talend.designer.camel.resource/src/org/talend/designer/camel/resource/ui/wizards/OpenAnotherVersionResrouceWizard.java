@@ -44,9 +44,6 @@ import org.talend.repository.model.IRepositoryNode;
 
 /**
  * Open Route Resource with another version
- * 
- * @author xpli
- * 
  */
 public class OpenAnotherVersionResrouceWizard extends Wizard {
 

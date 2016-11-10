@@ -35,9 +35,7 @@ import org.talend.repository.services.utils.ESBRepositoryNodeType;
 import org.talend.repository.ui.actions.AContextualAction;
 
 /**
- * Action used to set service metadata. <br/>
- * 
- * 
+ * Action used to set service metadata.
  */
 public class ServiceMetadataAction extends AContextualAction {
 

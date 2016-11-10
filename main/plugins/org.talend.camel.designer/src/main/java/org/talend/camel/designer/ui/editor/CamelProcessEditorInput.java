@@ -18,9 +18,6 @@ import org.talend.core.ui.editor.JobEditorInput;
 import org.talend.designer.core.ui.editor.process.Process;
 import org.talend.designer.core.ui.projectsetting.ProjectSettingManager;
 
-/**
- * DOC guanglong.du class global comment. Detailled comment
- */
 public class CamelProcessEditorInput extends JobEditorInput {
 
     public CamelProcessEditorInput(ProcessItem item, boolean load, Boolean lastVersion, Boolean readonly)

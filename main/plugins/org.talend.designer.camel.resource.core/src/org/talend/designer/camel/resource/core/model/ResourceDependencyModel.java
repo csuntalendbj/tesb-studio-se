@@ -26,10 +26,6 @@ import org.talend.core.model.repository.IRepositoryViewObject;
 import org.talend.core.model.utils.JavaResourcesHelper;
 import org.talend.core.repository.model.ProxyRepositoryFactory;
 
-/**
- * @author xpli
- * 
- */
 public class ResourceDependencyModel {
 
     public static final String LATEST_VERSION = RelationshipItemBuilder.LATEST_VERSION;

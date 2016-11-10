@@ -32,9 +32,6 @@ import org.talend.designer.codegen.ITalendSynchronizer;
 import org.talend.repository.model.RepositoryNode;
 import org.talend.repository.ui.actions.AContextualAction;
 
-/**
- * DOC Administrator class global comment. Detailled comment
- */
 public abstract class AbstractBeanAction extends AContextualAction {
 
     // protected RepositoryNode repositoryNode;

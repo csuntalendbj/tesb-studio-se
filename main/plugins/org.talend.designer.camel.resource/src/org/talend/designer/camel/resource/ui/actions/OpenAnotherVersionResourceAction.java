@@ -38,11 +38,6 @@ import org.talend.repository.model.RepositoryNode;
 import org.talend.repository.model.RepositoryNodeUtilities;
 import org.talend.repository.ui.actions.EditPropertiesAction;
 
-/**
- * 
- * @author xpli
- * 
- */
 public class OpenAnotherVersionResourceAction extends EditPropertiesAction {
 
 	public OpenAnotherVersionResourceAction() {

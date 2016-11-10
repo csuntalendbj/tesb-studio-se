@@ -29,9 +29,7 @@ import org.talend.designer.core.model.utils.emf.talendfile.ProcessType;
 import org.talend.designer.core.model.utils.emf.talendfile.TalendFileFactory;
 
 /**
- * @author LiXiaopeng
- * Update: Removed common functions to handle NodeType to {@link AbstractRouteItemComponentMigrationTask.UtilTool} - by GaoZone.
-
+ * Update: Removed common functions to handle NodeType to {@link AbstractRouteItemComponentMigrationTask.UtilTool}
  */
 public class UpdateCJMSProjectMigrationTask extends AbstractRouteItemMigrationTask {
 

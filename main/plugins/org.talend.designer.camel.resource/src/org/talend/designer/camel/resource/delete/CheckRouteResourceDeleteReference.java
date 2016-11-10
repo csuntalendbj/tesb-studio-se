@@ -31,10 +31,6 @@ import org.talend.designer.camel.resource.core.model.ResourceDependencyModel;
 import org.talend.designer.camel.resource.core.util.RouteResourceUtil;
 import org.talend.repository.model.IProxyRepositoryFactory;
 
-/**
- * @author xpli
- * 
- */
 public class CheckRouteResourceDeleteReference extends AbstractCheckDeleteItemReference {
 
     @Override

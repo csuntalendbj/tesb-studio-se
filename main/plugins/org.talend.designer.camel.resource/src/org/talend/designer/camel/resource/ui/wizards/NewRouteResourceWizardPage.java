@@ -44,11 +44,7 @@ import org.talend.designer.camel.resource.i18n.Messages;
 import org.talend.metadata.managment.ui.wizard.PropertiesWizardPage;
 
 /**
- * 
  * New Route Resource Wizard Page
- * 
- * @author xpli
- * 
  */
 public class NewRouteResourceWizardPage extends PropertiesWizardPage {
 

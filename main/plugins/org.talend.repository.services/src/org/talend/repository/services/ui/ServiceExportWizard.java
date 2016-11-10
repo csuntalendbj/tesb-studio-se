@@ -39,10 +39,7 @@ import org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManag
 import org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManager.ExportChoice;
 
 /**
- * Job scripts export wizard. <br/>
- * 
- * $Id: ServiceExportWizard.java 1 2006-12-13 PM 03:13:18 bqian
- * 
+ * Job scripts export wizard. 
  */
 public class ServiceExportWizard extends Wizard implements IExportWizard {
 

@@ -27,9 +27,6 @@ import org.talend.repository.ui.wizards.exportjob.action.JobExportAction;
 import org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManager;
 import org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManager.ExportChoice;
 
-/**
- * DOC ycbai class global comment. Detailled comment
- */
 public class JavaCamelJobScriptsExportWithMavenAction extends JavaCamelJobScriptsExportWSAction {
 
     private JobScriptsManager scriptsManager;

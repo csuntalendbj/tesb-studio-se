@@ -60,10 +60,6 @@ import org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManag
 import org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManager.ExportChoice;
 import org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManagerFactory;
 
-/**
- * DOC x class global comment. Detailled comment <br/>
- * 
- */
 public class JavaCamelJobScriptsExportWSWizardPage extends JobScriptsExportWizardPage {
 
     private static final String TOGGLE_MVN_ONLINE = "ALWAYS_MAVEN_ONLINE_FOR_MICROSERVICE";

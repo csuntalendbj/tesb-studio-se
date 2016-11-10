@@ -37,10 +37,7 @@ import org.talend.repository.services.utils.WSDLUtils;
 import org.talend.repository.ui.actions.AContextualAction;
 
 /**
- * Action used to export job scripts. <br/>
- * 
- * $Id: ExportJobScriptAction.java 1 2006-12-13 ä¸‹å�ˆ03:12:05 bqian
- * 
+ * Action used to export job scripts.
  */
 public class PublishMetadataAction extends AContextualAction {
 

@@ -74,9 +74,6 @@ import org.talend.repository.services.utils.WSDLUtils;
 import org.talend.repository.utils.TemplateProcessor;
 import org.talend.utils.wsdl.WSDLLoader;
 
-/**
- * hwang class global comment. Detailed comment
- */
 public class OpenWSDLPage extends WizardPage {
 
     private static final String TEMPLATE_SERVICE_WSDL = "/resources/wsdl-template.wsdl"; //$NON-NLS-1$

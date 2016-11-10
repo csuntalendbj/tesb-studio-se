@@ -23,9 +23,6 @@ import org.talend.core.model.repository.IRepositoryViewObject;
 import org.talend.repository.model.IRepositoryNode;
 import org.talend.repository.services.model.services.ServicePort;
 
-/**
- * DOC Administrator class global comment. Detailled comment
- */
 public class PortRepositoryObject implements IRepositoryViewObject {
 
     protected final IRepositoryViewObject viewObject;

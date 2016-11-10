@@ -19,10 +19,6 @@ import org.talend.core.model.components.ComponentCategory;
 import org.talend.core.model.components.IComponent;
 import org.talend.core.model.components.IComponentsHandler;
 
-/**
- * created by nrousseau on Jan 16, 2013 Detailled comment
- * 
- */
 public class CamelComponentsHandler implements IComponentsHandler {
 
     // private List<IComponent> camelComponents = new ArrayList<IComponent>();

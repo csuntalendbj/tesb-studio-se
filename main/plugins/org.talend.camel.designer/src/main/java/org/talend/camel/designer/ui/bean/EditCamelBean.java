@@ -36,12 +36,6 @@ import org.talend.repository.ProjectManager;
 import org.talend.repository.model.IProxyRepositoryFactory;
 import org.talend.repository.model.RepositoryNode;
 
-/**
- * DOC smallet class global comment. Detailled comment <br/>
- * 
- * $Id: EditProcess.java 52559 2010-12-13 04:14:06Z nrousseau $
- * 
- */
 public class EditCamelBean extends AbstractBeanAction implements IIntroAction {
 
     private String EDIT_LABEL = Messages.getString("EditProcess.editBean"); //$NON-NLS-1$

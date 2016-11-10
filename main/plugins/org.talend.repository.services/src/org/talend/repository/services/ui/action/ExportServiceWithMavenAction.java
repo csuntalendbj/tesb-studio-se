@@ -31,21 +31,10 @@ import org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManag
 import org.talend.repository.ui.wizards.exportjob.scriptsmanager.esb.OSGIJavaScriptForESBWithMavenManager;
 import org.talend.resources.util.EMavenBuildScriptProperties;
 
-/**
- * DOC ycbai class global comment. Detailled comment
- */
 public class ExportServiceWithMavenAction extends ExportServiceAction {
 
     private ServiceExportWithMavenManager manager;
 
-    /**
-     * DOC ycbai ExportServiceWithMavenAction constructor comment.
-     * 
-     * @param exportChoiceMap
-     * @param node
-     * @param targetPath
-     * @throws InvocationTargetException
-     */
     public ExportServiceWithMavenAction(ServiceExportWithMavenManager manager, Map<ExportChoice, Object> exportChoiceMap,
             ServiceItem serviceItem, String targetPath) throws InvocationTargetException {
         super(serviceItem, targetPath, exportChoiceMap);

@@ -22,9 +22,6 @@ import org.talend.core.model.properties.Property;
 import org.talend.designer.core.model.utils.emf.talendfile.ProcessType;
 import org.talend.designer.core.ui.editor.process.Process;
 
-/**
- * DOC nrousseau class global comment. Detailled comment
- */
 public class RouteProcess extends Process implements IRouteProcess {
 
     private String springContent = null;
