@@ -15,7 +15,7 @@ package org.talend.repository.services.utils;
 import org.talend.commons.ui.runtime.image.IImage;
 
 public enum ESBImage implements IImage {
-    SERVICE_ICON("/icons/unknown.gif"); //$NON-NLS-1$
+                                        SERVICE_ICON("/icons/unknown.gif"); //$NON-NLS-1$
 
     private String path;
 
@@ -27,10 +27,12 @@ public enum ESBImage implements IImage {
         this.path = path;
     }
 
+    @Override
     public String getPath() {
         return this.path;
     }
 
+    @Override
     public Class getLocation() {
         return ESBImage.class;
     }

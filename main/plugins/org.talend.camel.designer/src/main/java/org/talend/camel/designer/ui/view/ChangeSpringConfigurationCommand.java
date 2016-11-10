@@ -8,34 +8,33 @@ import org.talend.camel.model.IRouteProcess;
  */
 public class ChangeSpringConfigurationCommand extends Command {
 
-	private String newContent;
+    private String newContent;
 
-	private IRouteProcess process;
+    private IRouteProcess process;
 
-	private String oldContent;
+    private String oldContent;
 
-	public ChangeSpringConfigurationCommand(String newContent,
-			IRouteProcess process) {
-		super();
-		this.newContent = newContent;
-		this.process = process;
-		this.oldContent = process.getSpringContent();
-	}
+    public ChangeSpringConfigurationCommand(String newContent, IRouteProcess process) {
+        super();
+        this.newContent = newContent;
+        this.process = process;
+        this.oldContent = process.getSpringContent();
+    }
 
-	@Override
-	public void execute() {
-		this.oldContent = process.getSpringContent();
-		process.setSpringContent(newContent);
-	}
+    @Override
+    public void execute() {
+        this.oldContent = process.getSpringContent();
+        process.setSpringContent(newContent);
+    }
 
-	@Override
-	public boolean canExecute() {
-		return !newContent.trim().equals(process.getSpringContent());
-	}
+    @Override
+    public boolean canExecute() {
+        return !newContent.trim().equals(process.getSpringContent());
+    }
 
-	@Override
-	public void undo() {
-		newContent = process.getSpringContent();
-		process.setSpringContent(oldContent);
-	}
+    @Override
+    public void undo() {
+        newContent = process.getSpringContent();
+        process.setSpringContent(oldContent);
+    }
 }

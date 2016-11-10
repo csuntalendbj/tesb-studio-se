@@ -53,6 +53,7 @@ public class JobCamelScriptsExportWizard extends Wizard implements IExportWizard
         addPage(mainPage);
     }
 
+    @Override
     public void init(IWorkbench workbench, IStructuredSelection currentSelection) {
         this.selection = currentSelection;
         List<?> selectedResources = IDE.computeSelectedResources(currentSelection);

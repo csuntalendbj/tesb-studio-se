@@ -45,9 +45,10 @@ public class CamelDesignerCoreUIService implements ICamelDesignerCoreUIService {
     }
 
     private ICamelDesignerCoreService getCamelDesignerCoreService() {
-        if (_camelDesignerCoreService == null && GlobalServiceRegister.getDefault().isServiceRegistered(ICamelDesignerCoreService.class)) {
-            _camelDesignerCoreService = (ICamelDesignerCoreService) GlobalServiceRegister.getDefault().getService(
-                    ICamelDesignerCoreService.class);
+        if (_camelDesignerCoreService == null
+                && GlobalServiceRegister.getDefault().isServiceRegistered(ICamelDesignerCoreService.class)) {
+            _camelDesignerCoreService = (ICamelDesignerCoreService) GlobalServiceRegister.getDefault()
+                    .getService(ICamelDesignerCoreService.class);
         }
         return _camelDesignerCoreService;
     }

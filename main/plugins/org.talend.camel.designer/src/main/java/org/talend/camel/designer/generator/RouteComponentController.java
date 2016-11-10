@@ -33,7 +33,7 @@ public class RouteComponentController extends ComponentListController {
         final String[] filters = param.getFilter().split("&");
         final String component = filters[0];
         final String additionalFilter = filters.length > 1 ? filters[1] : null;
-        final Collection<INode> nodeList = new ArrayList<INode>();
+        final Collection<INode> nodeList = new ArrayList<>();
         for (INode node : ((INode) elem).getProcess().getNodesOfType(component)) {
             if (node.isActivate() && node.getIncomingConnections().isEmpty()) {
                 if (null != additionalFilter && !Expression.evaluate(additionalFilter, node.getElementParameters())) {

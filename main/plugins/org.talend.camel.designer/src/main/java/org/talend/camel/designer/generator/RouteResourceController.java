@@ -62,6 +62,7 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
 
     IControlCreator cbCtrl = new IControlCreator() {
 
+        @Override
         public Control createControl(final Composite parent, final int style) {
             CCombo cb = new CCombo(parent, style);
             return cb;
@@ -70,10 +71,12 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
 
     SelectionListener listenerSelection = new SelectionListener() {
 
+        @Override
         public void widgetDefaultSelected(SelectionEvent e) {
             // do nothing.
         }
 
+        @Override
         public void widgetSelected(SelectionEvent selectionEvent) {
             final PropertyChangeCommand cmd;
             if (selectionEvent.getSource() instanceof Button) {
@@ -113,7 +116,7 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
         String paramName = (String) combo.getData(PARAMETER_NAME);
         IElementParameter param = elem.getElementParameter(paramName);
         String value = combo.getText();
-        
+
         if (value.equals(param.getValue())) {
             return null;
         }
@@ -131,8 +134,8 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
         final DecoratedField dField = new DecoratedField(subComposite, SWT.BORDER | SWT.READ_ONLY,
                 new SelectAllTextControlCreator());
         if (param.isRequired()) {
-            FieldDecoration decoration = FieldDecorationRegistry.getDefault().getFieldDecoration(
-                    FieldDecorationRegistry.DEC_REQUIRED);
+            FieldDecoration decoration = FieldDecorationRegistry.getDefault()
+                    .getFieldDecoration(FieldDecorationRegistry.DEC_REQUIRED);
             dField.addFieldDecoration(decoration, SWT.RIGHT | SWT.TOP, false);
         }
         Control cLayout = dField.getLayoutControl();
@@ -217,13 +220,13 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
             int nbInRow, int top) {
         DecoratedField dField = new DecoratedField(subComposite, SWT.BORDER, cbCtrl);
         if (param.isRequired()) {
-            FieldDecoration decoration = FieldDecorationRegistry.getDefault().getFieldDecoration(
-                    FieldDecorationRegistry.DEC_REQUIRED);
+            FieldDecoration decoration = FieldDecorationRegistry.getDefault()
+                    .getFieldDecoration(FieldDecorationRegistry.DEC_REQUIRED);
             dField.addFieldDecoration(decoration, SWT.RIGHT | SWT.TOP, false);
         }
         if (param.isRepositoryValueUsed()) {
-            FieldDecoration decoration = FieldDecorationRegistry.getDefault().getFieldDecoration(
-                    FieldDecorationRegistry.DEC_CONTENT_PROPOSAL);
+            FieldDecoration decoration = FieldDecorationRegistry.getDefault()
+                    .getFieldDecoration(FieldDecorationRegistry.DEC_CONTENT_PROPOSAL);
             decoration.setDescription(""); //$NON-NLS-1$
             dField.addFieldDecoration(decoration, SWT.RIGHT | SWT.BOTTOM, false);
         }
@@ -285,7 +288,7 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
 
     private String[] getListToDisplay(IElementParameter param) {
         String[] originalList = param.getListItemsDisplayName();
-        List<String> stringToDisplay = new ArrayList<String>();
+        List<String> stringToDisplay = new ArrayList<>();
         String[] itemsShowIf = param.getListItemsShowIf();
         if (itemsShowIf != null) {
             String[] itemsNotShowIf = param.getListItemsNotShowIf();
@@ -306,6 +309,7 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
     public int estimateRowSize(Composite subComposite, IElementParameter param) {
         final DecoratedField dField = new DecoratedField(subComposite, SWT.BORDER, new IControlCreator() {
 
+            @Override
             public Control createControl(Composite parent, int style) {
                 return getWidgetFactory().createButton(parent, EParameterName.ROUTE_RESOURCE_TYPE.getDisplayName(), SWT.None);
             }
@@ -317,6 +321,7 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
         return initialSize.y + ITabbedPropertyConstants.VSPACE;
     }
 
+    @Override
     public void propertyChange(PropertyChangeEvent arg0) {
     }
 
@@ -330,8 +335,8 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
         if (resourceId == null) {
             labelText.setText("");
         } else {
-            final IElementParameter versionParameter =
-                param.getChildParameters().get(EParameterName.ROUTE_RESOURCE_TYPE_VERSION.getName());
+            final IElementParameter versionParameter = param.getChildParameters()
+                    .get(EParameterName.ROUTE_RESOURCE_TYPE_VERSION.getName());
             final String version = (String) versionParameter.getValue();
             final ResourceDependencyModel rdModel = RouteResourceUtil.createDependency(resourceId, version);
             if (rdModel == null) {
@@ -349,9 +354,9 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
     }
 
     /**
-	 * 
-	 * 
-	 */
+     * 
+     * 
+     */
     private void refreshCombo(IElementParameter childParameter) {
         if (childParameter == null) {
             return;
@@ -397,15 +402,15 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
             return;
         }
         final String resourceId = (String) processParam.getValue();
-        if(resourceId == null){
-        	return;
+        if (resourceId == null) {
+            return;
         }
 
         // for version type
-        final List<String> versions = new ArrayList<String>();
+        final List<String> versions = new ArrayList<>();
         versions.add(RelationshipItemBuilder.LATEST_VERSION);
 
-        List<IRepositoryViewObject> allVersion = new ArrayList<IRepositoryViewObject>();
+        List<IRepositoryViewObject> allVersion = new ArrayList<>();
         if (StringUtils.isNotEmpty(resourceId)) {
             allVersion = ProcessorUtilities.getAllVersionObjectById(resourceId);
 
@@ -425,11 +430,12 @@ public class RouteResourceController extends AbstractElementPropertySectionContr
         }
 
         setProcessTypeRelatedValues(processParam.getChildParameters().get(EParameterName.ROUTE_RESOURCE_TYPE_VERSION.getName()),
-            versions.toArray(new String[versions.size()]));
+                versions.toArray(new String[versions.size()]));
 
     }
 
-    private void setProcessTypeRelatedValues(IElementParameter childParam, String[] valueList/*, final String defaultValue*/) {
+    private void setProcessTypeRelatedValues(IElementParameter childParam,
+            String[] valueList/* , final String defaultValue */) {
         if (childParam == null) {
             return;
         }

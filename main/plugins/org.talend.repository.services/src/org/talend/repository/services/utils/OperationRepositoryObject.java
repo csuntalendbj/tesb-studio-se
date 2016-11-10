@@ -28,9 +28,9 @@ public class OperationRepositoryObject implements IRepositoryViewObject {
     protected final IRepositoryViewObject viewObject;
 
     protected ServiceOperation serviceOperation;
-    
+
     protected ERepositoryStatus infoStatus;
-    
+
     protected String errorTooltip;
 
     public IRepositoryViewObject getViewObject() {
@@ -42,10 +42,12 @@ public class OperationRepositoryObject implements IRepositoryViewObject {
         this.serviceOperation = serviceOperation;
     }
 
+    @Override
     public String getId() {
         return serviceOperation.getId();
     }
 
+    @Override
     public String getLabel() {
         return serviceOperation.getLabel();
     }
@@ -54,88 +56,105 @@ public class OperationRepositoryObject implements IRepositoryViewObject {
         return serviceOperation.getName();
     }
 
+    @Override
     public String getVersion() {
         return viewObject.getVersion();
     }
 
+    @Override
     public User getAuthor() {
         return viewObject.getAuthor();
     }
 
+    @Override
     public String getStatusCode() {
         return viewObject.getStatusCode();
     }
 
+    @Override
     public Date getCreationDate() {
         return viewObject.getCreationDate();
     }
 
+    @Override
     public String getDescription() {
-        return this.errorTooltip == null?viewObject.getDescription():this.errorTooltip;
+        return this.errorTooltip == null ? viewObject.getDescription() : this.errorTooltip;
     }
 
-    public void setDescription(String description){
-    	this.errorTooltip = description;
+    public void setDescription(String description) {
+        this.errorTooltip = description;
     }
 
+    @Override
     public Date getModificationDate() {
         return viewObject.getModificationDate();
     }
 
+    @Override
     public String getPurpose() {
         return viewObject.getPurpose();
     }
 
+    @Override
     public ERepositoryObjectType getRepositoryObjectType() {
         return ERepositoryObjectType.SERVICESOPERATION;
     }
 
+    @Override
     public List<IRepositoryViewObject> getChildren() {
         return viewObject.getChildren();
     }
 
+    @Override
     public void setRepositoryNode(IRepositoryNode node) {
         viewObject.setRepositoryNode(node);
     }
 
+    @Override
     public IRepositoryNode getRepositoryNode() {
         return viewObject.getRepositoryNode();
     }
 
+    @Override
     public boolean isDeleted() {
         return viewObject.isDeleted();
     }
 
+    @Override
     public String getProjectLabel() {
         return viewObject.getProjectLabel();
     }
 
+    @Override
     public String getPath() {
         return viewObject.getPath();
     }
 
+    @Override
     public ERepositoryStatus getRepositoryStatus() {
         return viewObject.getRepositoryStatus();
     }
 
+    @Override
     public ERepositoryStatus getInformationStatus() {
-        return this.infoStatus==null?viewObject.getInformationStatus():infoStatus;
+        return this.infoStatus == null ? viewObject.getInformationStatus() : infoStatus;
     }
 
-    
     public void setInformationStatus(ERepositoryStatus infoStatus) {
-		this.infoStatus = infoStatus;
-	}
+        this.infoStatus = infoStatus;
+    }
 
     public void removeFromParent() {
         // TODO Auto-generated method stub
 
     }
 
+    @Override
     public Property getProperty() {
         return viewObject.getProperty();
     }
 
+    @Override
     public boolean isModified() {
         return viewObject.isModified();
     }

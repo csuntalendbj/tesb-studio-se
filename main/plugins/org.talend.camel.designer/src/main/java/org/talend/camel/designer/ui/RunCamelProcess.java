@@ -41,6 +41,7 @@ public class RunCamelProcess extends AContextualAction {
         this.setImageDescriptor(ImageProvider.getImageDesc(ECoreImage.ROUTES_ICON));
     }
 
+    @Override
     protected void doRun() {
         ISelection selection = getSelection();
         Object obj = ((IStructuredSelection) selection).getFirstElement();
@@ -51,6 +52,7 @@ public class RunCamelProcess extends AContextualAction {
         JobLaunchShortcutManager.run(selection);
     }
 
+    @Override
     public void init(TreeViewer viewer, IStructuredSelection selection) {
         boolean canWork = !selection.isEmpty() && selection.size() == 1;
         if (canWork) {
@@ -59,7 +61,8 @@ public class RunCamelProcess extends AContextualAction {
 
             switch (node.getType()) {
             case REPOSITORY_ELEMENT:
-                if (node.getParent() == null || node.getParent().getContentType() != CamelRepositoryNodeType.repositoryRoutesType) {
+                if (node.getParent() == null
+                        || node.getParent().getContentType() != CamelRepositoryNodeType.repositoryRoutesType) {
                     canWork = false;
                 }
                 // Avoid showing in route test case

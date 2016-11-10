@@ -31,4 +31,5 @@ public class Messages {
             return '!' + key + '!';
         }
     }
+
 }

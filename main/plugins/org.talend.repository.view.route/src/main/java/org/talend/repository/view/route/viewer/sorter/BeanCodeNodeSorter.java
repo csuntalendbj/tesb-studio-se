@@ -44,4 +44,5 @@ public class BeanCodeNodeSorter extends CodeRepositoryNodeSorter {
             swap(children, beansIndex, realIndex);
         }
     }
+
 }

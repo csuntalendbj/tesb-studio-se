@@ -39,6 +39,8 @@ public class RewriteSchemaDialog extends Dialog {
         tableForm = new XmlTableForm(container, xmlObjs);
         tableForm.setLayoutData(new GridData(GridData.FILL_BOTH));
         tableForm.setListener(new XmlTableForm.ICompleteListener() {
+
+            @Override
             public void setComplete(boolean complete) {
                 getButton(IDialogConstants.OK_ID).setEnabled(complete);
             }

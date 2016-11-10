@@ -44,6 +44,7 @@ public class RouteResourceSelectionDialog extends Dialog {
         super(parentShell);
     }
 
+    @Override
     protected void configureShell(Shell shell) {
         super.configureShell(shell);
         shell.setText("Select a Route Resource");
@@ -74,15 +75,18 @@ public class RouteResourceSelectionDialog extends Dialog {
         };
 
         repositoryTreeViewer = (RepositoryTreeViewer) provider.createViewer(container);
-		repositoryTreeViewer.expandAll();
+        repositoryTreeViewer.expandAll();
 
         repositoryTreeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
+
+            @Override
             public void selectionChanged(SelectionChangedEvent event) {
-                getButton(IDialogConstants.OK_ID).setEnabled(
-                    validateSelection((IStructuredSelection) event.getSelection()));
+                getButton(IDialogConstants.OK_ID).setEnabled(validateSelection((IStructuredSelection) event.getSelection()));
             }
         });
         repositoryTreeViewer.addDoubleClickListener(new IDoubleClickListener() {
+
+            @Override
             public void doubleClick(DoubleClickEvent event) {
                 if (getButton(IDialogConstants.OK_ID).isEnabled()) {
                     okPressed();
@@ -140,7 +144,7 @@ public class RouteResourceSelectionDialog extends Dialog {
         if (selection.size() == 1) {
             result = (IRepositoryNode) selection.getFirstElement();
             if (result.getObject() != null
-                && result.getObject().getRepositoryObjectType() == CamelRepositoryNodeType.repositoryRouteResourceType) {
+                    && result.getObject().getRepositoryObjectType() == CamelRepositoryNodeType.repositoryRouteResourceType) {
                 return true;
             }
         }

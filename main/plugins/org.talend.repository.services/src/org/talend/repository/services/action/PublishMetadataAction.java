@@ -52,6 +52,7 @@ public class PublishMetadataAction extends AContextualAction {
         this.setImageDescriptor(ImageProvider.getImageDesc(EImage.HIERARCHY_ICON));
     }
 
+    @Override
     public void init(TreeViewer viewer, IStructuredSelection selection) {
         setEnabled(false);
         if (selection.size() != 1) {
@@ -59,8 +60,7 @@ public class PublishMetadataAction extends AContextualAction {
         }
         RepositoryNode node = (RepositoryNode) selection.iterator().next();
         if (node.getType() == ENodeType.REPOSITORY_ELEMENT
-                && node.getProperties(EProperties.CONTENT_TYPE) == ESBRepositoryNodeType.SERVICES
-                && node.getObject() != null
+                && node.getProperties(EProperties.CONTENT_TYPE) == ESBRepositoryNodeType.SERVICES && node.getObject() != null
                 && ProxyRepositoryFactory.getInstance().getStatus(node.getObject()) != ERepositoryStatus.DELETED) {
             serviceItem = (ServiceItem) node.getObject().getProperty().getItem();
 
@@ -71,16 +71,16 @@ public class PublishMetadataAction extends AContextualAction {
             }
 
             try {
-            	IProxyRepositoryFactory factory = ProxyRepositoryFactory.getInstance();
-    			factory.updateLockStatus();
-    			ERepositoryStatus status = factory.getStatus(node.getObject());
-    			if(!status.isEditable() && !status.isPotentiallyEditable()){
-    				setEnabled(false);
-    				return;
-    			}
-    		} catch (PersistenceException e) {
-    			e.printStackTrace();
-    		}
+                IProxyRepositoryFactory factory = ProxyRepositoryFactory.getInstance();
+                factory.updateLockStatus();
+                ERepositoryStatus status = factory.getStatus(node.getObject());
+                if (!status.isEditable() && !status.isPotentiallyEditable()) {
+                    setEnabled(false);
+                    return;
+                }
+            } catch (PersistenceException e) {
+                e.printStackTrace();
+            }
             setEnabled(true);
         }
     }
@@ -89,7 +89,7 @@ public class PublishMetadataAction extends AContextualAction {
     protected void doRun() {
         try {
             new ProgressMonitorDialog(null).run(true, true,
-                new PublishMetadataRunnable(WSDLUtils.getDefinition(serviceItem), shell));
+                    new PublishMetadataRunnable(WSDLUtils.getDefinition(serviceItem), shell));
         } catch (CoreException e) {
             ExceptionHandler.process(e);
         } catch (InvocationTargetException e) {

@@ -26,7 +26,7 @@ public class ComponentBuilder {
     }
 
     public static Collection<ServiceInfo> buildModel(final Definition def) {
-        Collection<ServiceInfo> serviceInfos = new ArrayList<ServiceInfo>();
+        Collection<ServiceInfo> serviceInfos = new ArrayList<>();
         for (Service service : (Collection<Service>) def.getServices().values()) {
             serviceInfos.add(populateComponent(service));
         }

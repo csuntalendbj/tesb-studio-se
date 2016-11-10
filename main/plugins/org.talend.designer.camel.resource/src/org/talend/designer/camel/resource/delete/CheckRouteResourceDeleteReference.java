@@ -34,18 +34,18 @@ import org.talend.repository.model.IProxyRepositoryFactory;
 public class CheckRouteResourceDeleteReference extends AbstractCheckDeleteItemReference {
 
     @Override
-    protected Set<ItemReferenceBean> checkItemReferenceBeans(IProxyRepositoryFactory factory,
-        DeleteActionCache deleteActionCache, IRepositoryViewObject object) {
-        final Set<ItemReferenceBean> list = new HashSet<ItemReferenceBean>(
-            collect(factory, object, CamelRepositoryNodeType.repositoryRoutesType));
+    protected Set<ItemReferenceBean> checkItemReferenceBeans(IProxyRepositoryFactory factory, DeleteActionCache deleteActionCache,
+            IRepositoryViewObject object) {
+        final Set<ItemReferenceBean> list = new HashSet<>(
+                collect(factory, object, CamelRepositoryNodeType.repositoryRoutesType));
         list.addAll(collect(factory, object, CamelRepositoryNodeType.repositoryRouteletType));
         return list;
     }
 
-    private Collection<ItemReferenceBean> collect(IProxyRepositoryFactory factory,
-        IRepositoryViewObject object, ERepositoryObjectType type) {
+    private Collection<ItemReferenceBean> collect(IProxyRepositoryFactory factory, IRepositoryViewObject object,
+            ERepositoryObjectType type) {
         final Item nodeItem = object.getProperty().getItem();
-        final Set<ItemReferenceBean> list = new HashSet<ItemReferenceBean>();
+        final Set<ItemReferenceBean> list = new HashSet<>();
         try {
             for (IRepositoryViewObject obj : factory.getAll(type)) {
                 final Property property = obj.getProperty();

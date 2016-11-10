@@ -59,6 +59,7 @@ public class ExportServiceAction extends AContextualAction {
         this.setImageDescriptor(ImageProvider.getImageDesc(EImage.EXPORT_JOB_ICON));
     }
 
+    @Override
     public void init(TreeViewer viewer, IStructuredSelection selection) {
         setEnabled(false);
         if (selection.isEmpty() || selection.size() > 1) {
@@ -67,8 +68,7 @@ public class ExportServiceAction extends AContextualAction {
 
         final IRepositoryNode node = (IRepositoryNode) selection.getFirstElement();
         if (node.getType() == ENodeType.REPOSITORY_ELEMENT
-                && node.getProperties(EProperties.CONTENT_TYPE) == ESBRepositoryNodeType.SERVICES
-                && node.getObject() != null
+                && node.getProperties(EProperties.CONTENT_TYPE) == ESBRepositoryNodeType.SERVICES && node.getObject() != null
                 && ProxyRepositoryFactory.getInstance().getStatus(node.getObject()) != ERepositoryStatus.DELETED) {
             serviceItem = (ServiceItem) node.getObject().getProperty().getItem();
             if (viewer != null) {
@@ -87,18 +87,17 @@ public class ExportServiceAction extends AContextualAction {
 
     @Override
     protected void doRun() {
-    	try {
-			if (!isAllOperationsAssignedJob(serviceItem)) {
-				boolean isContinue = MessageDialog
-						.openQuestion(shell, Messages.ExportServiceAction_noJobDialogTitle,
-								Messages.ExportServiceAction_noJobDialogMsg);
-				if (!isContinue) {
-					return;
-				}
-			}
-    	} catch (PersistenceException e) {
-    		ExceptionHandler.process(e);
-    	}
+        try {
+            if (!isAllOperationsAssignedJob(serviceItem)) {
+                boolean isContinue = MessageDialog.openQuestion(shell, Messages.ExportServiceAction_noJobDialogTitle,
+                        Messages.ExportServiceAction_noJobDialogMsg);
+                if (!isContinue) {
+                    return;
+                }
+            }
+        } catch (PersistenceException e) {
+            ExceptionHandler.process(e);
+        }
 
         ServiceExportWizard processWizard = new ServiceExportWizard(serviceItem);
         IWorkbench workbench = getWorkbench();
@@ -109,28 +108,28 @@ public class ExportServiceAction extends AContextualAction {
         dialog.open();
     }
 
-    private static boolean isAllOperationsAssignedJob(ServiceItem serviceItem) throws PersistenceException{
-    	ServiceConnection connection = (ServiceConnection) serviceItem.getConnection();
-    	List<IRepositoryViewObject> jobs = ProxyRepositoryFactory.getInstance().getAll(ERepositoryObjectType.PROCESS);
-    	for(ServicePort port: connection.getServicePort()){
-    		for(ServiceOperation operation: port.getServiceOperation()){
-    			String referenceJobId = operation.getReferenceJobId();
-    			if(referenceJobId == null || referenceJobId.equals("")){ //$NON-NLS-1$
-    				return false;
-    			}
+    private static boolean isAllOperationsAssignedJob(ServiceItem serviceItem) throws PersistenceException {
+        ServiceConnection connection = (ServiceConnection) serviceItem.getConnection();
+        List<IRepositoryViewObject> jobs = ProxyRepositoryFactory.getInstance().getAll(ERepositoryObjectType.PROCESS);
+        for (ServicePort port : connection.getServicePort()) {
+            for (ServiceOperation operation : port.getServiceOperation()) {
+                String referenceJobId = operation.getReferenceJobId();
+                if (referenceJobId == null || referenceJobId.equals("")) { //$NON-NLS-1$
+                    return false;
+                }
 
-    			boolean found = false;
-    			for (IRepositoryViewObject job : jobs) {
-    				if (referenceJobId.equals(job.getId())) {
-    					found = true;
-    					break;
-    				}
-    			}
-    			if(!found){
-    				return false;
-    			}
-    		}
-    	}
-    	return true;
+                boolean found = false;
+                for (IRepositoryViewObject job : jobs) {
+                    if (referenceJobId.equals(job.getId())) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

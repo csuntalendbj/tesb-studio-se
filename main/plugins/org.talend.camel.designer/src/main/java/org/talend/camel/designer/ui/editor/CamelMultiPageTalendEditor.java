@@ -79,8 +79,8 @@ public class CamelMultiPageTalendEditor extends AbstractMultiPageTalendEditor {
         }
         final IProcess2 process2 = this.getProcess();
         if (PluginChecker.isSVNProviderPluginLoaded()) {
-            final ISVNProviderService service = (ISVNProviderService) GlobalServiceRegister.getDefault().getService(
-                    ISVNProviderService.class);
+            final ISVNProviderService service = (ISVNProviderService) GlobalServiceRegister.getDefault()
+                    .getService(ISVNProviderService.class);
             if (revisionChanged && service.isProjectInSvnMode()) {
                 revisionNumStr = service.getCurrentSVNRevision(process2);
                 revisionChanged = false;

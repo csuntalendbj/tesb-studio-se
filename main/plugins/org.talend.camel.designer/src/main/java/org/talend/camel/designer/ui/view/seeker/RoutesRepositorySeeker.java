@@ -26,4 +26,5 @@ public class RoutesRepositorySeeker extends AbstractRepoViewSeeker {
         validationTypes.add(CamelRepositoryNodeType.repositoryRoutesType);
         return validationTypes;
     }
+
 }

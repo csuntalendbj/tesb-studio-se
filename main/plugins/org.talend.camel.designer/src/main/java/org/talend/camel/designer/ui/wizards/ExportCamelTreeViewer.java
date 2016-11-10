@@ -22,11 +22,11 @@ import org.talend.repository.ui.wizards.exportjob.JobScriptsExportWizardPage;
 
 public class ExportCamelTreeViewer extends ExportTreeViewer {
 
-
     public ExportCamelTreeViewer(IStructuredSelection selection, JobScriptsExportWizardPage jobScriptExportWizardPage) {
         super(selection, jobScriptExportWizardPage);
     }
 
+    @Override
     protected boolean filterRepositoryNode(RepositoryNode node) {
         if (node == null) {
             return false;

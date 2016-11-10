@@ -72,7 +72,7 @@ public class RouteResourceUtil {
 
     /**
      * Get source file of Item.
-     * 
+     *
      * @param item
      * @return
      */
@@ -133,15 +133,13 @@ public class RouteResourceUtil {
     }
 
     public static Collection<ResourceDependencyModel> getResourceDependencies(ProcessItem routeItem) {
-        return getResourceDependencies(
-            getBuiltInResourceDependencies(routeItem),
-            (String) routeItem.getProperty().getAdditionalProperties().get(ROUTE_RESOURCES_PROP));
+        return getResourceDependencies(getBuiltInResourceDependencies(routeItem),
+                (String) routeItem.getProperty().getAdditionalProperties().get(ROUTE_RESOURCES_PROP));
     }
 
     public static Collection<ResourceDependencyModel> getResourceDependencies(IProcess2 process) {
-        return getResourceDependencies(
-            getBuiltInResourceDependencies(process),
-            (String) process.getAdditionalProperties().get(ROUTE_RESOURCES_PROP));
+        return getResourceDependencies(getBuiltInResourceDependencies(process),
+                (String) process.getAdditionalProperties().get(ROUTE_RESOURCES_PROP));
     }
 
     public static ResourceDependencyModel createDependency(String id, String version) {
@@ -153,8 +151,8 @@ public class RouteResourceUtil {
                 rvo = ProxyRepositoryFactory.getInstance().getSpecificVersion(id, version, true);
             }
             if (rvo != null) {
-                final ResourceDependencyModel model =
-                    new ResourceDependencyModel((RouteResourceItem) rvo.getProperty().getItem());
+                final ResourceDependencyModel model = new ResourceDependencyModel(
+                        (RouteResourceItem) rvo.getProperty().getItem());
                 model.setSelectedVersion(version);
                 return model;
             }
@@ -176,8 +174,8 @@ public class RouteResourceUtil {
         if (!GlobalServiceRegister.getDefault().isServiceRegistered(IRunProcessService.class)) {
             return null;
         }
-        final IRunProcessService processService = (IRunProcessService) GlobalServiceRegister.getDefault().getService(
-                IRunProcessService.class);
+        final IRunProcessService processService = (IRunProcessService) GlobalServiceRegister.getDefault()
+                .getService(IRunProcessService.class);
         final ITalendProcessJavaProject talendProcessJavaProject = processService.getTalendProcessJavaProject();
         if (talendProcessJavaProject == null) {
             return null;
@@ -185,7 +183,7 @@ public class RouteResourceUtil {
 
         final IFolder routeResourceFolder = talendProcessJavaProject.getResourcesFolder();
 
-        final Collection<IPath> result = new ArrayList<IPath>();
+        final Collection<IPath> result = new ArrayList<>();
         // https://jira.talendforge.org/browse/TESB-7893
         // add spring file
         if (!routelet) {
@@ -215,9 +213,9 @@ public class RouteResourceUtil {
         return result;
     }
 
-    private static Collection<ResourceDependencyModel> getResourceDependencies(
-        Collection<ResourceDependencyModel> builtInModels, String userResources) {
-        final Collection<ResourceDependencyModel> models = new ArrayList<ResourceDependencyModel>(builtInModels);
+    private static Collection<ResourceDependencyModel> getResourceDependencies(Collection<ResourceDependencyModel> builtInModels,
+            String userResources) {
+        final Collection<ResourceDependencyModel> models = new ArrayList<>(builtInModels);
         if (userResources != null) {
             for (String id : userResources.split(RouteResourceUtil.COMMA_TAG)) {
                 final String[] parts = id.split(REPACE_SLASH_TAG);
@@ -245,7 +243,7 @@ public class RouteResourceUtil {
     }
 
     private static Collection<ResourceDependencyModel> getBuiltInResourceDependencies(final IProcess2 process) {
-        final Collection<ResourceDependencyModel> models = new HashSet<ResourceDependencyModel>();
+        final Collection<ResourceDependencyModel> models = new HashSet<>();
         for (INode node : process.getGraphicalNodes()) {
             final ResourceDependencyModel rdm = createDenpendencyModel(node);
             if (null != rdm && !models.add(rdm)) { // Merge and add
@@ -274,7 +272,7 @@ public class RouteResourceUtil {
 
     private static IProcess2 getProcessFromItem(ProcessItem item) {
         final IDesignerCoreService designerCoreService = (IDesignerCoreService) GlobalServiceRegister.getDefault()
-            .getService(IDesignerCoreService.class);
+                .getService(IDesignerCoreService.class);
         if (designerCoreService != null) {
             return (IProcess2) designerCoreService.getProcessFromItem(item);
         }
@@ -289,10 +287,10 @@ public class RouteResourceUtil {
         if (null == idParam || !idParam.isShow(node.getElementParameters())) {
             return null;
         }
-        final IElementParameter versionParam =
-            node.getElementParameter(idParam.getName() + ':' + EParameterName.ROUTE_RESOURCE_TYPE_VERSION);
-        final ResourceDependencyModel model =
-            RouteResourceUtil.createDependency((String) idParam.getValue(), (String)  versionParam.getValue());
+        final IElementParameter versionParam = node
+                .getElementParameter(idParam.getName() + ':' + EParameterName.ROUTE_RESOURCE_TYPE_VERSION);
+        final ResourceDependencyModel model = RouteResourceUtil.createDependency((String) idParam.getValue(),
+                (String) versionParam.getValue());
         if (null != model) {
             model.setBuiltIn(true);
             model.getRefNodes().add(node.getUniqueName());

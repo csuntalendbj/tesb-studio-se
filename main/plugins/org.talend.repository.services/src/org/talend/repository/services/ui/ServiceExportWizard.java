@@ -39,7 +39,7 @@ import org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManag
 import org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManager.ExportChoice;
 
 /**
- * Job scripts export wizard. 
+ * Job scripts export wizard.
  */
 public class ServiceExportWizard extends Wizard implements IExportWizard {
 
@@ -65,6 +65,7 @@ public class ServiceExportWizard extends Wizard implements IExportWizard {
         setNeedsProgressMonitor(true);
     }
 
+    @Override
     public void init(IWorkbench workbench, IStructuredSelection currentSelection) {
     }
 
@@ -91,8 +92,8 @@ public class ServiceExportWizard extends Wizard implements IExportWizard {
         Map<ExportChoice, Object> exportChoiceMap = mainPage.getExportChoiceMap();
         try {
             if (mainPage.isAddMavenScript()) {
-                ServiceExportWithMavenManager mavenManager = new ServiceExportWithMavenManager(exportChoiceMap,
-                        IContext.DEFAULT, JobScriptsManager.LAUNCHER_ALL, IProcessor.NO_STATISTICS, IProcessor.NO_TRACES);
+                ServiceExportWithMavenManager mavenManager = new ServiceExportWithMavenManager(exportChoiceMap, IContext.DEFAULT,
+                        JobScriptsManager.LAUNCHER_ALL, IProcessor.NO_STATISTICS, IProcessor.NO_TRACES);
                 IRunnableWithProgress action = new ExportServiceWithMavenAction(mavenManager, exportChoiceMap, serviceItem,
                         destinationValue);
                 getContainer().run(false, true, action);

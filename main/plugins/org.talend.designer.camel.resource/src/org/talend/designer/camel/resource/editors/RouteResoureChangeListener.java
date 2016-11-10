@@ -46,10 +46,9 @@ public class RouteResoureChangeListener implements IResourceChangeListener {
 
     /*
      * yyan:Updated to use work unit
-     * 
-     * @see
-     * org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org.eclipse.core.resources.IResourceChangeEvent
-     * )
+     *
+     * @see org.eclipse.core.resources.IResourceChangeListener#resourceChanged(org.eclipse.core.resources.
+     * IResourceChangeEvent )
      */
     @Override
     public void resourceChanged(IResourceChangeEvent event) {
@@ -77,7 +76,8 @@ public class RouteResoureChangeListener implements IResourceChangeListener {
 
                     if (resource.equals(editorFile)) {
 
-                        final RepositoryWorkUnit<Object> repositoryWorkUnit = new RepositoryWorkUnit<Object>(SAVING_RESOURCE, this) {
+                        final RepositoryWorkUnit<Object> repositoryWorkUnit = new RepositoryWorkUnit<Object>(SAVING_RESOURCE,
+                                this) {
 
                             @Override
                             protected void run() throws LoginException, PersistenceException {

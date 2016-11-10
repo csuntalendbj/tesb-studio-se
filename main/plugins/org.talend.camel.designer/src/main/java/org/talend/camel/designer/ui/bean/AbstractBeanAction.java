@@ -34,6 +34,7 @@ import org.talend.repository.ui.actions.AContextualAction;
 
 public abstract class AbstractBeanAction extends AContextualAction {
 
+    @Override
     public void init(TreeViewer viewer, IStructuredSelection selection) {
         setEnabled(false);
         Object o = selection.getFirstElement();
@@ -47,8 +48,8 @@ public abstract class AbstractBeanAction extends AContextualAction {
         if (beanItem == null) {
             return null;
         }
-        ICodeGeneratorService service = (ICodeGeneratorService) GlobalServiceRegister.getDefault().getService(
-                ICodeGeneratorService.class);
+        ICodeGeneratorService service = (ICodeGeneratorService) GlobalServiceRegister.getDefault()
+                .getService(ICodeGeneratorService.class);
 
         ECodeLanguage lang = ((RepositoryContext) CorePlugin.getContext().getProperty(Context.REPOSITORY_CONTEXT_KEY))
                 .getProject().getLanguage();
@@ -83,7 +84,7 @@ public abstract class AbstractBeanAction extends AContextualAction {
             }
             RepositoryEditorInput input = new BeanEditorInput(file, beanItem);
             input.setReadOnly(readOnly);
-            talendEditor = page.openEditor(input, talendEditorID); //$NON-NLS-1$            
+            talendEditor = page.openEditor(input, talendEditorID);
         }
 
         return talendEditor;
@@ -91,6 +92,7 @@ public abstract class AbstractBeanAction extends AContextualAction {
     }
 
     @Override
-    protected void doRun() {}
+    protected void doRun() {
+    }
 
 }

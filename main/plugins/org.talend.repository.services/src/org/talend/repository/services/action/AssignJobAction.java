@@ -95,11 +95,11 @@ public class AssignJobAction extends AbstractCreateAction {
         if (!status.isEditable() && !status.isPotentiallyEditable()) {
             setEnabled(false);
         } else {
-        	//not enabled if the operation doesn't define in binding
-        	if(!WSDLUtils.isOperationInBinding(node)){
-        		setEnabled(false);
-        		return;
-        	}
+            // not enabled if the operation doesn't define in binding
+            if (!WSDLUtils.isOperationInBinding(node)) {
+                setEnabled(false);
+                return;
+            }
             setEnabled(true);
         }
     }
@@ -117,8 +117,8 @@ public class AssignJobAction extends AbstractCreateAction {
                 repositoryNode = getRepositoryNodeForDefault(currentNodeType);
             }
         }
-        RepositoryReviewDialog dialog = new RepositoryReviewDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-                .getShell(), ERepositoryObjectType.PROCESS, "");
+        RepositoryReviewDialog dialog = new RepositoryReviewDialog(
+                PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), ERepositoryObjectType.PROCESS, "");
         List<String> jobIDList = getAllReferenceJobId(repositoryNode);
         dialog.setJobIDList(jobIDList);
         if (dialog.open() == RepositoryReviewDialog.OK) {
@@ -295,8 +295,8 @@ public class AssignJobAction extends AbstractCreateAction {
     private List<String> getAllReferenceJobId(RepositoryNode repositoryNode) {
         repositoryNode = getTopParent(repositoryNode);
         List<IRepositoryNode> nodeList = repositoryNode.getChildren();
-        List<ServiceOperation> operaList = new ArrayList<ServiceOperation>();
-        List<String> jobIDList = new ArrayList<String>();
+        List<ServiceOperation> operaList = new ArrayList<>();
+        List<String> jobIDList = new ArrayList<>();
         for (IRepositoryNode node : nodeList) {
             if (node.getObject().getProperty().getItem() instanceof ServiceItem) {
                 ServiceItem item = (ServiceItem) node.getObject().getProperty().getItem();
@@ -324,10 +324,9 @@ public class AssignJobAction extends AbstractCreateAction {
             String serviceId = connectionItem.getProperty().getId();
             String portId = ((PortRepositoryObject) repNode.getParent().getObject()).getId();
             String operationId = ((OperationRepositoryObject) repNode.getObject()).getId();
-            ChangeValuesFromRepository command2 = new ChangeValuesFromRepository(
-                    node,
-                    connectionItem.getConnection(),
-                    param.getName() + ":" + EParameterName.REPOSITORY_PROPERTY_TYPE.getName(), serviceId + " - " + portId + " - " + operationId); //$NON-NLS-1$
+            ChangeValuesFromRepository command2 = new ChangeValuesFromRepository(node, connectionItem.getConnection(),
+                    param.getName() + ":" + EParameterName.REPOSITORY_PROPERTY_TYPE.getName(), //$NON-NLS-1$
+                    serviceId + " - " + portId + " - " + operationId);
             command2.execute();
         }
     }
@@ -340,8 +339,8 @@ public class AssignJobAction extends AbstractCreateAction {
             ChangeValuesFromRepository command2 = new ChangeValuesFromRepository(node, connectionItem.getConnection(),
                     param.getName() + ":" + EParameterName.PROPERTY_TYPE.getName(), EmfComponent.BUILTIN); //$NON-NLS-1$
             command2.execute();
-            command2 = new ChangeValuesFromRepository(node, connectionItem.getConnection(), param.getName()
-                    + ":" + EParameterName.REPOSITORY_PROPERTY_TYPE.getName(), ""); //$NON-NLS-1$
+            command2 = new ChangeValuesFromRepository(node, connectionItem.getConnection(),
+                    param.getName() + ":" + EParameterName.REPOSITORY_PROPERTY_TYPE.getName(), ""); //$NON-NLS-1$
             command2.execute();
         }
     }

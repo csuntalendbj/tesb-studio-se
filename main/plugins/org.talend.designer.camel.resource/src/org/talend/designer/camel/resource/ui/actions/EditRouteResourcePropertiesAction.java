@@ -35,16 +35,16 @@ public class EditRouteResourcePropertiesAction extends EditPropertiesAction {
         this.setImageDescriptor(ImageProvider.getImageDesc(EImage.EDIT_ICON));
     }
 
+    @Override
     public void init(TreeViewer viewer, IStructuredSelection selection) {
         boolean canWork = selection.size() == 1;
         if (canWork) {
-            Object o = ((IStructuredSelection) selection).getFirstElement();
+            Object o = selection.getFirstElement();
             if (o instanceof IRepositoryNode) {
                 final IRepositoryNode node = (IRepositoryNode) o;
                 canWork = node.getType() == ENodeType.REPOSITORY_ELEMENT
-                    && node.getObjectType() == CamelRepositoryNodeType.repositoryRouteResourceType
-                    && node.getObject().getRepositoryStatus() != ERepositoryStatus.DELETED
-                    && isLastVersion(node);
+                        && node.getObjectType() == CamelRepositoryNodeType.repositoryRouteResourceType
+                        && node.getObject().getRepositoryStatus() != ERepositoryStatus.DELETED && isLastVersion(node);
             }
         }
         setEnabled(canWork);
@@ -54,4 +54,5 @@ public class EditRouteResourcePropertiesAction extends EditPropertiesAction {
     protected PropertiesWizard getPropertiesWizard(IRepositoryViewObject object, IPath path) {
         return new EditRouteResourcePropertiesWizard(object, path, getNeededVersion() == null);
     }
+
 }

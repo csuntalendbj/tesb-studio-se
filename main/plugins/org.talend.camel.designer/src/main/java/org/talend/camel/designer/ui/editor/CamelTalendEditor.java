@@ -53,6 +53,7 @@ public class CamelTalendEditor extends AbstractTalendEditor {
         saveAsAction.run();
     }
 
+    @Override
     protected IComponentsHandler initComponentsHandler() {
         if (CAMEL_COMPONENTS_HANDLER == null) {
             synchronized (CamelTalendEditor.class) {

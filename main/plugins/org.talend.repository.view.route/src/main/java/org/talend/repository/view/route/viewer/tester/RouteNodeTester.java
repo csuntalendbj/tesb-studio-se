@@ -23,6 +23,7 @@ public class RouteNodeTester extends AbstractNodeTypeTester {
 
     @SuppressWarnings("serial")
     private static final Map<String, ERepositoryObjectType> PROPERTY_MAPPING = new HashMap<String, ERepositoryObjectType>() {
+
         {
             put("isRoutesTopNode", CamelRepositoryNodeType.repositoryRoutesType); //$NON-NLS-1$
             put("isBeans", CamelRepositoryNodeType.repositoryBeansType); //$NON-NLS-1$

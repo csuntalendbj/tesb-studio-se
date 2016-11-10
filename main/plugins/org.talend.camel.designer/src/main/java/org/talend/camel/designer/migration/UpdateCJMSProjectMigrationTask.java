@@ -37,7 +37,6 @@ public class UpdateCJMSProjectMigrationTask extends AbstractRouteItemMigrationTa
 
     private static final TalendFileFactory FILE_FACTORY = TalendFileFactory.eINSTANCE;
 
-
     private NodeType createConnectionFactoryNode(NodeType currentNode) {
         NodeType nodeType = FILE_FACTORY.createNodeType();
         nodeType.setSizeX(32);
@@ -59,8 +58,8 @@ public class UpdateCJMSProjectMigrationTask extends AbstractRouteItemMigrationTa
 
         for (Object e : currentNode.getElementParameter()) {
             ElementParameterType p = (ElementParameterType) e;
-            if (!("UNIQUE_NAME".equals(p.getName()) || "LABEL".equals(p.getName()) || "TYPE".equals(p.getName()) || "DESTINATION"
-                    .equals(p.getName()))) {
+            if (!("UNIQUE_NAME".equals(p.getName()) || "LABEL".equals(p.getName()) || "TYPE".equals(p.getName())
+                    || "DESTINATION".equals(p.getName()))) {
 
                 UtilTool.addParameterType(nodeType, p.getField(), p.getName(), p.getValue(), p.getElementValue());
             }
@@ -96,6 +95,7 @@ public class UpdateCJMSProjectMigrationTask extends AbstractRouteItemMigrationTa
         return max;
     }
 
+    @Override
     public Date getOrder() {
         GregorianCalendar gc = new GregorianCalendar(2012, 2, 16, 10, 00, 00);
         return gc.getTime();
@@ -134,7 +134,7 @@ public class UpdateCJMSProjectMigrationTask extends AbstractRouteItemMigrationTa
         }
         boolean modified = false;
 
-        List<NodeType> nodes = new ArrayList<NodeType>();
+        List<NodeType> nodes = new ArrayList<>();
 
         for (Object o : processType.getNode()) {
             if (o instanceof NodeType) {

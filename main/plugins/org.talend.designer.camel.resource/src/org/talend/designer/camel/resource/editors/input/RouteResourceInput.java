@@ -23,35 +23,33 @@ import org.talend.repository.model.IRepositoryNode;
 
 public class RouteResourceInput extends RepositoryEditorInput {
 
-	private IResourceChangeListener listener;
+    private IResourceChangeListener listener;
 
-	protected RouteResourceInput(IFile file, Item item) {
-		super(file, item);
-	}
+    protected RouteResourceInput(IFile file, Item item) {
+        super(file, item);
+    }
 
-	public static RouteResourceInput createInput(IRepositoryNode node, RouteResourceItem item) {
-		RouteResourceInput routeResourceInput = new RouteResourceInput(
-				RouteResourceUtil.getSourceFile(item), item);
-		if(node!=null) {
-			routeResourceInput.setRepositoryNode(node);
-			routeResourceInput.setReadOnly(RouteResourceEditorUtil.isReadOnly(node));
-		}
-		return routeResourceInput;
-	}
+    public static RouteResourceInput createInput(IRepositoryNode node, RouteResourceItem item) {
+        RouteResourceInput routeResourceInput = new RouteResourceInput(RouteResourceUtil.getSourceFile(item), item);
+        if (node != null) {
+            routeResourceInput.setRepositoryNode(node);
+            routeResourceInput.setReadOnly(RouteResourceEditorUtil.isReadOnly(node));
+        }
+        return routeResourceInput;
+    }
 
-	public void setListener(IResourceChangeListener listener) {
-		this.listener = listener;
-	}
+    public void setListener(IResourceChangeListener listener) {
+        this.listener = listener;
+    }
 
-	public IResourceChangeListener getListener() {
-		return listener;
-	}
+    public IResourceChangeListener getListener() {
+        return listener;
+    }
 
-	public String getName() {
-		String label = (getItem() == null ? "" : getItem().getProperty()
-				.getLabel());
-		String version = (getItem() == null ? "0.1" : getItem().getProperty()
-				.getVersion());
-		return label + " " + version+ (isReadOnly()?" (ReadOnly)":"");
-	}
+    @Override
+    public String getName() {
+        String label = (getItem() == null ? "" : getItem().getProperty().getLabel());
+        String version = (getItem() == null ? "0.1" : getItem().getProperty().getVersion());
+        return label + " " + version + (isReadOnly() ? " (ReadOnly)" : "");
+    }
 }

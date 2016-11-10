@@ -15,9 +15,9 @@ package org.talend.camel.designer.util;
 import org.talend.commons.ui.runtime.image.IImage;
 
 public enum ECamelCoreImage implements IImage {
-    RESOURCE_ICON("/icons/resource.png"), //$NON-NLS-1$
-    BEAN_ICON("/icons/bean.gif"), //$NON-NLS-1$
-    ROUTE_EDITOR_ICON("/icons/routes_editor.png"); //$NON-NLS-1$
+                                               RESOURCE_ICON("/icons/resource.png"), //$NON-NLS-1$
+                                               BEAN_ICON("/icons/bean.gif"), //$NON-NLS-1$
+                                               ROUTE_EDITOR_ICON("/icons/routes_editor.png"); //$NON-NLS-1$
 
     private String path;
 

@@ -23,6 +23,7 @@ import org.talend.core.model.components.AbstractComponentsProvider;
 
 public class CamelLocalComponentsProvider extends AbstractComponentsProvider {
 
+    @Override
     protected File getExternalComponentsLocation() {
         URL url = FileLocator.find(CamelComponentPlugin.getDefault().getBundle(), new Path("components"), null); //$NON-NLS-1$
         try {

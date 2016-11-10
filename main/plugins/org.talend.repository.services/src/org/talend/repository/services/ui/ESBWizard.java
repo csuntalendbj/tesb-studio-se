@@ -49,7 +49,7 @@ public class ESBWizard extends CheckLastVersionRepositoryWizard {
 
     /**
      * Constructs a new NewProjectWizard.
-     * 
+     *
      * @param author Project author.
      * @param server
      * @param password
@@ -82,8 +82,9 @@ public class ESBWizard extends CheckLastVersionRepositoryWizard {
         case SIMPLE_FOLDER:
         case SYSTEM_FOLDER:
             this.property = PropertiesFactory.eINSTANCE.createProperty();
-            this.property.setAuthor(((RepositoryContext) CoreRuntimePlugin.getInstance().getContext()
-                    .getProperty(Context.REPOSITORY_CONTEXT_KEY)).getUser());
+            this.property.setAuthor(
+                    ((RepositoryContext) CoreRuntimePlugin.getInstance().getContext().getProperty(Context.REPOSITORY_CONTEXT_KEY))
+                            .getUser());
             this.property.setVersion(VersionUtils.DEFAULT_VERSION);
             this.property.setStatusCode(""); //$NON-NLS-1$
 

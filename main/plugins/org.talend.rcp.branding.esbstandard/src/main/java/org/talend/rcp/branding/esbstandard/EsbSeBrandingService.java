@@ -41,19 +41,19 @@ public class EsbSeBrandingService extends AbstractTalendBrandingService {
     @Override
     public ImageDescriptor getLoginVImage() {
         return Activator.imageDescriptorFromPlugin(Activator.getDefault().getBundle().getSymbolicName(),
-            Messages.getString("loginimageleft")); //$NON-NLS-1$
+                Messages.getString("loginimageleft")); //$NON-NLS-1$
     }
 
     @Override
     public ImageDescriptor getLoginHImage() {
         return Activator.imageDescriptorFromPlugin(Activator.getDefault().getBundle().getSymbolicName(),
-            Messages.getString("loginimagehigh")); //$NON-NLS-1$
+                Messages.getString("loginimagehigh")); //$NON-NLS-1$
     }
 
     @Override
     public URL getLicenseFile() throws IOException {
-        return FileLocator.toFileURL(FileLocator.find(Activator.getDefault().getBundle(),
-            new Path("resources/license.txt"), null)); //$NON-NLS-1$
+        return FileLocator
+                .toFileURL(FileLocator.find(Activator.getDefault().getBundle(), new Path("resources/license.txt"), null)); //$NON-NLS-1$
     }
 
     @Override

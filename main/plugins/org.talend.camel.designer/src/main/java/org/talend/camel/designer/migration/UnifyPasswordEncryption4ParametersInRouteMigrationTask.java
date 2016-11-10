@@ -26,7 +26,7 @@ public class UnifyPasswordEncryption4ParametersInRouteMigrationTask extends Unif
 
     @Override
     public List<ERepositoryObjectType> getTypes() {
-        List<ERepositoryObjectType> toReturn = new ArrayList<ERepositoryObjectType>();
+        List<ERepositoryObjectType> toReturn = new ArrayList<>();
         toReturn.add(CamelRepositoryNodeType.repositoryRoutesType);
         return toReturn;
     }

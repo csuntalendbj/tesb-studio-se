@@ -147,8 +147,8 @@ public class CreateCamelProcess extends CreateProcess implements IIntroAction {
         // Set readonly to false since created job will always be editable.
         CamelProcessEditorInput fileEditorInput = new CamelProcessEditorInput(processItem, false, true, false);
 
-        IRepositoryNode repositoryNode = RepositorySeekerManager.getInstance().searchRepoViewNode(
-                fileEditorInput.getItem().getProperty().getId(), false);
+        IRepositoryNode repositoryNode = RepositorySeekerManager.getInstance()
+                .searchRepoViewNode(fileEditorInput.getItem().getProperty().getId(), false);
         fileEditorInput.setRepositoryNode(repositoryNode);
 
         IWorkbenchPage page = getActivePage();

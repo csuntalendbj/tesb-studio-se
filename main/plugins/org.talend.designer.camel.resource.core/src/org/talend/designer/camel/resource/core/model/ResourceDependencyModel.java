@@ -39,7 +39,7 @@ public class ResourceDependencyModel {
      */
     private boolean isBuiltIn;
 
-    private final Collection<String> refNodes = new HashSet<String>();
+    private final Collection<String> refNodes = new HashSet<>();
 
     public ResourceDependencyModel(RouteResourceItem item) {
         this.item = item;
@@ -70,10 +70,9 @@ public class ResourceDependencyModel {
     }
 
     public Collection<String> getVersions() {
-        final List<String> versions = new ArrayList<String>();
+        final List<String> versions = new ArrayList<>();
         try {
-            for (IRepositoryViewObject obj : ProxyRepositoryFactory.getInstance().getAllVersion(
-                item.getProperty().getId())) {
+            for (IRepositoryViewObject obj : ProxyRepositoryFactory.getInstance().getAllVersion(item.getProperty().getId())) {
                 versions.add(obj.getVersion());
             }
         } catch (PersistenceException e) {

@@ -23,7 +23,7 @@ public class CamelComponentsHandler implements IComponentsHandler {
 
     @Override
     public List<IComponent> filterComponents(List<IComponent> allComponents) {
-        List<IComponent> camelComponents = new ArrayList<IComponent>();
+        List<IComponent> camelComponents = new ArrayList<>();
         if (allComponents == null || allComponents.isEmpty()) {
             return camelComponents;
         }

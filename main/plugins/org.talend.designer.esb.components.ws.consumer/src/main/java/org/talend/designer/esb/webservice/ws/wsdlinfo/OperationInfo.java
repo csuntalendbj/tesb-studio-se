@@ -26,8 +26,10 @@ public class OperationInfo {
     private String soapActionURI;
 
     private ParameterInfo input;
+
     private ParameterInfo output;
-    private Collection<ParameterInfo> faults = new ArrayList<ParameterInfo>();
+
+    private Collection<ParameterInfo> faults = new ArrayList<>();
 
     private String portName;
 
@@ -96,13 +98,13 @@ public class OperationInfo {
         return soapActionURI;
     }
 
-	public String getPortName() {
-		return portName;
-	}
+    public String getPortName() {
+        return portName;
+    }
 
-	public void setPortName(String portName) {
-		this.portName = portName;
-	}
+    public void setPortName(String portName) {
+        this.portName = portName;
+    }
 
     private static ParameterInfo getParameterFromMessage(Message msg) {
         ParameterInfo parameterRoot = new ParameterInfo();

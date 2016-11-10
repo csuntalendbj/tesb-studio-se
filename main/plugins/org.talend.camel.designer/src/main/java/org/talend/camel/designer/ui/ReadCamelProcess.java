@@ -71,10 +71,8 @@ public class ReadCamelProcess extends AbstractProcessAction {
         if (canWork) {
             final IRepositoryNode node = (IRepositoryNode) selection.getFirstElement();
             canWork = node.getType() == ENodeType.REPOSITORY_ELEMENT
-                //&& node.getObject() != null
-                //&& ProxyRepositoryFactory.getInstance().getStatus(node.getObject()) != ERepositoryStatus.LOCK_BY_USER
-                && node.getObjectType() == CamelRepositoryNodeType.repositoryRoutesType
-                && !RepositoryManager.isOpenedItemInEditor(node.getObject());
+                    && node.getObjectType() == CamelRepositoryNodeType.repositoryRoutesType
+                    && !RepositoryManager.isOpenedItemInEditor(node.getObject());
         }
         setEnabled(canWork);
     }

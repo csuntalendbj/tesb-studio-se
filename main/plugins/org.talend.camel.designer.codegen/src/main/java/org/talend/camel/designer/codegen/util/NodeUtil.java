@@ -58,7 +58,7 @@ public class NodeUtil {
      */
     public static void printForDebug(List<? extends INode> nodes) {
         // get unique name
-        List<String> nameList = new ArrayList<String>(nodes.size());
+        List<String> nameList = new ArrayList<>(nodes.size());
         for (INode node : nodes) {
             nameList.add(node.getUniqueName());
         }
@@ -81,7 +81,7 @@ public class NodeUtil {
 
     /**
      * Return Type of Node to correctly sort the encapsulated code.
-     * 
+     *
      * @param node the node to check
      * @return true if the node is an iterate node
      */

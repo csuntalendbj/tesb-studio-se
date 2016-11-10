@@ -12,19 +12,19 @@ public class ServiceInfo {
     private QName serviceName;
 
     /** The list of operations that this service defines. */
-    private final List<OperationInfo> operations = new ArrayList<OperationInfo>();
-    
+    private final List<OperationInfo> operations = new ArrayList<>();
+
     private boolean hasRpcOperation = false;
 
     public boolean isHasRpcOperation() {
-		return hasRpcOperation;
-	}
+        return hasRpcOperation;
+    }
 
-	public void setHasRpcOperation(boolean hasRpcOperation) {
-		this.hasRpcOperation = hasRpcOperation;
-	}
+    public void setHasRpcOperation(boolean hasRpcOperation) {
+        this.hasRpcOperation = hasRpcOperation;
+    }
 
-	public QName getServerName() {
+    public QName getServerName() {
         return serviceName;
     }
 

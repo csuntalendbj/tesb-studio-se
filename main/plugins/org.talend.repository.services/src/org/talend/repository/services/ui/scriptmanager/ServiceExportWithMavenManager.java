@@ -67,7 +67,7 @@ public class ServiceExportWithMavenManager extends JavaScriptForESBWithMavenMana
     @Override
     public List<ExportFileResource> getExportResources(ExportFileResource[] processes, String... codeOptions)
             throws ProcessorException {
-        List<ExportFileResource> list = new ArrayList<ExportFileResource>();
+        List<ExportFileResource> list = new ArrayList<>();
 
         analysisMavenModule(processes[0].getItem());
 
@@ -114,12 +114,12 @@ public class ServiceExportWithMavenManager extends JavaScriptForESBWithMavenMana
         }
 
         File mavenBuildFile = new File(getTmpFolder() + PATH_SEPARATOR + IProjectSettingTemplateConstants.POM_FILE_NAME);
-        File mavenBuildBundleFile = new File(getTmpFolder() + PATH_SEPARATOR
-                + IProjectSettingTemplateConstants.MAVEN_CONTROL_BUILD_BUNDLE_FILE_NAME);
-        File mavenBuildFeatureFile = new File(getTmpFolder() + PATH_SEPARATOR
-                + IProjectSettingTemplateConstants.MAVEN_KARAF_BUILD_FEATURE_FILE_NAME);
-        File mavenBuildParentFile = new File(getTmpFolder() + PATH_SEPARATOR
-                + IProjectSettingTemplateConstants.MAVEN_KARAF_BUILD_PARENT_FILE_NAME);
+        File mavenBuildBundleFile = new File(
+                getTmpFolder() + PATH_SEPARATOR + IProjectSettingTemplateConstants.MAVEN_CONTROL_BUILD_BUNDLE_FILE_NAME);
+        File mavenBuildFeatureFile = new File(
+                getTmpFolder() + PATH_SEPARATOR + IProjectSettingTemplateConstants.MAVEN_KARAF_BUILD_FEATURE_FILE_NAME);
+        File mavenBuildParentFile = new File(
+                getTmpFolder() + PATH_SEPARATOR + IProjectSettingTemplateConstants.MAVEN_KARAF_BUILD_PARENT_FILE_NAME);
 
         try {
             String mavenScript = MavenTemplateManager.getTemplateContent(templatePomFile,

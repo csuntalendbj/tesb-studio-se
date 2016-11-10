@@ -65,6 +65,7 @@ public class WSDLPopulationUtil extends XSDPopulationUtil2 {
         return super.getXSDSchemaFromNamespace(namespace);
     }
 
+    @Override
     public void loadWSDL(String wsdlFile) throws IOException {
         WSDLResourceFactoryImpl resourceFactory = new WSDLResourceFactoryImpl();
         Resource resource = resourceFactory.createResource(URI.createURI(wsdlFile));

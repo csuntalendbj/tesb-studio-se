@@ -47,8 +47,8 @@ public class SaveAsRoutesAction extends Action {
 
                 IWorkbenchPage page = editorPart.getSite().getPage();
 
-                IRepositoryNode repositoryNode = RepositorySeekerManager.getInstance().searchRepoViewNode(
-                        newRoutesEditorInput.getItem().getProperty().getId(), false);
+                IRepositoryNode repositoryNode = RepositorySeekerManager.getInstance()
+                        .searchRepoViewNode(newRoutesEditorInput.getItem().getProperty().getId(), false);
                 newRoutesEditorInput.setRepositoryNode(repositoryNode);
 
                 // close the old editor

@@ -45,6 +45,7 @@ public class ExporCameltJobScriptAction extends AContextualAction {
         this.setImageDescriptor(ImageProvider.getImageDesc(EImage.EXPORT_JOB_ICON));
     }
 
+    @Override
     public void init(TreeViewer viewer, IStructuredSelection selection) {
         setEnabled(false);
         if (selection.isEmpty() || selection.size() != 1) {
@@ -59,6 +60,7 @@ public class ExporCameltJobScriptAction extends AContextualAction {
         }
     }
 
+    @Override
     protected void doRun() {
         JobCamelScriptsExportWizard processWizard = new JobCamelScriptsExportWizard();
         IWorkbench workbench = getWorkbench();

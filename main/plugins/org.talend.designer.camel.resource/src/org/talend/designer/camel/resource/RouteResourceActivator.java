@@ -9,35 +9,37 @@ import org.osgi.framework.BundleContext;
  */
 public class RouteResourceActivator extends AbstractUIPlugin {
 
-	// The plug-in ID
-	public static final String PLUGIN_ID = "org.talend.designer.camel.resource"; //$NON-NLS-1$
+    // The plug-in ID
+    public static final String PLUGIN_ID = "org.talend.designer.camel.resource"; //$NON-NLS-1$
 
-	// The shared instance
-	private static RouteResourceActivator plugin;
+    // The shared instance
+    private static RouteResourceActivator plugin;
 
-	/**
-	 * Returns the shared instance
-	 * 
-	 * @return the shared instance
-	 */
-	public static RouteResourceActivator getDefault() {
-		return plugin;
-	}
+    /**
+     * Returns the shared instance
+     * 
+     * @return the shared instance
+     */
+    public static RouteResourceActivator getDefault() {
+        return plugin;
+    }
 
-	public RouteResourceActivator() {
-	}
+    public RouteResourceActivator() {
+    }
 
-	public void start(BundleContext context) throws Exception {
-		super.start(context);
-		plugin = this;
-	}
+    @Override
+    public void start(BundleContext context) throws Exception {
+        super.start(context);
+        plugin = this;
+    }
 
-	public void stop(BundleContext context) throws Exception {
-		plugin = null;
-		super.stop(context);
-	}
+    @Override
+    public void stop(BundleContext context) throws Exception {
+        plugin = null;
+        super.stop(context);
+    }
 
-	public static ImageDescriptor createImageDesc(String path) {
-		return imageDescriptorFromPlugin(PLUGIN_ID, path);
-	}
+    public static ImageDescriptor createImageDesc(String path) {
+        return imageDescriptorFromPlugin(PLUGIN_ID, path);
+    }
 }

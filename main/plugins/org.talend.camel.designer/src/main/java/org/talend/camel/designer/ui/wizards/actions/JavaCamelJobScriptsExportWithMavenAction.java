@@ -46,7 +46,8 @@ public class JavaCamelJobScriptsExportWithMavenAction extends JavaCamelJobScript
     }
 
     @Override
-    protected void processResults(FeaturesModel featuresModel, IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
+    protected void processResults(FeaturesModel featuresModel, IProgressMonitor monitor)
+            throws InvocationTargetException, InterruptedException {
         super.processResults(featuresModel, monitor);
 
         exportMavenResources(monitor);
@@ -55,13 +56,13 @@ public class JavaCamelJobScriptsExportWithMavenAction extends JavaCamelJobScript
     private void exportMavenResources(IProgressMonitor monitor) throws InvocationTargetException, InterruptedException {
         scriptsManager.setMultiNodes(false);
         scriptsManager.setDestinationPath(destinationPath);
-        JobExportAction action = new JobExportAction(Collections.singletonList(routeNode), version, bundleVersion,
-                scriptsManager, getTempDir(), "Route"); //$NON-NLS-1$
+        JobExportAction action = new JobExportAction(Collections.singletonList(routeNode), version, bundleVersion, scriptsManager,
+                getTempDir(), "Route"); //$NON-NLS-1$
         action.run(monitor);
     }
 
     private static String getNodeBundleName(IRepositoryNode node, String v) {
-        return node.getObject().getProperty().getDisplayName() + '-' + v; 
+        return node.getObject().getProperty().getDisplayName() + '-' + v;
     }
 
 }

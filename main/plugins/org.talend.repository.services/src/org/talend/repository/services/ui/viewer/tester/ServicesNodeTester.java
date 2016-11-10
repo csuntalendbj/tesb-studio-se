@@ -23,6 +23,7 @@ public class ServicesNodeTester extends AbstractNodeTypeTester {
 
     @SuppressWarnings("serial")
     private static final Map<String, ERepositoryObjectType> PROPERTY_MAPPING = new HashMap<String, ERepositoryObjectType>() {
+
         {
             put("isServicesNode", ESBRepositoryNodeType.SERVICES); //$NON-NLS-1$
             put("isServicesPortNode", ESBRepositoryNodeType.SERVICEPORT); //$NON-NLS-1$

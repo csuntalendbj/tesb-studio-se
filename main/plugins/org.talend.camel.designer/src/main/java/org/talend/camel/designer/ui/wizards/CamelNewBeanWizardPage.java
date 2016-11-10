@@ -25,12 +25,13 @@ import org.talend.repository.ui.wizards.routines.NewRoutineWizardPage;
 public class CamelNewBeanWizardPage extends NewRoutineWizardPage {
 
     public CamelNewBeanWizardPage(Property property, IPath destinationPath) {
-        super(property, destinationPath); //$NON-NLS-1$
+        super(property, destinationPath);
 
         setTitle(Messages.getString("NewBeanWizardPage.title")); //$NON-NLS-1$
         setDescription(Messages.getString("NewBeanWizard.description")); //$NON-NLS-1$
     }
 
+    @Override
     public ERepositoryObjectType getRepositoryObjectType() {
         return CamelRepositoryNodeType.repositoryBeansType;
     }

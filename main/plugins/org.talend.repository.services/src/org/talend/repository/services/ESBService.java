@@ -165,8 +165,8 @@ public class ESBService implements IESBService {
         return null;
     }
 
-    private void changeOtherJobSchemaValue(IProxyRepositoryFactory factory, ServiceOperation newOpe, 
-            RepositoryNode selectNode) throws PersistenceException, CoreException {
+    private void changeOtherJobSchemaValue(IProxyRepositoryFactory factory, ServiceOperation newOpe, RepositoryNode selectNode)
+            throws PersistenceException, CoreException {
         IRepositoryViewObject jobObj = factory.getLastVersion(newOpe.getReferenceJobId());
         if (jobObj == null) {
             return;
@@ -323,8 +323,8 @@ public class ESBService implements IESBService {
             connectionItem.getProperty().getId();
             ((PortRepositoryObject) repNode.getParent().getObject()).getId();
             ((OperationRepositoryObject) repNode.getObject()).getId();
-            ChangeValuesFromRepository command2 = new ChangeValuesFromRepository(node, null, param.getName()
-                    + ":" + EParameterName.PROPERTY_TYPE.getName(), "BUILT_IN"); //$NON-NLS-1$
+            ChangeValuesFromRepository command2 = new ChangeValuesFromRepository(node, null,
+                    param.getName() + ":" + EParameterName.PROPERTY_TYPE.getName(), "BUILT_IN"); //$NON-NLS-1$
             IEditorPart editor = process.getEditor();
             if (editor == null) {
                 command2.execute();
@@ -397,7 +397,7 @@ public class ESBService implements IESBService {
 
     /**
      * When services connection is renamed, refresh the connection label in the component view of job.
-     * 
+     *
      * @param item
      */
     @Override
@@ -428,7 +428,7 @@ public class ESBService implements IESBService {
 
     private void checkRepository(final Node node, Item item, CommandStack stack) {
         final String updataComponentParamName = EParameterName.UPDATE_COMPONENTS.getName();
-        final List<IElementParameter> repositoryParam = new ArrayList<IElementParameter>();
+        final List<IElementParameter> repositoryParam = new ArrayList<>();
 
         for (IElementParameter param : node.getElementParameters()) {
             if (param.getFieldType().equals(EParameterFieldType.SCHEMA_TYPE)) {
@@ -510,7 +510,7 @@ public class ESBService implements IESBService {
     public StringBuffer getAllTheJObNames(IRepositoryNode jobObject) {
         StringBuffer jobNames = null;
         IProxyRepositoryFactory factory = ProxyRepositoryFactory.getInstance();
-        List<IRepositoryNode> jobList = new ArrayList<IRepositoryNode>();
+        List<IRepositoryNode> jobList = new ArrayList<>();
         if (jobObject.getObjectType() == ERepositoryObjectType.PROCESS) {
             jobList.add(jobObject);
         } else if (jobObject.getObjectType() == ERepositoryObjectType.FOLDER) {
@@ -591,7 +591,7 @@ public class ESBService implements IESBService {
     }
 
     private List<IRepositoryNode> getJobObject(IRepositoryNode folderObj) {
-        List<IRepositoryNode> objList = new ArrayList<IRepositoryNode>();
+        List<IRepositoryNode> objList = new ArrayList<>();
         for (IRepositoryNode child : folderObj.getChildren()) {
             ERepositoryObjectType repositoryObjectType = child.getObjectType();
             if (repositoryObjectType == ERepositoryObjectType.PROCESS) {
@@ -699,7 +699,7 @@ public class ESBService implements IESBService {
 
     /**
      * To fix [TESB-6072], tESBProviderRequest_x in job need to be update to binding to the new service.
-     * 
+     *
      * @param newProcessItem The cloned job process item.
      * @param serviceItem The cloned service item.
      * @param port
@@ -837,7 +837,7 @@ public class ESBService implements IESBService {
                 ERepositoryObjectType.JOB_DOC, ERepositoryObjectType.JOBLET, ERepositoryObjectType.JOBLET_DOC,
                 ERepositoryObjectType.JOB_SCRIPT };
         List<ERepositoryObjectType> arraysList = Arrays.asList(types);
-        List<ERepositoryObjectType> typeList = new ArrayList<ERepositoryObjectType>();
+        List<ERepositoryObjectType> typeList = new ArrayList<>();
         addExtensionRepositoryNodes(typeList);
         typeList.addAll(arraysList);
         if (typeList.contains(itemType)) {

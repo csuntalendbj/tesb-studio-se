@@ -77,7 +77,7 @@ public class WSDLUtils {
     public static Map<String, String> getServiceOperationParameters(IFile wsdlURI, String operationName, String portTypeName)
             throws CoreException {
         // NOTE: all below in assuming standalone (no another WSDL's imports) WS-I complaint WSDL !
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>();
         if (null == wsdlURI) { // no WSDL provided
             return map;
         }
@@ -107,8 +107,9 @@ public class WSDLUtils {
                     if (null == bindingOperation) {
                         throw getCoreException("Operation '" + operationName + "' not found in binding", null);
                     }
-                    map.put(COMMUNICATION_STYLE, null == bindingOperation.getBindingOutput() && bindingOperation
-                            .getBindingFaults().isEmpty() ? ONE_WAY : REQUEST_RESPONSE);
+                    map.put(COMMUNICATION_STYLE,
+                            null == bindingOperation.getBindingOutput() && bindingOperation.getBindingFaults().isEmpty() ? ONE_WAY
+                                    : REQUEST_RESPONSE);
 
                     String faults = null;
                     for (Object fault : bindingOperation.getBindingFaults().keySet()) {
@@ -162,8 +163,8 @@ public class WSDLUtils {
         if (!"".equals(foldPath)) { //$NON-NLS-1$
             folder += '/' + foldPath;
         }
-        IFile file = currentProject.getFolder(folder).getFile(
-                serviceItem.getProperty().getLabel() + '_' + serviceItem.getProperty().getVersion() + ".wsdl"); //$NON-NLS-1$
+        IFile file = currentProject.getFolder(folder)
+                .getFile(serviceItem.getProperty().getLabel() + '_' + serviceItem.getProperty().getVersion() + ".wsdl"); //$NON-NLS-1$
         return file;
     }
 
@@ -186,7 +187,7 @@ public class WSDLUtils {
 
     /**
      * Validate WSDL file.
-     * 
+     *
      * @param wsdlUri
      * @throws CoreException
      */
@@ -225,7 +226,7 @@ public class WSDLUtils {
 
     public static <T> Collection<T> findExtensibilityElements(final Collection<?> extensibilityElements, // ExtensibilityElement
             Class<T> clazz) {
-        Collection<T> elements = new ArrayList<T>();
+        Collection<T> elements = new ArrayList<>();
         if (extensibilityElements != null) {
             for (Object element : extensibilityElements) {
                 if (clazz.isAssignableFrom(element.getClass())) {

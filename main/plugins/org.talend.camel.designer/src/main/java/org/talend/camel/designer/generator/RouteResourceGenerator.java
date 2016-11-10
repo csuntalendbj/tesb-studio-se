@@ -18,14 +18,16 @@ import org.talend.designer.core.ui.editor.properties.controllers.generator.ICont
 
 public class RouteResourceGenerator implements IControllerGenerator {
 
-	private IDynamicProperty dp;
+    private IDynamicProperty dp;
 
-	public AbstractElementPropertySectionController generate() {
-		return new RouteResourceController(dp);
-	}
+    @Override
+    public AbstractElementPropertySectionController generate() {
+        return new RouteResourceController(dp);
+    }
 
-	public void setDynamicProperty(IDynamicProperty dp) {
-		this.dp = dp;
-	}
+    @Override
+    public void setDynamicProperty(IDynamicProperty dp) {
+        this.dp = dp;
+    }
 
 }

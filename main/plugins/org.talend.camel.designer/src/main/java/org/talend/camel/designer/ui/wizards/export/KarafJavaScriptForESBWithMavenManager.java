@@ -75,11 +75,11 @@ public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithM
 
     private static final String TALEND_JOBS_PATH = "TalendJobs/"; //$NON-NLS-1$
 
-    private Map<String, IRepositoryViewObject> talendJobsMap = new HashMap<String, IRepositoryViewObject>();
+    private Map<String, IRepositoryViewObject> talendJobsMap = new HashMap<>();
 
-    private Map<String, String> talendJobContextGroupsMap = new HashMap<String, String>();
+    private Map<String, String> talendJobContextGroupsMap = new HashMap<>();
 
-    private Map<String, OSGIJavaScriptForESBWithMavenManager> talendJobOsgiWithMavenManagersMap = new HashMap<String, OSGIJavaScriptForESBWithMavenManager>();
+    private Map<String, OSGIJavaScriptForESBWithMavenManager> talendJobOsgiWithMavenManagersMap = new HashMap<>();
 
     private String groupId;
 
@@ -107,8 +107,8 @@ public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithM
     @Override
     protected void analysisMavenModule(Item item) {
         if (GlobalServiceRegister.getDefault().isServiceRegistered(ICamelDesignerCoreService.class)) {
-            ICamelDesignerCoreService camelService = (ICamelDesignerCoreService) GlobalServiceRegister.getDefault().getService(
-                    ICamelDesignerCoreService.class);
+            ICamelDesignerCoreService camelService = (ICamelDesignerCoreService) GlobalServiceRegister.getDefault()
+                    .getService(ICamelDesignerCoreService.class);
             if (camelService.isInstanceofCamelRoutes(item)) {
                 ProxyRepositoryFactory factory = ProxyRepositoryFactory.getInstance();
                 List<String> mavenModules = getMavenModules();
@@ -229,12 +229,12 @@ public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithM
         }
 
         File mavenBuildFile = new File(getTmpFolder() + PATH_SEPARATOR + IProjectSettingTemplateConstants.POM_FILE_NAME);
-        File mavenBuildBundleFile = new File(getTmpFolder() + PATH_SEPARATOR
-                + IProjectSettingTemplateConstants.MAVEN_KARAF_BUILD_BUNDLE_FILE_NAME);
-        File mavenBuildFeatureFile = new File(getTmpFolder() + PATH_SEPARATOR
-                + IProjectSettingTemplateConstants.MAVEN_KARAF_BUILD_FEATURE_FILE_NAME);
-        File mavenBuildParentFile = new File(getTmpFolder() + PATH_SEPARATOR
-                + IProjectSettingTemplateConstants.MAVEN_KARAF_BUILD_PARENT_FILE_NAME);
+        File mavenBuildBundleFile = new File(
+                getTmpFolder() + PATH_SEPARATOR + IProjectSettingTemplateConstants.MAVEN_KARAF_BUILD_BUNDLE_FILE_NAME);
+        File mavenBuildFeatureFile = new File(
+                getTmpFolder() + PATH_SEPARATOR + IProjectSettingTemplateConstants.MAVEN_KARAF_BUILD_FEATURE_FILE_NAME);
+        File mavenBuildParentFile = new File(
+                getTmpFolder() + PATH_SEPARATOR + IProjectSettingTemplateConstants.MAVEN_KARAF_BUILD_PARENT_FILE_NAME);
 
         try {
 
@@ -327,8 +327,8 @@ public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithM
 
             final String talendJobLabel = talendJobItem.getProperty().getLabel();
             final String talendJobVersion = talendJobItem.getProperty().getVersion();
-            File talendJobDestFile = new File(getTmpFolder(), talendJobLabel + '_' + talendJobVersion
-                    + FileConstants.ZIP_FILE_SUFFIX);
+            File talendJobDestFile = new File(getTmpFolder(),
+                    talendJobLabel + '_' + talendJobVersion + FileConstants.ZIP_FILE_SUFFIX);
             String talendJobPath = talendJobDestFile.getAbsolutePath();
 
             OSGIJavaScriptForESBWithMavenManager osgiWithMavenManager = getOsgiWithMavenManager(list, talendJobLabel,
@@ -343,8 +343,8 @@ public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithM
 
                 RepositoryNode node = new RepositoryNode(repObject, null, ENodeType.REPOSITORY_ELEMENT);
 
-                JobExportAction job = new JobExportAction(Collections.singletonList(node), talendJobVersion,
-                        osgiWithMavenManager, talendJobPath) {
+                JobExportAction job = new JobExportAction(Collections.singletonList(node), talendJobVersion, osgiWithMavenManager,
+                        talendJobPath) {
 
                     @Override
                     protected void doArchiveExport(IProgressMonitor monitor, List<ExportFileResource> resourcesToExport) {
@@ -377,7 +377,7 @@ public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithM
     private OSGIJavaScriptForESBWithMavenManager getOsgiWithMavenManager(final List<ExportFileResource> list,
             final String talendJobLabel, String contextgGroup) {
         OSGIJavaScriptForESBWithMavenManager osgiWithMavenManager = new OSGIJavaScriptForESBWithMavenManager(
-                new EnumMap<ExportChoice, Object>(this.exportChoice), contextgGroup, JobScriptsManager.LAUNCHER_ALL,
+                new EnumMap<>(this.exportChoice), contextgGroup, JobScriptsManager.LAUNCHER_ALL,
                 IProcessor.NO_STATISTICS, IProcessor.NO_TRACES) {
 
             @Override
@@ -462,8 +462,8 @@ public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithM
                             in = zipFile.getInputStream(zipEntry);
                             File featureFile = new File(getTmpFolder() + "feature/feature.xml"); //$NON-NLS-1$
                             FilesUtils.copyFile(in, featureFile);
-                            featureFileResource
-                                    .addResource(IMavenProperties.MAIN_RESOURCES_PATH + "feature", featureFile.toURL()); //$NON-NLS-1$
+                            featureFileResource.addResource(IMavenProperties.MAIN_RESOURCES_PATH + "feature", //$NON-NLS-1$
+                                    featureFile.toURL());
                         } finally {
                             zipFile.close();
                         }

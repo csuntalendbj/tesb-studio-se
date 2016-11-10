@@ -57,8 +57,8 @@ public class CamelNewBeanWizard extends Wizard {
         this.path = path;
 
         this.property = PropertiesFactory.eINSTANCE.createProperty();
-        this.property.setAuthor(((RepositoryContext) CorePlugin.getContext().getProperty(Context.REPOSITORY_CONTEXT_KEY))
-                .getUser());
+        this.property
+                .setAuthor(((RepositoryContext) CorePlugin.getContext().getProperty(Context.REPOSITORY_CONTEXT_KEY)).getUser());
         this.property.setVersion(VersionUtils.DEFAULT_VERSION);
         this.property.setStatusCode(""); //$NON-NLS-1$
 
@@ -97,8 +97,8 @@ public class CamelNewBeanWizard extends Wizard {
         try {
             property.setId(repositoryFactory.getNextId());
 
-			// http://jira.talendforge.org/browse/TESB-5000 LiXiaopeng
-			property.setLabel(property.getDisplayName());
+            // http://jira.talendforge.org/browse/TESB-5000 LiXiaopeng
+            property.setLabel(property.getDisplayName());
             repositoryFactory.create(beanItem, mainPage.getDestinationPath());
         } catch (PersistenceException e) {
             MessageDialog.openError(getShell(), Messages.getString("NewBeanWizard.failureTitle"), ""); //$NON-NLS-1$ //$NON-NLS-2$

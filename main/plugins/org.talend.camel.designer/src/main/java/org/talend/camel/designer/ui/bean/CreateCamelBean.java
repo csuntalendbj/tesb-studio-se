@@ -133,6 +133,7 @@ public class CreateCamelBean extends AbstractBeanAction implements IIntroAction 
         }
     }
 
+    @Override
     public void run(IIntroSite site, Properties params) {
         PlatformUI.getWorkbench().getIntroManager().closeIntro(PlatformUI.getWorkbench().getIntroManager().getIntro());
         selectRootObject(params);

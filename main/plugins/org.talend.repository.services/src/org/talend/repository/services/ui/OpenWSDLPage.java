@@ -109,6 +109,7 @@ public class OpenWSDLPage extends WizardPage {
         this.setMessage(Messages.AssignWsdlDialog_Description);
     }
 
+    @Override
     public void createControl(Composite parent) {
         Composite parentArea = new Composite(parent, SWT.NONE);
         parentArea.setLayout(new GridLayout());
@@ -146,6 +147,7 @@ public class OpenWSDLPage extends WizardPage {
         wsdlText.setText(initialPath);
         wsdlText.addModifyListener(new ModifyListener() {
 
+            @Override
             public void modifyText(ModifyEvent e) {
                 path = wsdlText.getText().trim();
                 setPageComplete(!path.isEmpty());
@@ -196,15 +198,16 @@ public class OpenWSDLPage extends WizardPage {
 
         IWorkspaceRunnable runnable = new IWorkspaceRunnable() {
 
+            @Override
             public void run(final IProgressMonitor monitor) throws CoreException {
-            	IProxyRepositoryFactory factory = ProxyRepositoryFactory.getInstance();
+                IProxyRepositoryFactory factory = ProxyRepositoryFactory.getInstance();
                 try {
                     item.setConnection(ServicesFactory.eINSTANCE.createServiceConnection());
                     if (creation) {
                         item.getProperty().setId(factory.getNextId());
                         factory.create(item, getDestinationPath());
-                        repositoryNode = new RepositoryNode(new RepositoryViewObject(item.getProperty()), repositoryNode.getParent(),
-                                ENodeType.REPOSITORY_ELEMENT);
+                        repositoryNode = new RepositoryNode(new RepositoryViewObject(item.getProperty()),
+                                repositoryNode.getParent(), ENodeType.REPOSITORY_ELEMENT);
                     }
 
                     ((ServiceConnection) item.getConnection()).setWSDLPath(path);
@@ -216,11 +219,12 @@ public class OpenWSDLPage extends WizardPage {
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         // create new WSDL file from template
                         TemplateProcessor.processTemplate("DATA_SERVICE_WSDL",
-                                Collections.singletonMap("serviceName", (Object) label),
-                                baos, getClass().getResourceAsStream(TEMPLATE_SERVICE_WSDL));
+                                Collections.singletonMap("serviceName", (Object) label), baos,
+                                getClass().getResourceAsStream(TEMPLATE_SERVICE_WSDL));
                         is = new ByteArrayInputStream(baos.toByteArray());
                     } else {
-                        String filenameTemplate = item.getProperty().getLabel() + '_' + item.getProperty().getVersion() + ".%d.wsdl"; //$NON-NLS-1$
+                        String filenameTemplate = item.getProperty().getLabel() + '_' + item.getProperty().getVersion()
+                                + ".%d.wsdl"; //$NON-NLS-1$
                         Map<String, InputStream> wsdls = new WSDLLoader().load(path, filenameTemplate);
                         is = wsdls.remove(WSDLLoader.DEFAULT_FILENAME);
                         for (Map.Entry<String, InputStream> wsdl : wsdls.entrySet()) {
@@ -231,7 +235,8 @@ public class OpenWSDLPage extends WizardPage {
                             } else {
                                 importedWsdl.setContents(wsdl.getValue(), 0, monitor);
                             }
-                            createReferenceResources(filename.substring(filename.lastIndexOf('.', filename.lastIndexOf('.') - 1) + 1));
+                            createReferenceResources(
+                                    filename.substring(filename.lastIndexOf('.', filename.lastIndexOf('.') - 1) + 1));
                         }
                     }
 
@@ -252,24 +257,24 @@ public class OpenWSDLPage extends WizardPage {
                     ProxyRepositoryFactory.getInstance().saveProject(ProjectManager.getInstance().getCurrentProject());
 
                 } catch (Exception e) {
-                	//delete the node if any exception during the creation
-                	if(creation){
-	                	try{
-	                		factory.save(item);
-							factory.deleteObjectPhysical(repositoryNode.getObject());
-						} catch (PersistenceException e1) {
-		                    throw getCoreException("WDSL creation failed", e1);
-						}
-                	}
-                	//throw the exception
-                	if(e instanceof CoreException){
-                		throw (CoreException)e;
-                	}
-                	if(e instanceof InvocationTargetException){
-                		throw getCoreException("WDSL creation failed", e.getCause()); 
-                	}
-                	throw getCoreException("WDSL creation failed", e);
-                } 
+                    // delete the node if any exception during the creation
+                    if (creation) {
+                        try {
+                            factory.save(item);
+                            factory.deleteObjectPhysical(repositoryNode.getObject());
+                        } catch (PersistenceException e1) {
+                            throw getCoreException("WDSL creation failed", e1);
+                        }
+                    }
+                    // throw the exception
+                    if (e instanceof CoreException) {
+                        throw (CoreException) e;
+                    }
+                    if (e instanceof InvocationTargetException) {
+                        throw getCoreException("WDSL creation failed", e.getCause());
+                    }
+                    throw getCoreException("WDSL creation failed", e);
+                }
             }
         };
         IWorkspace workspace = ResourcesPlugin.getWorkspace();
@@ -316,14 +321,14 @@ public class OpenWSDLPage extends WizardPage {
             port.setId(factory.getNextId());
             port.setName(portType.getQName().getLocalPart());
             for (Operation operation : (Collection<Operation>) portType.getOperations()) {
-            	String operationName = operation.getName();
+                String operationName = operation.getName();
                 ServiceOperation serviceOperation = ServicesFactory.eINSTANCE.createServiceOperation();
                 serviceOperation.setId(factory.getNextId());
                 RepositoryNode operationNode = new RepositoryNode(new RepositoryViewObject(serviceItem.getProperty()),
                         serviceRepositoryNode, ENodeType.REPOSITORY_ELEMENT);
                 operationNode.setProperties(EProperties.LABEL, serviceItem.getProperty().getLabel());
                 operationNode.setProperties(EProperties.CONTENT_TYPE, ERepositoryObjectType.SERVICESOPERATION);
-				serviceOperation.setName(operationName);
+                serviceOperation.setName(operationName);
                 if (operation.getDocumentationElement() != null) {
                     serviceOperation.setDocumentation(operation.getDocumentationElement().getTextContent());
                 }
@@ -347,8 +352,8 @@ public class OpenWSDLPage extends WizardPage {
     }
 
     private static CoreException getCoreException(String message, Throwable initialException) {
-        return new CoreException(new Status(IStatus.ERROR, Activator.getDefault().getBundle().getSymbolicName(),
-            message, initialException));
+        return new CoreException(
+                new Status(IStatus.ERROR, Activator.getDefault().getBundle().getSymbolicName(), message, initialException));
     }
 
 }
