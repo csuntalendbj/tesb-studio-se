@@ -54,10 +54,7 @@ public class NodeUtil {
     };
 
     /**
-     * DOC xtan for debug
-     * <p>
      * output the nodes info to console to check the intial input info from design level.
-     * </p>
      */
     public static void printForDebug(List<? extends INode> nodes) {
         // get unique name

@@ -34,9 +34,6 @@ public class CamelCodeGenerator implements ICodeGenerator {
    /**
      * Constructor : use the process and language to initialize internal
      * components.
-     * 
-     * @param process
-     * @param language
      */
     public CamelCodeGenerator(IRouteProcess process, boolean statistics, boolean trace, String... options) {
         if (DEBUG) {

@@ -104,11 +104,6 @@ public class AssignJobAction extends AbstractCreateAction {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.talend.repository.ui.actions.AContextualAction#doRun()
-     */
     @Override
     protected void doRun() {
         if (repositoryNode == null) {
@@ -225,11 +220,6 @@ public class AssignJobAction extends AbstractCreateAction {
                     List<ServiceOperation> listOperation = port.getServiceOperation();
                     for (ServiceOperation operation : listOperation) {
                         if (operation.getLabel().equals(operationName)) {
-                            // should not change the job name
-                            // String jobNewName = port.getName() + "_" + operation.getName();
-                            // if (resetJobname(item, jobNewName)) {
-                            // jobName = jobNewName;
-                            // }
                             operation.setReferenceJobId(jobID);
                             operation.setLabel(operation.getName() + "-" + jobName);
                             break;
@@ -289,11 +279,6 @@ public class AssignJobAction extends AbstractCreateAction {
         }
         return false;
     }
-
-//    @Override
-//    public Class<?> getClassForDoubleClick() {
-//        return (OpenJobAction.getReferenceJobId(getCurrentRepositoryNode()) == null) ? ServiceOperation.class : Object.class;
-//    }
 
     private RepositoryNode getTopParent(RepositoryNode repositoryNode) {
         repositoryNode = repositoryNode.getParent();

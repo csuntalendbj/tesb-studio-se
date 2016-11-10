@@ -21,8 +21,6 @@ import org.talend.core.model.components.IComponentsHandler;
 
 public class CamelComponentsHandler implements IComponentsHandler {
 
-    // private List<IComponent> camelComponents = new ArrayList<IComponent>();
-
     @Override
     public List<IComponent> filterComponents(List<IComponent> allComponents) {
         List<IComponent> camelComponents = new ArrayList<IComponent>();

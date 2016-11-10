@@ -46,7 +46,6 @@ import org.talend.repository.model.IProxyRepositoryFactory;
  */
 public class NewRouteResourceWizard extends Wizard {
 
-    /** Main page. */
     private static final String LOW_DASH = "_";
 
 	private NewRouteResourceWizardPage mainPage;
@@ -61,14 +60,6 @@ public class NewRouteResourceWizard extends Wizard {
 
 	private IPath filePath;
 
-	/**
-	 * Constructs a new NewProjectWizard.
-	 * 
-	 * @param author
-	 *            Project author.
-	 * @param server
-	 * @param password
-	 */
 	public NewRouteResourceWizard(IPath path) {
 		super();
 		this.path = path;
@@ -90,9 +81,6 @@ public class NewRouteResourceWizard extends Wizard {
 				.getImageDesc(ECoreImage.DEFAULT_WIZ));
 	}
 
-	/**
-	 * @see org.eclipse.jface.wizard.Wizard#addPages()
-	 */
 	@Override
 	public void addPages() {
 		mainPage = new NewRouteResourceWizardPage(property, path);
@@ -100,27 +88,14 @@ public class NewRouteResourceWizard extends Wizard {
 		setWindowTitle("New Route Resource"); //$NON-NLS-1$
 	}
 
-	/**
-	 * Getter for docFilePath.
-	 * 
-	 * @return the docFilePath
-	 */
 	public IPath getFilePath() {
 		return this.filePath;
 	}
 
-	/**
-	 * Getter for project.
-	 * 
-	 * @return the project
-	 */
 	public RouteResourceItem getItem() {
 		return this.item;
 	}
 
-	/**
-	 * @see org.eclipse.jface.wizard.Wizard#performFinish()
-	 */
 	@Override
 	public boolean performFinish() {
 		property.setId(repositoryFactory.getNextId());
@@ -129,7 +104,6 @@ public class NewRouteResourceWizard extends Wizard {
 		URL url = mainPage.getUrl();
 		Path p = new Path(property.getLabel());
 		String itemName = p.removeFileExtension().lastSegment();
-        // String refName = item.getProperty().getLabel() + LOW_DASH + VersionUtils.DEFAULT_VERSION;
 		String fileExtension = null;
 		if (url != null) {
 			p = new Path(url.getPath());
@@ -174,7 +148,6 @@ public class NewRouteResourceWizard extends Wizard {
 				.createReferenceFileItem();
 		refItem.setContent(byteArray);
 		refItem.setExtension(fileExtension);
-        // refItem.setName(refName);
 
 		item.setName(itemName);
 
@@ -195,7 +168,6 @@ public class NewRouteResourceWizard extends Wizard {
 		workUnit.setAvoidUnloadResources(true);
 		repositoryFactory.executeRepositoryWorkUnit(workUnit);
 
-//		return item != null;
 		return true;
 	}
 

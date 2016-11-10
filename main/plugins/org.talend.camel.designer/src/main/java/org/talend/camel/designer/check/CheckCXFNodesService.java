@@ -28,13 +28,6 @@ import org.talend.designer.core.ui.views.problems.Problems;
 
 public class CheckCXFNodesService implements ICheckNodesService {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.talend.designer.core.ICheckNodesService#checkNode(org.talend.designer
-	 * .core.ui.editor.nodes.Node)
-	 */
 	public void checkNode(Node node) {
 		if (!node.getComponent().getName().equals("cCXF")) { //$NON-NLS-1$
 			return;

@@ -19,7 +19,7 @@ import org.talend.commons.i18n.MessagesCore;
 /**
  * Default implementation of MessageCore from org.talend.commons plug-in.<br/>
  * 
- * Developpers can copy this class in their plug-in and change :
+ * Developers can copy this class in their plug-in and change :
  * <ul>
  * <li>the BUNDLE_NAME constant</li>
  * </ul>

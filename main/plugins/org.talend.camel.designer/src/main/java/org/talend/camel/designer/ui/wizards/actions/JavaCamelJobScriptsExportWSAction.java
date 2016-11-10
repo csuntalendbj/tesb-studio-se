@@ -296,16 +296,6 @@ public class JavaCamelJobScriptsExportWSAction implements IRunnableWithProgress 
         return null;
     }
 
-//    private static IRepositoryNode getRouteletRepositoryNode(String routeletName) throws PersistenceException {
-//        for (IRepositoryViewObject routelet : ProxyRepositoryFactory.getInstance().getAll(
-//            CamelRepositoryNodeType.repositoryRouteletType)) {
-//            if (routelet.getLabel().equals(routeletName)) {
-//                return new RepositoryNode(routelet, null, ENodeType.REPOSITORY_ELEMENT);
-//            }
-//        }
-//        return null;
-//    }
-
     private void exportRouteBundle(IRepositoryNode node, File filePath, String version, String bundleVersion,
         Collection<String> routelets, String context) throws InvocationTargetException, InterruptedException {
         final JobJavaScriptOSGIForESBManager talendJobManager =

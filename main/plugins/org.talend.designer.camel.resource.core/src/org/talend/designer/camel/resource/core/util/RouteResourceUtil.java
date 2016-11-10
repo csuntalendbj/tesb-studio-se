@@ -112,11 +112,6 @@ public class RouteResourceUtil {
         return file;
     }
 
-    /**
-     * 
-     * @param routeItem
-     * @param models
-     */
     public static void saveResourceDependency(Map<Object, Object> map, Collection<ResourceDependencyModel> models) {
         final StringBuilder sb = new StringBuilder();
         for (ResourceDependencyModel item : models) {
@@ -137,34 +132,18 @@ public class RouteResourceUtil {
         }
     }
 
-    /**
-     * 
-     * @param routeItem
-     * @param models
-     */
     public static Collection<ResourceDependencyModel> getResourceDependencies(ProcessItem routeItem) {
         return getResourceDependencies(
             getBuiltInResourceDependencies(routeItem),
             (String) routeItem.getProperty().getAdditionalProperties().get(ROUTE_RESOURCES_PROP));
     }
 
-    /**
-     * 
-     * @param routeItem
-     * @param models
-     */
     public static Collection<ResourceDependencyModel> getResourceDependencies(IProcess2 process) {
         return getResourceDependencies(
             getBuiltInResourceDependencies(process),
             (String) process.getAdditionalProperties().get(ROUTE_RESOURCES_PROP));
     }
 
-    /**
-     * 
-     * @param id
-     * @param version
-     * @return
-     */
     public static ResourceDependencyModel createDependency(String id, String version) {
         try {
             final IRepositoryViewObject rvo;
@@ -236,11 +215,6 @@ public class RouteResourceUtil {
         return result;
     }
 
-    /**
-     * 
-     * @param routeItem
-     * @param models
-     */
     private static Collection<ResourceDependencyModel> getResourceDependencies(
         Collection<ResourceDependencyModel> builtInModels, String userResources) {
         final Collection<ResourceDependencyModel> models = new ArrayList<ResourceDependencyModel>(builtInModels);
@@ -258,11 +232,6 @@ public class RouteResourceUtil {
         return models;
     }
 
-    /**
-     * @param routeItem
-     * 
-     * @param models
-     */
     private static Collection<ResourceDependencyModel> getBuiltInResourceDependencies(final ProcessItem routeItem) {
         if (!containsResourceNode(routeItem)) {
             return Collections.emptyList();
@@ -275,11 +244,6 @@ public class RouteResourceUtil {
         return getBuiltInResourceDependencies(process);
     }
 
-    /**
-     * @param routeItem
-     * 
-     * @param models
-     */
     private static Collection<ResourceDependencyModel> getBuiltInResourceDependencies(final IProcess2 process) {
         final Collection<ResourceDependencyModel> models = new HashSet<ResourceDependencyModel>();
         for (INode node : process.getGraphicalNodes()) {
@@ -317,13 +281,6 @@ public class RouteResourceUtil {
         return null;
     }
 
-    /**
-     * Create ResourceDependencyModel
-     * 
-     * @param paramName
-     * @param node
-     * @return
-     */
     private static ResourceDependencyModel createDenpendencyModel(final INode node) {
         if (!node.isActivate()) {
             return null;
@@ -343,12 +300,6 @@ public class RouteResourceUtil {
         return model;
     }
 
-    /**
-     * Copy route resource
-     * 
-     * @param model
-     * @throws CoreException
-     */
     private static IFile copyResources(final IFolder folder, final ResourceDependencyModel model) {
         final RouteResourceItem item = model.getItem();
         EList<?> referenceResources = item.getReferenceResources();

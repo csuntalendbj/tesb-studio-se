@@ -29,12 +29,6 @@ public class RouteResourceInput extends RepositoryEditorInput {
 		super(file, item);
 	}
 
-	/**
-	 * Create instance
-	 * 
-	 * @param item
-	 * @return
-	 */
 	public static RouteResourceInput createInput(IRepositoryNode node, RouteResourceItem item) {
 		RouteResourceInput routeResourceInput = new RouteResourceInput(
 				RouteResourceUtil.getSourceFile(item), item);
@@ -45,17 +39,10 @@ public class RouteResourceInput extends RepositoryEditorInput {
 		return routeResourceInput;
 	}
 
-	/**
-	 * @param listener
-	 *            the listener to set
-	 */
 	public void setListener(IResourceChangeListener listener) {
 		this.listener = listener;
 	}
 
-	/**
-	 * @return the listener
-	 */
 	public IResourceChangeListener getListener() {
 		return listener;
 	}

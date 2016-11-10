@@ -10,7 +10,6 @@ public class ParameterInfo {
 
     public String getDisplayName() {
         if (null != name) {
-            //return (name.getPrefix() != null) ? name.getPrefix() + ':' + name.getLocalPart() : name.getLocalPart();
             return name.getLocalPart();
         }
         return ""; //$NON-NLS-1$

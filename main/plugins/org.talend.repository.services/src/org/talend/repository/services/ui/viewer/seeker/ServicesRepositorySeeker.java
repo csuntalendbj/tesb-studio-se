@@ -20,15 +20,11 @@ import org.talend.repository.services.utils.ESBRepositoryNodeType;
 
 public class ServicesRepositorySeeker extends AbstractRepoViewSeeker {
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.talend.core.repository.seeker.AbstractRepoViewSeeker#getValidationTypes()
-     */
     @Override
     protected List<ERepositoryObjectType> getValidationTypes() {
         List<ERepositoryObjectType> validationTypes = super.getValidationTypes();
         validationTypes.add(ESBRepositoryNodeType.SERVICES);
         return validationTypes;
     }
+
 }

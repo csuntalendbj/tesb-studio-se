@@ -42,17 +42,11 @@ public class RouteProcess extends Process implements IRouteProcess {
         return "org.talend.esb.help.";
     }
 
-    /* (non-Javadoc)
-     * @see org.talend.camel.designer.ui.editor.IRouteProcess#getSpringContent()
-     */
     @Override
     public String getSpringContent() {
         return springContent;
     }
 
-    /* (non-Javadoc)
-     * @see org.talend.camel.designer.ui.editor.IRouteProcess#setSpringContent(java.lang.String)
-     */
     @Override
     public void setSpringContent(String springContent) {
         this.springContent = springContent;

@@ -16,11 +16,6 @@ public class ESBJavaRoutinesProvider implements IRoutinesProvider {
         return toReturn;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.talend.core.model.routines.IRoutinesProvider#getTalendRoutinesFolder()
-     */
     public URL getTalendRoutinesFolder() throws IOException {
         URL url = Activator.getDefault().getBundle()
                 .getEntry("routines/system"); //$NON-NLS-1$

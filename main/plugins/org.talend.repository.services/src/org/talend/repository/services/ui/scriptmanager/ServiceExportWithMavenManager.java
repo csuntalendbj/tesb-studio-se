@@ -199,13 +199,6 @@ public class ServiceExportWithMavenManager extends JavaScriptForESBWithMavenMana
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobJavaScriptsManager#getMainMavenProperties(org.talend
-     * .core.model.properties.Item)
-     */
     @Override
     protected Map<String, String> getMainMavenProperties(Item item) {
         Map<String, String> mavenPropertiesMap = super.getMainMavenProperties(item);

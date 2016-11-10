@@ -30,21 +30,12 @@ public enum EServiceCoreImage implements IImage {
         this.path = path;
     }
 
-    /**
-     * Getter for path.
-     * 
-     * @return the path
-     */
     public String getPath() {
         return this.path;
     }
 
-    /**
-     * Getter for clazz.
-     * 
-     * @return the clazz
-     */
     public Class getLocation() {
         return EServiceCoreImage.class;
     }
+
 }

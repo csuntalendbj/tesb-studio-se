@@ -60,8 +60,6 @@ public class ServiceExportWizard extends Wizard implements IExportWizard {
             section = workbenchSettings.addNewSection("ServiceExportWizard"); //$NON-NLS-1$
         }
         setDialogSettings(section);
-
-        //        setDefaultPageImageDescriptor(IDEWorkbenchPlugin.getIDEImageDescriptor("wizban/exportzip_wiz.png"));//$NON-NLS-1$
         setDefaultPageImageDescriptor(AbstractUIPlugin.imageDescriptorFromPlugin(IDEWorkbenchPlugin.IDE_WORKBENCH,
                 "$nl$/icons/full/wizban/exportzip_wiz.png")); //$NON-NLS-1$
         setNeedsProgressMonitor(true);

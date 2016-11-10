@@ -43,9 +43,9 @@ public class OpenTalendJobRefAction extends org.talend.core.ui.editor.CustomExte
         return 0;
     }
 
-    /* Check if this action enable. Will ensure the cTalendJob was selected and has legal value.
+    /* 
+     * Check if this action enable. Will ensure the cTalendJob was selected and has legal value.
      * @see org.eclipse.gef.ui.actions.WorkbenchPartAction#calculateEnabled()
-     * 
      */
     @Override
     protected boolean calculateEnabled() {
@@ -95,8 +95,8 @@ public class OpenTalendJobRefAction extends org.talend.core.ui.editor.CustomExte
     	boolean oldValueNotSwitchToDiKey=PlatformUI.getPreferenceStore().getBoolean(notAskAutoSwitchToDIKey);
     	PlatformUI.getPreferenceStore().setValue(notAskAutoSwitchToDIKey, true);
     	//need to be  restore at the end .
-    	
-    	
+
+
         // open in editor, type and count already checked in calculateEnabled()
         List<?> selectedObjects = getSelectedObjects();
         Object select = selectedObjects.get(0);

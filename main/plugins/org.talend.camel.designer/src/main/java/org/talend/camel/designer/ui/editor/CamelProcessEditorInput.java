@@ -25,10 +25,6 @@ public class CamelProcessEditorInput extends JobEditorInput {
         super(item, load, lastVersion, readonly);
     }
 
-//    public CamelProcessEditorInput(CamelProcessItem processItem, boolean load) throws PersistenceException {
-//        this(processItem, load, null, null);
-//    }
-
     public CamelProcessEditorInput(ProcessItem processItem, boolean load, Boolean lastVersion) throws PersistenceException {
         this(processItem, load, lastVersion, null);
     }

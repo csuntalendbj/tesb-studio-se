@@ -42,7 +42,6 @@ public class SaveAsRoutesAction extends Action {
         if (dlg.open() == Window.OK) {
 
             try {
-
                 // Set readonly to false since created routes will always be editable.
                 JobEditorInput newRoutesEditorInput = new CamelProcessEditorInput(processWizard.getProcess(), true, true, false);
 

@@ -137,9 +137,6 @@ public class CamelDependenciesEditor extends EditorPart implements IRouterDepend
 
 		statusLabel = toolkit.createLabel(statusComposite, null);
 		statusLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-//		if (isReadOnly()) {
-//			statusLabel.setText(Messages.RouterDependenciesEditor_itemIsLockedByOther);
-//		}
 
 		Label shortCuts = toolkit.createLabel(statusComposite, Messages.RouterDependenciesEditor_KeyBindingw, SWT.SHADOW_OUT);
 		shortCuts.setEnabled(false);
@@ -173,7 +170,6 @@ public class CamelDependenciesEditor extends EditorPart implements IRouterDepend
 		refreshBtn.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-//	          setDirty(false);
 		        updateInput();
 			}
 		});
@@ -228,7 +224,6 @@ public class CamelDependenciesEditor extends EditorPart implements IRouterDepend
 
     @Override
 	public void dependencesChanged(Composite source) {
-//		setDirty(true);
         final Command cmd;
         if (source == manageRouteResourcePanel) {
             cmd = new Command() {
@@ -255,7 +250,6 @@ public class CamelDependenciesEditor extends EditorPart implements IRouterDepend
             };
         }
         commandStack.execute(cmd);
-//		doSave(new NullProgressMonitor());
 	}
 
     @Override
@@ -278,7 +272,6 @@ public class CamelDependenciesEditor extends EditorPart implements IRouterDepend
 
 	@Override
 	public void setFocus() {
-//		importPackageViewer.getTableViewer().getTable().setFocus();
         // update all tables input
         updateInput();
         setMessage(null);

@@ -46,7 +46,6 @@ public class RouteResourceEditor extends TextEditor {
 		String displayName = item.getProperty().getDisplayName();
 		String version = item.getProperty().getVersion();
 		String partName = "Resource " + displayName + " " + version;
-//		setPartName(partName);
 		setTitleToolTip(partName);
 		getSourceViewer().setEditable(!rrInput.isReadOnly());
 	}
@@ -77,8 +76,6 @@ public class RouteResourceEditor extends TextEditor {
 
 	/**
 	 * Save the file content to EMF item.
-	 * 
-	 * @param rrInput
 	 */
 	public static void saveContentsToItem(RouteResourceInput rrInput) {
 

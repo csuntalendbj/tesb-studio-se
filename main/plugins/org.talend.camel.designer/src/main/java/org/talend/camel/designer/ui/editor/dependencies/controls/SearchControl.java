@@ -105,11 +105,8 @@ public class SearchControl extends Composite implements PaintListener {
 		Rectangle bounds = getBounds();
 		Path path = new Path(getDisplay());
 		path.addArc(bounds.x, bounds.y, arcSize, arcSize, 90, 180);
-//		path.addRectangle(bounds.x + arcSize / 2, bounds.y, bounds.width - arcSize,
-//				arcSize);
 		path.addArc(bounds.x + bounds.width - arcSize, bounds.y, arcSize, arcSize,
 				270, 180);
-//		gc.setClipping(path);
 		Color b = gc.getBackground();
 		gc.setBackground(backgroundColor);
 		gc.fillPath(path);

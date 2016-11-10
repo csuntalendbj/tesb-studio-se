@@ -28,8 +28,6 @@ import org.talend.designer.esb.webservice.ws.wsdlinfo.Function;
 
 class CCXFNodeAdapter extends AbstractNodeAdapter implements WebServiceConstants {
 
-
-
 	CCXFNodeAdapter(WebServiceNode node) {
 		super(node);
 	}
@@ -84,8 +82,7 @@ class CCXFNodeAdapter extends AbstractNodeAdapter implements WebServiceConstants
 		portName = portName.substring(portName.indexOf('}') + 1);
 		portName = TalendQuoteUtils.removeQuotes(portName);
 		String serviceName = node.getParamStringValue(SERVICE_NAME);
-		// String targetNamespace = node.getParamStringValue(SERVICE_NS);
-		if (serviceName == null /* || targetNamespace == null */) {
+		if (serviceName == null) {
 			return null;
 		}
 		QName serviceQName = QName.valueOf(serviceName);

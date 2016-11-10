@@ -31,14 +31,6 @@ public class FinalVersionUpgradeMigrationTask extends
 		return gc.getTime();
 	}
 
-	/**
-	 * 
-	 * DOC LiXP Comment method "switchVersion".
-	 * 
-	 * @param evtValue
-	 * @param properties
-	 * @return
-	 */
 	protected String switchVersion(String evtValue) {
 		if (evtValue == null) {
 			return evtValue;

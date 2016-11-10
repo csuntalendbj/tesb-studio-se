@@ -137,8 +137,6 @@ public class OpenWSDLPage extends WizardPage {
         Composite wsdlFileArea = new Composite(parentArea, SWT.NONE);
         wsdlFileArea.setLayoutData(new GridData(SWT.FILL, SWT.NONE, true, false));
         GridLayout layout = new GridLayout(3, false);
-//        layout.marginLeft = 15;
-//        layout.marginHeight = 0;
         wsdlFileArea.setLayout(layout);
 
         String[] xmlExtensions = { "*.xml;*.xsd;*.wsdl", "*.*", "*" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$

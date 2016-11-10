@@ -212,12 +212,6 @@ public class ServiceExportManager extends JobJavaScriptOSGIForESBManager {
         return manifest;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.talend.repository.ui.wizards.exportjob.scriptsmanager.esb.
-     * JobJavaScriptOSGIForESBManager#getOutputSuffix()
-     */
     @Override
     public String getOutputSuffix() {
         return "/";

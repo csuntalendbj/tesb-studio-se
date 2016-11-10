@@ -41,7 +41,6 @@ public class OpenWSDLWizard extends Wizard {
         case REPOSITORY_ELEMENT:
             pathToSave = RepositoryNodeUtilities.getPath(repositoryNode);
             break;
-        //case SYSTEM_FOLDER:
         default:
             pathToSave = new Path(""); //$NON-NLS-1$
             break;

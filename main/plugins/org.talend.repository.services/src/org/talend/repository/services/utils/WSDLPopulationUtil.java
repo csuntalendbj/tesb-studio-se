@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -38,11 +37,6 @@ public class WSDLPopulationUtil extends XSDPopulationUtil2 {
         resourceSet.getAdapterFactories().add(new XSDSchemaLocationResolverAdapterFactory());
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.talend.datatools.xml.utils.XSDPopulationUtil2#getXSDSchema(java.lang.String, boolean)
-     */
     @Override
     public XSDSchema getXSDSchema(String fileName, boolean forceReload) throws URISyntaxException, MalformedURLException {
         return getXSDSchemaFromNamespace(fileName);

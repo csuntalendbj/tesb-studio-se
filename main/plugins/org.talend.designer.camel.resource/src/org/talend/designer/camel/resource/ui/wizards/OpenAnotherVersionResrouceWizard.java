@@ -124,11 +124,8 @@ public class OpenAnotherVersionResrouceWizard extends Wizard {
 						ExceptionHandler.process(e);
 					}
 
-//					boolean locked = repoObject.getRepositoryStatus().equals(
-//							ERepositoryStatus.LOCK_BY_USER);
 					openAnotherVersion(
-							(IRepositoryNode) repoObject.getRepositoryNode()/*,
-							!locked*/);
+							(IRepositoryNode) repoObject.getRepositoryNode());
 					try {
 						ProxyRepositoryFactory.getInstance().saveProject(
 								ProjectManager.getInstance()
@@ -159,11 +156,6 @@ public class OpenAnotherVersionResrouceWizard extends Wizard {
 			if (lastVersion) {
 				lockObject(repoObject);
 			}
-//			ERepositoryStatus status = node.getObject().getRepositoryStatus();
-//			boolean isLocked = false;
-//			if (status == ERepositoryStatus.LOCK_BY_USER) {
-//				isLocked = true;
-//			}
 
 			// Only latest version can be editted
 			openAnotherVersion(node/*, !lastVersion || !isLocked*/);
@@ -191,7 +183,7 @@ public class OpenAnotherVersionResrouceWizard extends Wizard {
 		}
 	}
 
-	private void openAnotherVersion(final IRepositoryNode node/*, final boolean readonly*/) {
+	private void openAnotherVersion(final IRepositoryNode node) {
 		if (node.getObject() != null) {
 			Item item = node.getObject().getProperty().getItem();
 			IWorkbenchPage page = getActivePage();

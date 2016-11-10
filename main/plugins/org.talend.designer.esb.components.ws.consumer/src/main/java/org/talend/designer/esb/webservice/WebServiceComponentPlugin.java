@@ -24,21 +24,6 @@ public class WebServiceComponentPlugin extends AbstractUIPlugin {
 		hasRepositoryServices = GlobalServiceRegister.getDefault().isServiceRegistered(IESBService.class);
 	}
 
-	// http://jira.talendforge.org/browse/TESB-3602 LiXiaopeng 2011-10-24
-	// /**
-	// * Set WS_HTTP_PORT_PREFERENCE into java system property. DOC LiXP Comment
-	// method "loadCustomProperty".
-	// */
-	// public void loadCustomProperty() {
-	// String defaultPort =
-	// getPreferenceStore().getString(WS_HTTP_PORT_PREFERENCE);
-	// System.getProperties().put(WS_HTTP_PORT_PREFERENCE, defaultPort);
-	// }
-	// protected void initializeDefaultPreferences(IPreferenceStore store) {
-	// store.setDefault(WS_HTTP_PORT_PREFERENCE, 8088);
-	// }
-	// End
-
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
 		super.stop(context);

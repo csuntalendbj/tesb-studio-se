@@ -20,16 +20,10 @@ public class RouteResourceGenerator implements IControllerGenerator {
 
 	private IDynamicProperty dp;
 
-	/* (non-Javadoc)
-	 * @see org.talend.designer.core.ui.editor.properties.controllers.generator.IControllerGenerator#generate()
-	 */
 	public AbstractElementPropertySectionController generate() {
 		return new RouteResourceController(dp);
 	}
 
-	/* (non-Javadoc)
-	 * @see org.talend.designer.core.ui.editor.properties.controllers.generator.IControllerGenerator#setDynamicProperty(org.talend.core.properties.tab.IDynamicProperty)
-	 */
 	public void setDynamicProperty(IDynamicProperty dp) {
 		this.dp = dp;
 	}

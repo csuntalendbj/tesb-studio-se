@@ -76,18 +76,6 @@ public class ProcessPartBuilder extends AbstractProcessPartBuilder {
 		return subTrees != null && !subTrees.isEmpty();
 	}
 
-//	private NodesSubTree getFirstSubTree() {
-//		return subTrees.get(0);
-//	}
-
-//	private NodesSubTree getLastSubTree() {
-//		NodesSubTree lastSubTree = sortedFilteredSubTrees.get(sortedFilteredSubTrees.size() - 1);
-//		if (lastSubTree == null) {
-//			lastSubTree = getFirstSubTree();
-//		}
-//		return lastSubTree;
-//	}
-
 	private static boolean subTreePostpositive(INode subProcessStartNode) {
         IElementParameter family = subProcessStartNode.getElementParameter("FAMILY"); //$NON-NLS-1$
         // https://jira.talendforge.org/browse/TESB-16530

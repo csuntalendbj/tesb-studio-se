@@ -128,13 +128,6 @@ public class ESBRepositoryContentHandler extends AbstractRepositoryContentHandle
         return null;
     }
 
-//    public RepositoryNode createRepositoryNode(RepositoryNode node) {
-//        RepositoryNode serviceNode = new RepositoryNode(null, node, ENodeType.SYSTEM_FOLDER);
-//        serviceNode.setProperties(EProperties.LABEL, ESBRepositoryNodeType.SERVICES);
-//        serviceNode.setProperties(EProperties.CONTENT_TYPE, ESBRepositoryNodeType.SERVICES);
-//        return serviceNode;
-//    }
-
     @Override
     public void addNode(ERepositoryObjectType type, RepositoryNode recBinNode, IRepositoryViewObject repositoryObject,
             RepositoryNode node) {

@@ -40,12 +40,6 @@ public class EditCamelBean extends AbstractBeanAction implements IIntroAction {
 
     private String EDIT_LABEL = Messages.getString("EditProcess.editBean"); //$NON-NLS-1$
 
-//    private String OPEN_LABEL = Messages.getString("EditProcess.openBean"); //$NON-NLS-1$
-
-//    private static final String DBPROJECT_LABEL = "teneo";
-
-//    private Properties params;
-
     public EditCamelBean() {
         super();
         this.setText(EDIT_LABEL);
@@ -72,11 +66,6 @@ public class EditCamelBean extends AbstractBeanAction implements IIntroAction {
         setEnabled(canWork);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.eclipse.jface.action.Action#run()
-     */
     @Override
     protected void doRun() {
         if (repositoryNode == null) {
@@ -100,15 +89,9 @@ public class EditCamelBean extends AbstractBeanAction implements IIntroAction {
         return BeanItem.class;
     }
 
-    /*
-     * (non-Jsdoc)
-     * 
-     * @see org.eclipse.ui.intro.config.IIntroAction#run(org.eclipse.ui.intro.IIntroSite, java.util.Properties)
-     */
     public void run(IIntroSite site, Properties params) {
-//        this.params = params;
         PlatformUI.getWorkbench().getIntroManager().closeIntro(PlatformUI.getWorkbench().getIntroManager().getIntro());
         doRun();
-
     }
+
 }

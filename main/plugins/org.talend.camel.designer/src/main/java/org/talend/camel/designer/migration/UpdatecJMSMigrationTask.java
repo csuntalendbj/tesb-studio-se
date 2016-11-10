@@ -42,11 +42,8 @@ public class UpdatecJMSMigrationTask extends AbstractRouteItemComponentMigration
         return gc.getTime();
     }
 
-    /**
+    /*
      * Update cJMS, add cJMSConnectionFactory.
-     * 
-     * @param item
-     * @throws PersistenceException
      */
     private boolean updateJMSComponent(NodeType currentNode) throws PersistenceException {
     	ElementParameterType oldParam = UtilTool.findParameterType(currentNode, "CONNECTION_FACOTRY");

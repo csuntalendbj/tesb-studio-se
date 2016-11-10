@@ -194,7 +194,6 @@ public class RouteJavaScriptOSGIForESBManager extends JobJavaScriptOSGIForESBMan
     protected void addOsgiDependencies(Analyzer analyzer, ExportFileResource libResource, ProcessItem processItem)
             throws IOException {
         final DependenciesResolver resolver = new DependenciesResolver(processItem);
-        //exportPackage.append(getPackageName(processItem));
         // Add Route Resource Export packages
         // http://jira.talendforge.org/browse/TESB-6227
 

@@ -67,7 +67,6 @@ public class CheckedCamelDependenciesPanel extends CamelDependenciesPanel {
             ((CheckboxTableViewer) tableViewer).setChecked(bcp, state);
         }
         if (hasChanged) {
-            //((CheckboxTableViewer) tableViewer).setAllChecked(state);
             fireDependenciesChangedListener();
         }
     }

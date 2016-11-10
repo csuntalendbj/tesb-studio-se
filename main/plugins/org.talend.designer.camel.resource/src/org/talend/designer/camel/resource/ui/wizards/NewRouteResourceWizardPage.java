@@ -54,10 +54,6 @@ public class NewRouteResourceWizardPage extends PropertiesWizardPage {
 
 	private List<IRepositoryViewObject> listExistingResources;
 
-	/**
-	 * Constructs a new NewProjectWizardPage.
-	 * 
-	 */
 	public NewRouteResourceWizardPage(Property property, IPath destinationPath) {
 		super("WizardPage", property, destinationPath); //$NON-NLS-1$
 
@@ -100,9 +96,6 @@ public class NewRouteResourceWizardPage extends PropertiesWizardPage {
 		}
 	}
 
-	/**
-	 * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
-	 */
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		GridLayout layout = new GridLayout(2, false);
@@ -145,7 +138,6 @@ public class NewRouteResourceWizardPage extends PropertiesWizardPage {
 
 	@Override
 	protected void evaluateTextField() {
-		
 		String trimName = nameText.getText().trim();
 		//Check name is a valid file name
 		nameStatus = ResourcesPlugin.getWorkspace().validateName(trimName, IResource.FILE);

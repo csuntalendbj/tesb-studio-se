@@ -45,54 +45,30 @@ public class ResourceDependencyModel {
         this.item = item;
     }
 
-    /**
-     * @return the item
-     */
     public RouteResourceItem getItem() {
         return item;
     }
 
-    /**
-     * @return the selectedVersion
-     */
     public String getSelectedVersion() {
         return selectedVersion;
     }
 
-    /**
-     * @param selectedVersion
-     *            the selectedVersion to set
-     */
     public void setSelectedVersion(String selectedVersion) {
         this.selectedVersion = selectedVersion;
     }
 
-    /**
-     * @return the isBuiltIn
-     */
     public boolean isBuiltIn() {
         return isBuiltIn;
     }
 
-    /**
-     * @param isBuiltIn
-     *            the isBuiltIn to set
-     */
     public void setBuiltIn(boolean isBuiltIn) {
         this.isBuiltIn = isBuiltIn;
     }
 
-
-    /**
-     * @return the classPathUrl
-     */
     public String getClassPathUrl() {
         return JavaResourcesHelper.getResouceClasspath(item, selectedVersion);
     }
 
-    /**
-     * @return the versions
-     */
     public Collection<String> getVersions() {
         final List<String> versions = new ArrayList<String>();
         try {
@@ -108,9 +84,6 @@ public class ResourceDependencyModel {
         return versions;
     }
 
-    /**
-     * @return the refNodes
-     */
     public Collection<String> getRefNodes() {
         return refNodes;
     }

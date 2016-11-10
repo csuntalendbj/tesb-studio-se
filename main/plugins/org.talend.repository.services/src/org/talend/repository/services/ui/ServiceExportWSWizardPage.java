@@ -144,7 +144,6 @@ public class ServiceExportWSWizardPage extends WizardPage {
         GridLayout layout = new GridLayout();
         optionsGroup.setLayout(layout);
 
-        // optionsGroup.setText(IDEWorkbenchMessages.WizardExportPage_options);
         optionsGroup.setText(org.talend.repository.i18n.Messages.getString("IDEWorkbenchMessages.WizardExportPage_options")); //$NON-NLS-1$
         optionsGroup.setFont(parent.getFont());
 

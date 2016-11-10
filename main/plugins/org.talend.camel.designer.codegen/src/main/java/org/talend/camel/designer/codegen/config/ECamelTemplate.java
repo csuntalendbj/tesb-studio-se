@@ -19,7 +19,7 @@ import org.talend.designer.codegen.config.TemplateUtil;
 
 /**
  * Internal Templates for Code Generator, must be always available to
- * encapsulate rela parts of code.
+ * encapsulate related parts of code.
  */
 public enum ECamelTemplate {
 	FOOTER_ROUTE("footer_route"), //$NON-NLS-1$ 
@@ -37,10 +37,6 @@ public enum ECamelTemplate {
 
 	private final String templateName;
 
-	/**
-	 * 
-	 * @param templateName
-	 */
 	private ECamelTemplate(String templateName) {
 		this.templateName = templateName;
 	}

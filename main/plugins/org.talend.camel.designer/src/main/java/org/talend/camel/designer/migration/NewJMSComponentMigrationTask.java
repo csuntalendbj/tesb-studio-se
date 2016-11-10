@@ -32,11 +32,8 @@ public class NewJMSComponentMigrationTask extends AbstractRouteItemComponentMigr
 	}
 
 
-	/**
+	/*
 	 * Switch cActiveMQ to cJMS and adjust some parameters for cJMS.
-	 * 
-	 * @param item
-	 * @throws PersistenceException
 	 */
 	private void adapteJMS(NodeType currentNode) throws PersistenceException {
 		if ("cActiveMQ".equals(currentNode.getComponentName())) {
@@ -111,13 +108,7 @@ public class NewJMSComponentMigrationTask extends AbstractRouteItemComponentMigr
 	}
 
 	/**
-	 * 
 	 * Create a parameter of a node.
-	 * 
-	 * @param elemParams
-	 * @param field
-	 * @param name
-	 * @param value
 	 */
 	protected ElementParameterType createParamType(String field, String name,
 			String value) {

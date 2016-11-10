@@ -69,10 +69,8 @@ public class EditRouteResourceAction extends AContextualAction {
         setEnabled(canWork);
     }
 
-	/**
+	/*
 	 * Open or bind RouteResourceEditor
-	 * 
-	 * @param node
 	 */
 	private void openOrBindEditor(IRepositoryNode node) {
 		final Property property = node.getObject().getProperty();

@@ -32,12 +32,6 @@ public abstract class AbstractRouteItemComponentMigrationTask extends
 	 */
 	public abstract String getComponentNameRegex();
 
-	/* 
-	 * 
-	 */
-	/* (non-Javadoc)
-	 * @see org.talend.camel.designer.migration.AbstractRouteItemMigrationTask#execute(org.talend.camel.core.model.camelProperties.CamelProcessItem)
-	 */
 	@Override
 	public final ExecutionResult execute(CamelProcessItem item) {
 		List<NodeType> nodes = findComponentNodesRegex(item, getComponentNameRegex());

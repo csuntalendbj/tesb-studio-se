@@ -52,13 +52,6 @@ public class CamelNewBeanWizard extends Wizard {
 
     private IPath path;
 
-    /**
-     * Constructs a new NewProjectWizard.
-     * 
-     * @param author Project author.
-     * @param server
-     * @param password
-     */
     public CamelNewBeanWizard(IPath path) {
         super();
         this.path = path;
@@ -90,9 +83,6 @@ public class CamelNewBeanWizard extends Wizard {
         beanItem.setContent(byteArray);
     }
 
-    /**
-     * @see org.eclipse.jface.wizard.Wizard#addPages()
-     */
     @Override
     public void addPages() {
         mainPage = new CamelNewBeanWizardPage(property, path);
@@ -101,9 +91,6 @@ public class CamelNewBeanWizard extends Wizard {
         setDefaultPageImageDescriptor(CamelDesignerPlugin.getImageDescriptor(CamelDesignerPlugin.BEAN_WIZ_ICON));
     }
 
-    /**
-     * @see org.eclipse.jface.wizard.Wizard#performFinish()
-     */
     @Override
     public boolean performFinish() {
         IProxyRepositoryFactory repositoryFactory = ProxyRepositoryFactory.getInstance();
@@ -112,7 +99,6 @@ public class CamelNewBeanWizard extends Wizard {
 
 			// http://jira.talendforge.org/browse/TESB-5000 LiXiaopeng
 			property.setLabel(property.getDisplayName());
-            // repositoryFactory.create(routineItem, mainPage.getDestinationPath());
             repositoryFactory.create(beanItem, mainPage.getDestinationPath());
         } catch (PersistenceException e) {
             MessageDialog.openError(getShell(), Messages.getString("NewBeanWizard.failureTitle"), ""); //$NON-NLS-1$ //$NON-NLS-2$
@@ -122,11 +108,6 @@ public class CamelNewBeanWizard extends Wizard {
         return beanItem != null;
     }
 
-    /**
-     * Getter for project.
-     * 
-     * @return the project
-     */
     public BeanItem getBean() {
         return this.beanItem;
     }

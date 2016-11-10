@@ -48,7 +48,6 @@ public class CreateRouteResourceAction extends AContextualAction implements ITre
 
     @Override
     protected void doRun() {
-
         IRepositoryNode node = null;
         NewRouteResourceWizard wizard = null;
         ISelection selection = getSelection();

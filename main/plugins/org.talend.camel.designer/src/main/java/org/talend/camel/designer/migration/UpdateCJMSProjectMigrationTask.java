@@ -38,11 +38,6 @@ public class UpdateCJMSProjectMigrationTask extends AbstractRouteItemMigrationTa
     private static final TalendFileFactory FILE_FACTORY = TalendFileFactory.eINSTANCE;
 
 
-    /**
-     * 
-     * @param currentNode
-     * @return
-     */
     private NodeType createConnectionFactoryNode(NodeType currentNode) {
         NodeType nodeType = FILE_FACTORY.createNodeType();
         nodeType.setSizeX(32);
@@ -85,11 +80,8 @@ public class UpdateCJMSProjectMigrationTask extends AbstractRouteItemMigrationTa
         }
     }
 
-    /**
+    /*
      * Get maximum Y position of the process.
-     * 
-     * @param processType
-     * @return
      */
     private int getMaxY(ProcessType processType) {
         int max = 0;
@@ -116,11 +108,8 @@ public class UpdateCJMSProjectMigrationTask extends AbstractRouteItemMigrationTa
         return null;
     }
 
-    /**
+    /*
      * Compute the location of cMQConnectionFactory Node
-     * 
-     * @param processType
-     * @param nodes
      */
     private void locateNodes(ProcessType processType, List<NodeType> nodes) {
 
@@ -133,11 +122,8 @@ public class UpdateCJMSProjectMigrationTask extends AbstractRouteItemMigrationTa
         }
     }
 
-    /**
+    /*
      * Update cJMS, add cMQConnectionFactory.
-     * 
-     * @param item
-     * @throws PersistenceException
      */
     @SuppressWarnings("unchecked")
     private void updateJMSComponent(Item item) throws PersistenceException {

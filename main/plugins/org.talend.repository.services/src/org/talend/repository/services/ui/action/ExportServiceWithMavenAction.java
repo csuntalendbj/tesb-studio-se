@@ -175,11 +175,6 @@ public class ExportServiceWithMavenAction extends ExportServiceAction {
 
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.talend.repository.services.ui.action.ExportServiceAction#processFinalResult(java.lang.String)
-     */
     @Override
     protected void processFinalResult(String destinationPath) throws IOException {
         destinationPath = destinationPath.replace("\\", PATH_SEPERATOR); //$NON-NLS-1$
@@ -190,11 +185,6 @@ public class ExportServiceWithMavenAction extends ExportServiceAction {
         super.processFinalResult(destinationPath);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.talend.repository.services.ui.action.ExportServiceAction#clean()
-     */
     @Override
     protected void clean() {
     }

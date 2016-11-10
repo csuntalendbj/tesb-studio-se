@@ -26,7 +26,6 @@ public class EsbPreferencePage extends FieldEditorPreferencePage
 
 	public void init(IWorkbench workbench) {
 		setPreferenceStore(Activator.getDefault().getPreferenceStore());
-		// setDescription(Messages.getString("esb.preferences.rest.service.uri.default"));
 	}
 
 	@Override

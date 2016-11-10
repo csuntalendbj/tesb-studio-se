@@ -92,12 +92,6 @@ public class XmlTableForm extends Composite {
     private final List<Item> items;
 
 
-    /**
-     * DOC Administrator FileTableForm constructor comment.
-     * 
-     * @param parent
-     * @param style
-     */
     public XmlTableForm(Composite parent, Collection<XmlFileConnectionItem> fileRepObjList) {
         super(parent, SWT.NONE);
         items = new ArrayList<Item>(fileRepObjList.size());

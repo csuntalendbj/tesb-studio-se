@@ -164,59 +164,12 @@ public class WSDLUtils {
         }
         IFile file = currentProject.getFolder(folder).getFile(
                 serviceItem.getProperty().getLabel() + '_' + serviceItem.getProperty().getVersion() + ".wsdl"); //$NON-NLS-1$
-        // if (!file.exists()) {
-        // // copy file to item
-        // IFile fileTemp = null;
-        // try {
-        // folder = "";
-        // if (!foldPath.equals("")) {
-        // folder = "/" + foldPath;
-        // }
-        // fileTemp = currentProject.getFolder("services" + folder).getFile(
-        // serviceItem.getProperty().getLabel() + "_" + serviceItem.getProperty().getVersion() + ".wsdl");
-        // ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(new byte[0]);
-        // if (!fileTemp.exists()) {
-        // fileTemp.create(byteArrayInputStream, true, null);
-        // } else {
-        // fileTemp.delete(true, null);
-        // fileTemp.create(byteArrayInputStream, true, null);
-        // }
-        // } catch (CoreException e) {
-        // ExceptionHandler.process(e);
-        // }
-        // //
-        // ReferenceFileItem referenceFileItem = PropertiesFactory.eINSTANCE.createReferenceFileItem();
-        // ByteArray byteArray = PropertiesFactory.eINSTANCE.createByteArray();
-        // referenceFileItem.setContent(byteArray);
-        // referenceFileItem.setExtension("wsdl");
-        // serviceItem.getReferenceResources().add(referenceFileItem);
-        // referenceFileItem.getContent().setInnerContent(new byte[0]);
-        // IProxyRepositoryFactory factory = ProxyRepositoryFactory.getInstance();
-        // try {
-        // factory.save(serviceItem);
-        // } catch (PersistenceException e) {
-        // ExceptionHandler.process(e);
-        // }
-        // }
         return file;
     }
 
     public static Definition getDefinition(ServiceItem serviceItem) throws CoreException {
         return getDefinition(getWsdlFile(serviceItem));
     }
-
-    // public static Definition getDefinition(String pathToWsdl) throws CoreException {
-    // try {
-    // WSDLFactory wsdlFactory = WSDLFactory.newInstance();
-    // WSDLReader newWSDLReader = wsdlFactory.newWSDLReader();
-    //
-    // newWSDLReader.setExtensionRegistry(wsdlFactory.newPopulatedExtensionRegistry());
-    // newWSDLReader.setFeature(com.ibm.wsdl.Constants.FEATURE_VERBOSE, false);
-    // return newWSDLReader.readWSDL(pathToWsdl);
-    // } catch (WSDLException e) {
-    // throw new CoreException(StatusUtil.newStatus(IStatus.ERROR, e.getLocalizedMessage(), e));
-    // }
-    // }
 
     public static Definition getDefinition(IFile pathToWsdl) throws CoreException {
         try {
@@ -231,26 +184,6 @@ public class WSDLUtils {
         }
     }
 
-    // public static Definition getWsdlDefinition(RepositoryNode repositoryNode) throws CoreException {
-    // return getDefinition(getWsdlFile(repositoryNode).getLocation().toOSString());
-    // }
-
-    // /**
-    // * Validate WSDL file.
-    // *
-    // * @param node
-    // * @throws CoreException
-    // */
-    // public static void validateWsdl(RepositoryNode node) throws CoreException {
-    // IFile wsdlFile = getWsdlFile(node);
-    // if (null == wsdlFile) {
-    // throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID,
-    // Messages.PublishMetadata_Exception_wsdl_not_found));
-    // }
-    // String wsdlPath = wsdlFile.getLocationURI().toString();
-    // validateWsdl(wsdlPath);
-    // }
-
     /**
      * Validate WSDL file.
      * 
@@ -259,7 +192,6 @@ public class WSDLUtils {
      */
     public static void validateWsdl(String wsdlUri) throws CoreException {
         WSDLValidator wsdlValidator = WSDLValidator.getInstance();
-        // wsdlValidator.addURIResolver(new URIResolverWrapper());
         IValidationReport validationReport = wsdlValidator.validate(wsdlUri);
         if (!validationReport.isWSDLValid()) {
             throw getCoreException(Messages.PublishMetadata_Exception_wsdl_not_valid, null);

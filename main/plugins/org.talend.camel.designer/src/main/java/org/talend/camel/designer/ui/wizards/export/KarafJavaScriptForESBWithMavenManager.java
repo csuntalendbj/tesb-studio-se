@@ -178,13 +178,6 @@ public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithM
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobJavaScriptsManager#getMainMavenProperties(org.talend
-     * .core.model.properties.Item)
-     */
     @Override
     protected Map<String, String> getMainMavenProperties(Item item) {
         Map<String, String> mavenPropertiesMap = super.getMainMavenProperties(item);
@@ -381,12 +374,6 @@ public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithM
         }
     }
 
-    /**
-     * DOC ggu Comment method "getOsgiWithMavenManager".
-     * 
-     * @param contextgGroup
-     * @return
-     */
     private OSGIJavaScriptForESBWithMavenManager getOsgiWithMavenManager(final List<ExportFileResource> list,
             final String talendJobLabel, String contextgGroup) {
         OSGIJavaScriptForESBWithMavenManager osgiWithMavenManager = new OSGIJavaScriptForESBWithMavenManager(
@@ -494,14 +481,6 @@ public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithM
         return FileConstants.ZIP_FILE_SUFFIX;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobJavaScriptsManager#addRoutinesSourceCodes(org.talend
-     * .repository.documentation.ExportFileResource[], org.talend.repository.documentation.ExportFileResource,
-     * ITalendProcessJavaProject, boolean)
-     */
     @Override
     protected void addRoutinesSourceCodes(ExportFileResource[] process, ExportFileResource resource,
             ITalendProcessJavaProject talendProcessJavaProject, boolean useBeans) throws Exception {
@@ -517,11 +496,6 @@ public class KarafJavaScriptForESBWithMavenManager extends JavaScriptForESBWithM
         return getSystemTempFolder().getAbsolutePath();
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.talend.repository.ui.wizards.exportjob.scriptsmanager.JobScriptsManager#deleteTempFiles()
-     */
     @Override
     public void deleteTempFiles() {
         super.deleteTempFiles();

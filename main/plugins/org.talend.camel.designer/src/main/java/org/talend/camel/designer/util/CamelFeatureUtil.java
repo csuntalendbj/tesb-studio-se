@@ -159,8 +159,6 @@ public final class CamelFeatureUtil {
 				if(!EParameterName.ROUTETYPE.getName().equals(ept.getName())){
 					continue;
 				}
-//	            String[] strList = { "constant", "el", "groovy", "header", "javaScript", "jxpath", "mvel", "ognl", "php", "property",
-//	                    "python", "ruby", "simple", "spel", "sql", "xpath", "xquery" };
 				if("groovy".equals(ept.getValue())){
 					features.add(FEATURE_CAMEL_GROOVY);
 				} else if ("javaScript".equals(ept.getValue())) {
@@ -213,9 +211,6 @@ public final class CamelFeatureUtil {
 
 	/**
 	 * Add feature and bundle to Feature Model
-	 * 
-	 * @param node
-	 * @param featuresModel
 	 */
     public static void addFeatureAndBundles(ProcessItem routeProcess, FeaturesModel featuresModel) {
         IDesignerCoreService designerService = RepositoryPlugin.getDefault().getDesignerCoreService();
@@ -237,13 +232,6 @@ public final class CamelFeatureUtil {
         }
     }
 
-	/**
-	 * 
-	 * DOC ggu Comment method "getMavenGroupId".
-	 * 
-	 * @param item
-	 * @return
-	 */
 	public static String getMavenGroupId(Item item) {
 		if (item != null) {
 			String projectName = JavaResourcesHelper.getProjectFolderName(item);

@@ -29,7 +29,7 @@ import org.talend.designer.core.model.utils.emf.talendfile.ProcessType;
 /**
  * The Class AbstractRouteMigrationTask. Migration task extends this class
  * restrict to only works on Route Repository Node. And provide some common
- * methodss.
+ * methods.
  */
 public abstract class AbstractRouteItemMigrationTask extends
 		AbstractItemMigrationTask {

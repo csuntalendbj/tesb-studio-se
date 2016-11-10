@@ -141,12 +141,10 @@ public class ManageRouteResourcePanel extends Composite {
 
         addBtn = new ToolItem(tb, SWT.PUSH);
         addBtn.setText(Messages.RouterDependenciesPanel_addBtn);
-//        addBtn.setImage(ImageProvider.getImage(EImage.ADD_ICON));
         addBtn.setEnabled(!isReadOnly);
 
         delBtn = new ToolItem(tb, SWT.PUSH);
         delBtn.setText(Messages.RouterDependenciesPanel_removeBtn);
-//        delBtn.setImage(ImageProvider.getImage(EImage.DELETE_ICON));
         delBtn.setEnabled(false);
 
         copyBtn = new ToolItem(tb, SWT.PUSH);

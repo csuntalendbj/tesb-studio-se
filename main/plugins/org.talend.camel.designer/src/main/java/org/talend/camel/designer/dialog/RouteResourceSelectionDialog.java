@@ -67,7 +67,7 @@ public class RouteResourceSelectionDialog extends Dialog {
 
             @Override
             protected int getStyle() {
-                // http://jira.talendforge.org/browse/TESB-6582 Xiaopeng Li
+                // http://jira.talendforge.org/browse/TESB-6582
                 return SWT.BORDER | SWT.SINGLE | SWT.H_SCROLL | SWT.V_SCROLL;
             }
 

@@ -117,15 +117,6 @@ public class ESBWizard extends CheckLastVersionRepositoryWizard {
 
     @Override
     public boolean performFinish() {
-        // IProxyRepositoryFactory repositoryFactory = ProxyRepositoryFactory.getInstance();
-        // try {
-        // property.setId(repositoryFactory.getNextId());
-        // serviceItem.setServiceConnection(ServicesFactory.eINSTANCE.createServiceConnection());
-        // repositoryFactory.create(serviceItem, mainPage.getDestinationPath());
-        // } catch (PersistenceException e) {
-        //            MessageDialog.openError(getShell(), "", ""); //$NON-NLS-1$ //$NON-NLS-2$
-        // ExceptionHandler.process(e);
-        // }
         return wsdlPage.finish();
     }
 

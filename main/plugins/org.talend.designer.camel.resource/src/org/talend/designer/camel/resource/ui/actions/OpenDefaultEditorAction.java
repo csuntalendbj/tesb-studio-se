@@ -21,16 +21,9 @@ import org.talend.repository.ui.actions.AContextualAction;
 
 public class OpenDefaultEditorAction extends AContextualAction {
 
-//	private Properties params;
-
 	public OpenDefaultEditorAction() {
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jface.action.Action#run()
-	 */
 	protected void doRun() {
 		ISelection selection = getSelection();
 		if (selection == null) {
@@ -44,43 +37,12 @@ public class OpenDefaultEditorAction extends AContextualAction {
 		opendTextEditor(node);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.talend.repository.ui.actions.AContextualView#getClassForDoubleClick()
-	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Class getClassForDoubleClick() {
 		return RouteResourceItem.class;
 	}
 
-//	private ISelection getSelectedObject() {
-//		if (params == null) {
-//			return getSelection();
-//		}
-//		else {
-//			RepositoryNode repositoryNode = RepositoryNodeUtilities
-//					.getRepositoryNode(params.getProperty("nodeId"), false); //$NON-NLS-1$
-//			IRepositoryView viewPart = getViewPart();
-//			if (repositoryNode != null && viewPart != null) {
-//				RepositoryNodeUtilities.expandParentNode(viewPart,
-//						repositoryNode);
-//				return new StructuredSelection(repositoryNode);
-//			}
-//			return null;
-//		}
-//	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.talend.repository.ui.actions.ITreeContextualAction#init(org.eclipse
-	 * .jface.viewers.TreeViewer,
-	 * org.eclipse.jface.viewers.IStructuredSelection)
-	 */
 	public void init(TreeViewer viewer, IStructuredSelection selection) {
 		boolean canWork = !selection.isEmpty() && selection.size() == 1;
 		if (canWork) {
@@ -126,13 +88,10 @@ public class OpenDefaultEditorAction extends AContextualAction {
 				.createImageDesc("icons/edit-resource.png")); //$NON-NLS-1$
 	}
 
-	/**
+	/*
 	 * Open or bind RouteResourceEditor
-	 * 
-	 * @param node
 	 */
 	private void opendTextEditor(RepositoryNode node) {
-
 		Property property = (Property) node.getObject().getProperty();
 		RouteResourceItem item = null;
 		if (property != null) {
@@ -142,6 +101,6 @@ public class OpenDefaultEditorAction extends AContextualAction {
 			IWorkbenchPage page = getActivePage();
 			RouteResourceEditorUtil.openDefaultEditor(page, node, item);
 		}
-
 	}
+
 }

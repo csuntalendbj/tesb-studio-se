@@ -91,32 +91,6 @@ import org.talend.repository.services.utils.WSDLUtils;
 
 public class ESBService implements IESBService {
 
-    // public AbstractMetadataObject getServicesOperation(Connection connection, String operationName) {
-    // List<ServiceOperation> list = new ArrayList<ServiceOperation>();
-    // if (connection instanceof ServiceConnection) {
-    // ServiceConnection serConnection = (ServiceConnection) connection;
-    // EList<ServicePort> serPort = serConnection.getServicePort();
-    // for (ServicePort port : serPort) {
-    // list.addAll(port.getServiceOperation());
-    // }
-    // }
-    // for (ServiceOperation ope : list) {
-    // if (ope.getLabel().equals(operationName)) {
-    // return ope;
-    // }
-    // }
-    // return null;
-    // }
-
-    // public void changeOperationLabel(RepositoryNode newNode, INode node, Connection connection) {
-    // if (!(connection instanceof ServiceConnection)) {
-    // return;
-    // }
-    // ServiceConnection serConn = (ServiceConnection) connection;
-    // changeOldOperationLabel(serConn, node);
-    // changenewOperationLabel(newNode, node, serConn);
-    // }
-
     private void changeOldOperationLabel(RepositoryNode topParent, INode node, ServiceOperation newOperation) {
         // here should be all the ports, not just ports of one connection
         List<IRepositoryNode> nodeList = topParent.getChildren();
@@ -191,66 +165,7 @@ public class ESBService implements IESBService {
         return null;
     }
 
-    // private void changenewOperationLabel(RepositoryNode newNode, INode node, ServiceConnection serConn) {
-    // String operationName = newNode.getObject().getLabel();
-    // String parentPortName = newNode.getParent().getObject().getLabel();
-    //
-    // String wsdlPath = serConn.getWSDLPath();
-    // try {
-    // Map<String, String> serviceParameters = WSDLUtils.getServiceParameters(wsdlPath);
-    // IRepositoryViewObject newObj = newNode.getObject();
-    // if (newObj instanceof OperationRepositoryObject) {
-    // ServiceOperation newOpe = (ServiceOperation) ((OperationRepositoryObject) newObj).getAbstractMetadataObject();
-    //
-    // IProxyRepositoryFactory factory = ProxyRepositoryFactory.getInstance();
-    //
-    // if (newOpe.getReferenceJobId() != null) {
-    // changeOtherJobSchemaValue(factory, newOpe, serConn);
-    // MessageDialog.openWarning(new Shell(), "warning",
-    // "This other job which based on the Operation will be unset!");
-    // }
-    //
-    // IEditorPart activeEditor =
-    // PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-    // IEditorInput input = activeEditor.getEditorInput();
-    // if (input instanceof ProcessEditorInput) {
-    // Item jobItem = ((ProcessEditorInput) input).getItem();
-    // String jobID = jobItem.getProperty().getId();
-    // String jobName = jobItem.getProperty().getLabel();
-    //
-    // newOpe.setReferenceJobId(jobID);
-    // newOpe.setLabel(newOpe.getName() + "-" + jobName);
-    //
-    // serviceParameters.put(WSDLUtils.PORT_NAME, parentPortName);
-    // serviceParameters.put(WSDLUtils.OPERATION_NAME, operationName);
-    //
-    // CreateNewJobAction.setProviderRequestComponentConfiguration(node, serviceParameters);
-    //
-    // try {
-    // factory.save(jobItem);
-    // } catch (PersistenceException e) {
-    // e.printStackTrace();
-    // }
-    // try {
-    // factory.save(newNode.getParent().getParent().getObject().getProperty().getItem());
-    // } catch (PersistenceException e) {
-    // e.printStackTrace();
-    // }
-    // RepositoryManager.refreshSavedNode(newNode);
-    // }
-    // }
-    //
-    // } catch (CoreException e1) {
-    // ExceptionHandler.process(e1);
-    // } catch (PersistenceException e) {
-    // ExceptionHandler.process(e);
-    // }
-    // }
-
-    private void changeOtherJobSchemaValue(IProxyRepositoryFactory factory, ServiceOperation newOpe, /*
-                                                                                                      * ServiceConnection
-                                                                                                      * serConn,
-                                                                                                      */
+    private void changeOtherJobSchemaValue(IProxyRepositoryFactory factory, ServiceOperation newOpe, 
             RepositoryNode selectNode) throws PersistenceException, CoreException {
         IRepositoryViewObject jobObj = factory.getLastVersion(newOpe.getReferenceJobId());
         if (jobObj == null) {
@@ -300,37 +215,8 @@ public class ESBService implements IESBService {
                 ExceptionHandler.process(e);
             }
         }
-
-        // ProcessType process = item.getProcess();
-        // EList<NodeType> nodeList = process.getNode();
-        //
-        // for (NodeType node : nodeList) {
-        // EList parameters = node.getElementParameter();
-        // for (Object paramObj : parameters) {
-        // ElementParameterType param = (ElementParameterType) paramObj;
-        // String name = param.getName();
-        // if (name.equals(WSDLUtils.OPERATION_NAME)) {
-        // if (!newOpe.getName().equals(param.getValue())) {
-        // break;
-        // }
-        // param.setValue(null);
-        // }
-        // if (name.equals("SCHEMA:SCHEMA_TYPE")) {
-        // param.setValue("BUILT_IN");
-        // break;
-        // }
-        //
-        // }
-        //
-        // }
-        // factory.save(item);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.talend.core.IESBService#getServicesType()
-     */
     @Override
     public ERepositoryObjectType getServicesType() {
         return ESBRepositoryNodeType.SERVICES;
@@ -702,7 +588,6 @@ public class ESBService implements IESBService {
                 }
             }
         }
-        // RepositoryManager.refresh(ESBRepositoryNodeType.SERVICES);
     }
 
     private List<IRepositoryNode> getJobObject(IRepositoryNode folderObj) {
@@ -974,13 +859,9 @@ public class ESBService implements IESBService {
         }
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.talend.core.IESBService#getXSDPopulationUtil()
-     */
     @Override
     public IXSDPopulationUtil getXSDPopulationUtil() {
         return new WSDLPopulationUtil();
     }
+
 }

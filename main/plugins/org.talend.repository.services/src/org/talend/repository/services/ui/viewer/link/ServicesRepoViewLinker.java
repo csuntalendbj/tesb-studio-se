@@ -25,24 +25,11 @@ import org.talend.repository.services.action.ServiceEditorInput;
 
 public class ServicesRepoViewLinker extends AbstractFileEditorInputLinker {
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.talend.core.repository.link.AbstractFileEditorInputLinker#checkFileExtension(org.eclipse.core.resources.IFile
-     * )
-     */
     @Override
     protected boolean checkFileExtension(IFile file) {
         return file != null && file.getName().endsWith(FileConstants.WSDL_FILE_SUFFIX);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.talend.core.repository.link.AbstractFileEditorInputLinker#getEditor(org.eclipse.ui.IWorkbenchPage,
-     * org.eclipse.ui.IEditorInput)
-     */
     @Override
     protected IEditorPart getEditor(IEditorInput editorInput) {
         IEditorPart wsdlEditor = super.getEditor(editorInput);
@@ -53,12 +40,6 @@ public class ServicesRepoViewLinker extends AbstractFileEditorInputLinker {
         return null;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.talend.core.repository.link.AbstractFileEditorInputLinker#getRepoNodeFromEditor(org.eclipse.ui.IEditorPart)
-     */
     @Override
     protected RepositoryNode getRepoNodeFromEditor(IEditorPart editorPart) {
     	if (editorPart != null && editorPart instanceof org.talend.repository.services.utils.LocalWSDLEditor) {

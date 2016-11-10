@@ -143,7 +143,6 @@ public class ServiceMetadataCustomPropertiesTable {
         ((Text) textEditor.getControl()).addVerifyListener(new VerifyListener() {
             public void verifyText(VerifyEvent e) {
                 e.doit = !e.text.equals("\""); //$NON-NLS-1$
-//              e.doit = !e.text.trim().isEmpty();
             }
         });
         editors[0] = textEditor;

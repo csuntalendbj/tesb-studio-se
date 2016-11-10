@@ -52,12 +52,6 @@ public class PublishMetadataAction extends AContextualAction {
         this.setImageDescriptor(ImageProvider.getImageDesc(EImage.HIERARCHY_ICON));
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.talend.repository.ui.actions.ITreeContextualAction#init(org.eclipse.jface.viewers.TreeViewer,
-     * org.eclipse.jface.viewers.IStructuredSelection)
-     */
     public void init(TreeViewer viewer, IStructuredSelection selection) {
         setEnabled(false);
         if (selection.size() != 1) {

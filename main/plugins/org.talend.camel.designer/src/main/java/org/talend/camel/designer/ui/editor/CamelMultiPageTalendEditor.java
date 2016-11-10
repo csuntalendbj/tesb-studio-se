@@ -48,21 +48,11 @@ public class CamelMultiPageTalendEditor extends AbstractMultiPageTalendEditor {
         return ID;
     }
 
-    /**
-     * Getter for designerEditor.
-     * 
-     * @return the designerEditor
-     */
     @Override
     public AbstractTalendEditor getDesignerEditor() {
         return this.designerEditor;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.talend.designer.core.ui.AbstractMultiPageTalendEditor#getEditorTitleImage()
-     */
     @Override
     protected IImage getEditorTitleImage() {
         return ECamelCoreImage.ROUTE_EDITOR_ICON;
@@ -81,18 +71,12 @@ public class CamelMultiPageTalendEditor extends AbstractMultiPageTalendEditor {
         CamelSpringUtil.openSpringView(IWorkbenchPage.VIEW_CREATE);
     }
 
-    /**
-     * DOC smallet Comment method "setName".
-     * 
-     * @param label
-     */
     @Override
     public void setName() {
         super.setName();
         if (getEditorInput() == null) {
             return;
         }
-        // if (getActivePage() == 1) {
         final IProcess2 process2 = this.getProcess();
         if (PluginChecker.isSVNProviderPluginLoaded()) {
             final ISVNProviderService service = (ISVNProviderService) GlobalServiceRegister.getDefault().getService(

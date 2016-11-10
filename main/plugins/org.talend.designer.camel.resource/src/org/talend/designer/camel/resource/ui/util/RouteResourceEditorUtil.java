@@ -70,10 +70,6 @@ public class RouteResourceEditorUtil {
 
 	/**
 	 * Open default editor
-	 * 
-	 * @param page
-	 * @param node
-	 * @param item
 	 */
 	public static void openDefaultEditor(final IWorkbenchPage page,
 			IRepositoryNode node, RouteResourceItem item) {
@@ -85,10 +81,6 @@ public class RouteResourceEditorUtil {
 
 	/**
 	 * Open or bind Route resource editor.
-	 * 
-	 * @param page
-	 * @param node
-	 * @param item
 	 */
 	public static void openEditor(final IWorkbenchPage page,
 			IRepositoryNode node, RouteResourceItem item) {
@@ -103,11 +95,7 @@ public class RouteResourceEditorUtil {
 	}
 
 	/**
-	 * Open or bind Route resource editor by specifing editorID
-	 * 
-	 * @param page
-	 * @param node
-	 * @param item
+	 * Open or bind Route resource editor by specifying editorID
 	 */
 	public static void openEditor(final IWorkbenchPage page,
 			RouteResourceInput fileEditorInput, RouteResourceItem item,

@@ -34,14 +34,6 @@ import org.talend.repository.ui.actions.AContextualAction;
 
 public abstract class AbstractBeanAction extends AContextualAction {
 
-    // protected RepositoryNode repositoryNode;
-
-    /*
-     * (non-Jsdoc)
-     * 
-     * @see org.talend.commons.ui.swt.actions.ITreeContextualAction#init(org.eclipse.jface.viewers.TreeViewer,
-     * org.eclipse.jface.viewers.IStructuredSelection)
-     */
     public void init(TreeViewer viewer, IStructuredSelection selection) {
         setEnabled(false);
         Object o = selection.getFirstElement();
@@ -98,15 +90,7 @@ public abstract class AbstractBeanAction extends AContextualAction {
 
     }
 
-    /*
-     * (non-Jsdoc)
-     * 
-     * @see org.talend.repository.ui.actions.AContextualAction#doRun()
-     */
     @Override
-    protected void doRun() {
-        // TODO Auto-generated method stub
-
-    }
+    protected void doRun() {}
 
 }

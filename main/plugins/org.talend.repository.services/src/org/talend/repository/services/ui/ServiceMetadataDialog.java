@@ -107,9 +107,6 @@ public class ServiceMetadataDialog extends HelpAvailableDialog {
 		return HELP_CONTEXT_ID;
 	}
 
-    /* (non-Javadoc)
-     * @see org.eclipse.jface.dialogs.Dialog#createDialogArea(org.eclipse.swt.widgets.Composite)
-     */
     @Override
     protected Control createDialogArea(Composite parent) {
         Composite container = new Composite(parent, SWT.NONE);
@@ -177,8 +174,6 @@ public class ServiceMetadataDialog extends HelpAvailableDialog {
 					if(tmpSchemaValidationCheck != null){
 						tmpSchemaValidationCheck.setEnabled(!useServiceRegistry);
 					}
-//					customPropertiesTable.setEditable(useSL
-//							&& !useServiceRegistry);
 				}
 			});
 		}
@@ -197,16 +192,15 @@ public class ServiceMetadataDialog extends HelpAvailableDialog {
 
         slCheck.setText(Messages.ServiceMetadataDialog_useSLBtnTExt);
         slCheck.setSelection(useSL);
-//        slCheck.setEnabled(!useServiceRegistry);        
         slCheck.addSelectionListener(new SelectionAdapter() {
             public void widgetSelected(SelectionEvent e) {
                 useSL = slCheck.getSelection();
-                customPropertiesTable.setEditable(useSL /*&& !useServiceRegistry*/);
+                customPropertiesTable.setEditable(useSL);
             }
         });
 
         customPropertiesTable = new ServiceMetadataCustomPropertiesTable(samSlGroup, slCustomProperties);
-        customPropertiesTable.setEditable(useSL /*&& !useServiceRegistry*/);
+        customPropertiesTable.setEditable(useSL);
         
         correlationCheck.setText(Messages.ServiceMetadataDialog_useBusinessCorrelation);
     	correlationCheck.setEnabled(!useServiceRegistry);
@@ -227,7 +221,6 @@ public class ServiceMetadataDialog extends HelpAvailableDialog {
         basicCheck.addSelectionListener(new SelectionAdapter() {
             public void widgetSelected(SelectionEvent e) {
                 securityBasic = basicCheck.getSelection();
-                //authorizationCheck.setEnabled(securitySAML || securityBasic);
             }
         });
 
@@ -238,8 +231,8 @@ public class ServiceMetadataDialog extends HelpAvailableDialog {
             public void widgetSelected(SelectionEvent e) {
                 securitySAML = samlCheck.getSelection();
                 if (isStudioEEVersion()) {
-                	authorizationCheck.setEnabled(securitySAML /*|| securityBasic*/);
-                	encryptCheck.setEnabled(securitySAML /*|| securityBasic*/);                	
+                	authorizationCheck.setEnabled(securitySAML);
+                	encryptCheck.setEnabled(securitySAML);
                 }
             }
         });
@@ -252,8 +245,7 @@ public class ServiceMetadataDialog extends HelpAvailableDialog {
 				authorizationCheck.setVisible(false);
 				authorization = false;
 			}
-			authorizationCheck.setEnabled(!useServiceRegistry
-					&& securitySAML /* || securityBasic )*/);
+			authorizationCheck.setEnabled(!useServiceRegistry && securitySAML);
 			authorizationCheck.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
 					authorization = authorizationCheck.getSelection();
@@ -267,8 +259,7 @@ public class ServiceMetadataDialog extends HelpAvailableDialog {
 				encryptCheck.setVisible(false);
 				encryption = false;
 			}
-			encryptCheck.setEnabled(!useServiceRegistry
-					&& securitySAML /* || securityBasic )*/);
+			encryptCheck.setEnabled(!useServiceRegistry && securitySAML);
 			encryptCheck.addSelectionListener(new SelectionAdapter() {
 				public void widgetSelected(SelectionEvent e) {
 					encryption = encryptCheck.getSelection();
@@ -332,13 +323,9 @@ public class ServiceMetadataDialog extends HelpAvailableDialog {
 	}
     
     private boolean isStudioEEVersion() {
-//    	return org.talend.core.PluginChecker.isPluginLoaded("org.talend.commandline"); //$NON-NLS-1$
     	return PluginChecker.isTIS();
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.jface.dialogs.Dialog#okPressed()
-     */
     @Override
     protected void okPressed() {
         EMap<String, String> props = serviceConnection.getAdditionalInfo();
