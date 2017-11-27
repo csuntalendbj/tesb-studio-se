@@ -12,9 +12,13 @@
 // ============================================================================
 package org.talend.camel.designer.ui.wizards.export;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLStreamHandler;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -25,8 +29,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import org.dom4j.Attribute;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.IPath;
+import org.talend.camel.core.model.camelProperties.CamelProcessItem;
 import org.talend.core.GlobalServiceRegister;
 import org.talend.core.model.process.ElementParameterParser;
 import org.talend.core.model.process.IProcess;
@@ -34,6 +44,7 @@ import org.talend.core.model.properties.ProcessItem;
 import org.talend.core.repository.constants.FileConstants;
 import org.talend.core.runtime.process.ITalendProcessJavaProject;
 import org.talend.designer.camel.dependencies.core.DependenciesResolver;
+import org.talend.designer.camel.resource.core.model.ResourceDependencyModel;
 import org.talend.designer.camel.resource.core.util.RouteResourceUtil;
 import org.talend.designer.core.model.utils.emf.talendfile.ConnectionType;
 import org.talend.designer.core.model.utils.emf.talendfile.NodeType;
@@ -43,6 +54,7 @@ import org.talend.repository.documentation.ExportFileResource;
 import org.talend.repository.ui.wizards.exportjob.scriptsmanager.esb.DataSourceConfig;
 import org.talend.repository.utils.EmfModelUtils;
 import org.talend.repository.utils.TemplateProcessor;
+import org.talend.utils.io.FilesUtils;
 
 import aQute.bnd.osgi.Analyzer;
 
@@ -138,13 +150,93 @@ public class RouteJavaScriptOSGIForESBManager extends AdaptedJobJavaScriptOSGIFo
 
     private static final String TEMPLATE_BLUEPRINT_ROUTE = "/resources/blueprint-template.xml"; //$NON-NLS-1$
 
+    private void handleSpringXml(File springTargetFile, ProcessItem processItem, InputStream springContentInputStream,
+            ExportFileResource osgiResource, boolean isRootXml) {
+
+        Element root = null;
+        try {
+            SAXReader saxReader = new SAXReader();
+            Document document = saxReader.read(springContentInputStream);
+
+            root = document.getRootElement();
+
+            if (isRootXml) {
+                root.addNamespace("bp", "http://www.osgi.org/xmlns/blueprint/v1.0.0");
+                root.setName("bp:blueprint");
+
+                Attribute schemaLocation = root.attribute("schemaLocation");
+                String value = schemaLocation.getValue()
+                        + "            http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd";
+
+                schemaLocation.setValue(value);
+            }
+
+            List<Element> imports = root.elements("import");
+
+            for (Element ip : imports) {
+                Attribute resource = ip.attribute("resource");
+
+                URL path = new URL(null, resource.getValue(), new URLStreamHandler() {
+
+                    @Override
+                    protected URLConnection openConnection(URL u) throws IOException {
+                        return null;
+                    }
+
+                });
+                for (ResourceDependencyModel resourceModel : RouteResourceUtil.getResourceDependencies(processItem)) {
+                    if (path.getPath().equals(path.getPath().startsWith("/") ? "/" + resourceModel.getClassPathUrl()
+                            : resourceModel.getClassPathUrl())) {
+                        IFile resourceFile = RouteResourceUtil.getSourceFile(resourceModel.getItem());
+                        final File tf = new File(getTmpFolder() + PATH_SEPARATOR + resourceModel.getClassPathUrl());
+                        handleSpringXml(tf, processItem, resourceFile.getContents(), osgiResource, false);
+                        resource.setValue(".." + File.separator + ".." + File.separator + resourceModel.getClassPathUrl());
+                    }
+                }
+            }
+
+            InputStream inputStream = new ByteArrayInputStream(root.asXML().getBytes());
+
+            FilesUtils.copyFile(inputStream, springTargetFile);
+
+            if (isRootXml) {
+                osgiResource.addResource(FileConstants.BLUEPRINT_FOLDER_NAME, springTargetFile.toURI().toURL());
+            } else {
+                osgiResource.addResource("", springTargetFile.toURI().toURL());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                springContentInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @Override
     protected void generateConfig(ExportFileResource osgiResource, ProcessItem processItem, IProcess process) throws IOException {
         final File targetFile = new File(getTmpFolder() + PATH_SEPARATOR + "blueprint.xml"); //$NON-NLS-1$
+
+        Map<String, Object> collectRouteInfo = collectRouteInfo(processItem, process);
+
         TemplateProcessor.processTemplate("ROUTE_BLUEPRINT_CONFIG", //$NON-NLS-1$
-            collectRouteInfo(processItem, process), targetFile, getClass().getResourceAsStream(TEMPLATE_BLUEPRINT_ROUTE));
-        // osgiResource.addResource(FileConstants.META_INF_FOLDER_NAME + "/spring", targetFile.toURI().toURL());
+                collectRouteInfo, targetFile, getClass().getResourceAsStream(TEMPLATE_BLUEPRINT_ROUTE));
+
+        final File springTargetFile = new File(
+                getTmpFolder() + PATH_SEPARATOR + collectRouteInfo.get("name").toString().toLowerCase() + ".xml"); //$NON-NLS-1$
+
         osgiResource.addResource(FileConstants.BLUEPRINT_FOLDER_NAME, targetFile.toURI().toURL());
+
+        String springContent = "";
+        if (processItem instanceof CamelProcessItem) {
+            springContent = ((CamelProcessItem) processItem).getSpringContent();
+        }
+
+        InputStream springContentInputStream = new ByteArrayInputStream(springContent.getBytes());
+
+        handleSpringXml(springTargetFile, processItem, springContentInputStream, osgiResource, true);
     }
 
     private Map<String, Object> collectRouteInfo(ProcessItem processItem, IProcess process) {
